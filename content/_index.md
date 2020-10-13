@@ -1,22 +1,43 @@
 ---
-title: "AWS Modernization Workshop"
+title: "Main Page"
 chapter: true
 weight: 1
 ---
 
-# AWS Modernization Workshop
+# AWS Security with Sysdig
 
-### Welcome
+![Sysdig](/images/logo.png)
 
-In this workshop you will learn why DevOps is a pattern for modernization and how to use patterns to release features and functionality at a faster pace.
+## Welcome
 
-### Learning Objectives
-- Deploy Cloud9 as an IDE for completing workshop exercises.
-- How DevOps patterns help to release features and functionality faster.
-- Best practices for implementing 2 pizza team pipelines.
+Welcome to the **AWS Security with Sysdig** hands-on workshop. 
 
-{{% notice warning %}}
-<p style='text-align: left;'>
-The examples and sample code provided in this workshop are intended to be consumed as instructional content. These will help you understand how various AWS services can be architected to build a solution while demonstrating best practices along the way. These examples are not intended for use in production environments.
-</p>
-{{% /notice %}}
+In this workshop, you will learn how to securely run cloud applications in production by automating AWS Fargate and ECR image scanning directly in your AWS environment.
+
+You will also discover how to improve the security of your cloud infrastructure using AWS CloudTrail and Sysdig Cloud Connector. So not only are the applications secure, but so is the cloud infrastructure on which they depend!
+
+
+## Objectives
+
+The objective of this workshop is to familiarize users with the installation, configuration and usage of the following Sysdig security tools specific to AWS:
+
+ - Amazon ECR image scanning
+
+ - Amazon Fargate automatic image scanning
+
+ - Amazon CloudTrail runtime security 
+
+
+## Who should take this workshop?
+
+ - Infrastructure Engineers
+
+ - DevOps Engineers
+
+ - Solutions Architects 
+
+ - Software Developers
+
+ - SREs
+
+ - Technical leads
