@@ -6,6 +6,3 @@ weight = 40
 
 # Module 2: Fargate automatic image scanning
 
-{{% children showhidden="false" %}}
-
-

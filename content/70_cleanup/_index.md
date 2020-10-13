@@ -6,6 +6,5 @@ weight = 70
 
 # Cleanup
 
-{{% children showhidden="false" %}}
 
 
