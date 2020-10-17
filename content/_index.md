@@ -4,13 +4,13 @@ chapter: true
 weight: 1
 ---
 
-# AWS Security with Sysdig
+# AWS Security with Sysdig  
 
 ![Sysdig](/images/logo.png)
 
 ## Welcome
 
-Welcome to the **AWS Security with Sysdig** hands-on workshop. 
+Welcome to the **AWS Security with Sysdig** hands-on workshop.
 
 In this workshop, you will learn how to securely run cloud applications in production by automating AWS Fargate and ECR image scanning directly in your AWS environment.
 
@@ -25,7 +25,7 @@ The objective of this workshop is to familiarize users with the installation, co
 
  - Amazon Fargate automatic image scanning
 
- - Amazon CloudTrail runtime security 
+ - Amazon CloudTrail runtime security
 
 
 ## Who should take this workshop?

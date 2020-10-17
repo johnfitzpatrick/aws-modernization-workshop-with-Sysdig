@@ -4,7 +4,12 @@ chapter: false
 weight: 30
 ---
 
-**NOTE: Can we do this instead of UI?**
+For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
+
+1. Log into your Cloud9 Workspace
+
+2. Run the following commands, naming it as appropriate
+
 ```sh
 aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush=true
 ```
@@ -29,6 +34,13 @@ The output will be as follows
     }
 }
 ```
+
+___
+
+**NOTE: Can we remove this UI method below?**
+___
+
+For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
 
 1. Browse to [https://console.aws.amazon.com/ecr/get-started](https://console.aws.amazon.com/ecr/get-started),
 
@@ -55,7 +67,7 @@ Shortly you will use your Cloud9 workspace to create and push a docker container
 
 ```bash
 export ECR_NAME=aws-workshop
-export REGION=us-east-1
+export REGION=us-east-1 
 export AWS_ACCOUNT=$(aws sts get-caller-identity | jq '.Account' | xargs)
 echo "$ECR_NAME, $REGION, $AWS_ACCOUNT"
 aws ecr get-login-password --region $REGION | \

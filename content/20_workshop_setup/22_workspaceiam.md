@@ -8,4 +8,5 @@ weight: 22
 1. Select the instance, then choose **Actions / Instance Settings / Attach/Replace IAM Role**
 ![c9instancerole](/images/c9instancerole.png)
 1. Choose **Sysdig-Workshop-Admin** from the **IAM Role** drop down, and select **Apply**
+
 ![c9attachrole](/images/c9attachrole.png)
