@@ -4,7 +4,7 @@ chapter: false
 weight: 31
 ---
 
-This integration enables the Amazon Elastic Container Registry (ECR) to automatically trigger an event or action to scan every new container that is pushed into the registry.
+This integration enables the Amazon Elastic Container Registry (ECR) to automatically trigger an action to scan every new container that is pushed into the registry.
 
 1. Log into your AWS Console and select **'US East (N. Virginia)** us-east-1' from the 'Select a Region' dropdown on the top right. For the purposes of this exercise we will be using AWS Region us-east-1
 
