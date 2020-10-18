@@ -6,7 +6,7 @@ weight = 30
 
 # Module 1: Amazon ECR Image Scanning
 
-## 1.1. Overview
+## Overview
 
 Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images. It hosts your container images in a highly available and scalable architecture, allowing you to reliably deploy containers for your applications.  Sysdig provides inline scanning of your Amazon ECR registry as part of Sysdig's ImageVision.  
 
@@ -25,7 +25,7 @@ In this lab we will:
 {{% children showhidden="false" %}}
 
 
-## 1.2. Reference Architecture
+## Reference Architecture
 
 Enabling Amazon ECR Image Scanning is as simple as deploying a single CloudFormation template, and once deployed, all images that are pushed to the registry will be automatically scanned within your AWS account.
 

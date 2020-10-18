@@ -1,5 +1,5 @@
 ﻿---
-title: "1.3. Setup Amazon ECR Registry"
+title: "Setup Amazon ECR Registry"
 chapter: false
 weight: 30
 ---

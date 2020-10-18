@@ -1,5 +1,5 @@
 ﻿---
-title: "1.4 Deploy the Amazon ECR Integration"
+title: "Deploy the Amazon ECR Integration"
 chapter: false
 weight: 31
 ---

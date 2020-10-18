@@ -1,5 +1,5 @@
 ---
-title: "1.6 Modify the image and trigger a second scan"
+title: "Modify the image and trigger a second scan"
 chapter: false
 weight: 33
 ---

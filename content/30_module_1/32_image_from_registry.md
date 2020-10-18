@@ -1,5 +1,5 @@
 ---
-title: "1.5 Push and Scan an Image from the Registry"
+title: "Push and Scan an Image from the Registry"
 chapter: false
 weight: 32
 ---
