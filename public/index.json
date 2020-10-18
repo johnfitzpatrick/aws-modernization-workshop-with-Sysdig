@@ -102,7 +102,7 @@
 	"title": "Workshop Setup",
 	"tags": [],
 	"description": "",
-	"content": " Workshop Setup There are some steps to prepare the environment for this workshop.\nObjectives of this section  AWS console Launch Cloud9 IDE Environment Deploy CloudTrail CloudFormation Template  "
+	"content": " Workshop Setup There are some steps to prepare the environment for this workshop.\nObjectives of this section  AWS console Launch Cloud9 IDE Environment Deploy CloudTrail CloudFormation Template  TRAINING NOTE: Need to update all screenshots in this section\n"
 },
 {
 	"uri": "//localhost:1313/20_workshop_setup/21_iamrole.html",
@@ -295,7 +295,7 @@
 },
 {
 	"uri": "//localhost:1313/25_setup_cloudtrail_integration/__242_install_cloudconnector.html",
-	"title": "Installing the CloudConnector",
+	"title": "",
 	"tags": [],
 	"description": "",
 	"content": " Installing the CloudConnector To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:\n Navigate to the CloudFormation template for Sysdig Cloud Connector deployment template. The template will preview in CloudFormation.  On the “Create stack” section, click the \u0026lsquo;Next\u0026rsquo; button to start setting up the template.  The “Specify stack details” section has no parameters for you to configure, so you can just press the Next button.  On _“Configure stack options_” screen, press the Next button. You can optionally add tag keys and values to the deployment, but no further configuration is required. Finally, you will be presented with a summary of all the parameters you previously introduced. Please note that dedicated IAM roles will be created to perform the scanning. These roles follow the \u0026ldquo;least privilege principle\u0026rdquo; to enforce maximum security.  Once you are happy with the plan, acknowledge it by marking the checkbox, and then press the Create stack button.   All ready! On the CloudFormation dashboard, you should see the template status is \u0026lsquo;CREATE_IN_PROGRESS\u0026rsquo;.\nThe creation process may take up to ten minutes. In the meantime you can continue with this workshop. You can later revisit the CloudFormation section in AWS to check the status of the deployment. It will show as “CREATE_COMPLETE” once the deployment has completed successfully.\n"

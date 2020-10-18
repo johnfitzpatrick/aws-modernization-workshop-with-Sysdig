@@ -1,8 +1,8 @@
----
+<!-- ---
 title: "Installing the CloudConnector"
 chapter: false
 weight: 242
----
+--- -->
 
 ## Installing the CloudConnector
 

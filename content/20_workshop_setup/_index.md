@@ -12,3 +12,6 @@ There are some steps to prepare the environment for this workshop.
 * AWS console
 * Launch Cloud9 IDE Environment
 * Deploy CloudTrail CloudFormation Template
+
+
+**TRAINING NOTE: Need to update all screenshots in this section**
