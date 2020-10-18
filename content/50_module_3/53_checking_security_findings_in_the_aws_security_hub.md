@@ -4,8 +4,6 @@ chapter: false
 weight: 53
 ---
 
-## Checking Security Findings in AWS Security Hub
-
 You can check these events without leaving the AWS console. This is how findings reported by Sysdig Cloud Connector look in the AWS Security Hub:
 
 1. Browse to [Security Hub]([https://console.aws.amazon.com/securityhub/home](https://console.aws.amazon.com/securityhub/home)) and click 'Findings' on the left.

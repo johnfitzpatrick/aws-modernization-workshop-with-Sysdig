@@ -4,7 +4,6 @@ chapter: false
 weight: 42
 ---
 
-## Deploy an ECS cluster using Fargate
 To illustrate the automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate
 
 

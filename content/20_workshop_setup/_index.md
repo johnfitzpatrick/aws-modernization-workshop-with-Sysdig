@@ -1,7 +1,7 @@
 +++
 title = "Workshop Setup"
 chapter = true
-weight = 10
+weight = 20
 +++
 
 # Workshop Setup

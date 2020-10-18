@@ -4,8 +4,6 @@ chapter: false
 weight: 54
 ---
 
-## Modifying a Falco Rule for CloudTrail
-
 Using Sysdig Cloud Connector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.
 
 Let’s try first modifying a rule. The following rule checks if a resource is created in a region that you are not usually using. But to be active, you have to specify which regions you want to detect.

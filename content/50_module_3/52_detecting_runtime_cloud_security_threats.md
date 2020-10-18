@@ -4,8 +4,6 @@ chapter: false
 weight: 52
 ---
 
-## Detecting Runtime Cloud Security Threats
-
 Let's look at an example of AWS threat detection in action with CloudTrail and the Sysdig Cloud Connector.  To do so we'll create an S3 bucket, and make it public
 
 1. Log into Cloud9 Workspace
