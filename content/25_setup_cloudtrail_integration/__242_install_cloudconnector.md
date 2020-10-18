@@ -4,6 +4,8 @@ chapter: false
 weight: 242
 ---
 
+## Installing the CloudConnector
+
 To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:
 
 1. Navigate to the [[CloudFormation template for Sysdig Cloud Connector deployment](  https://console.aws.amazon.com/cloudformation/home#/stacks/create/template?stackName=CloudConnector&templateURL=https://cf-templates-cloud-connector.s3.amazonaws.com/cloud-connector.template)]( https://console.aws.amazon.com/cloudformation/home#/stacks/create/template?stackName=CloudConnector&templateURL=https://cf-templates-cloud-connector.s3.amazonaws.com/cloud-connector.template) template. The template will preview in CloudFormation. ![cf1](/images/20_workshop_setup/cf1.png)

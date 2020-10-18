@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Setup Amazon ECR Registry :: AWS Modernization Workshop with Sysdig</title>
+    <title>Infrastructure Runtime Security :: AWS Modernization Workshop with Sysdig</title>
 
     
     <link href="/css/nucleus.css?1603052897" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/30_module_1/30_setup_ecr.html">
+  <body class="" data-url="/00_introduction/04_infra_runtime_sec.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/00_introduction.html" title="Introduction" class="dd-item 
-        
+        parent
         
         
         ">
@@ -159,7 +159,7 @@
  
   
     
-      <li data-nav-id="/00_introduction/04_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item ">
+      <li data-nav-id="/00_introduction/04_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item active">
         <a href="/00_introduction/04_infra_runtime_sec.html">
         Infrastructure Runtime Security
         <i class="fas fa-check read-icon"></i>
@@ -637,7 +637,7 @@
   
     
     <li data-nav-id="/30_module_1.html" title="Module 1: Amazon ECR Image Scanning" class="dd-item 
-        parent
+        
         
         
         ">
@@ -663,7 +663,7 @@
  
   
     
-      <li data-nav-id="/30_module_1/30_setup_ecr.html" title="Setup Amazon ECR Registry" class="dd-item active">
+      <li data-nav-id="/30_module_1/30_setup_ecr.html" title="Setup Amazon ECR Registry" class="dd-item ">
         <a href="/30_module_1/30_setup_ecr.html">
         Setup Amazon ECR Registry
         <i class="fas fa-check read-icon"></i>
@@ -1089,7 +1089,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/30_module_1/30_setup_ECR.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/00_introduction/04_infra_runtime_sec.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -1120,7 +1120,7 @@
             
           
           
-            <a href='/'>Main Page</a> > <a href='/30_module_1.html'>Module 1: Amazon ECR Image Scanning</a> > Setup Amazon ECR Registry
+            <a href='/'>Main Page</a> > <a href='/00_introduction.html'>Introduction</a> > Infrastructure Runtime Security
           
          
           
@@ -1133,17 +1133,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#set-up-credentials-in-command-line-docker">Set up Credentials in Command line Docker</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
+
     </div>
 </div>
 
@@ -1159,7 +1149,7 @@
           
             <h1>
               
-              Setup Amazon ECR Registry
+              Infrastructure Runtime Security
             </h1>
           
 
@@ -1167,91 +1157,11 @@
 
 
 
+<p>In the same way image scanning gives you visibility of vulnerabilities and threats pertaining specifically to an application&rsquo;s containers, infrastructure scanning gives visibility of potential issues emanating from the environment on which these containers run.</p>
 
+<p>AWS provides a rich environment upon which to base your application, but it&rsquo;s not without its risks.  There are many places where bad actors can create harm, for example exposing data by making S3 buckets public, deleting bucket encryption, disabling MFA for an account, adding/removing IAM policies.</p>
 
-<p>For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below</p>
-
-<ol>
-<li><p>Log into your Cloud9 Workspace</p></li>
-
-<li><p>Run the following commands, naming it as appropriate</p></li>
-</ol>
-
-<pre><code class="language-sh">aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush=true
-</code></pre>
-
-<p>The output will be as follows</p>
-
-<pre><code class="language-JSON">{
-    &quot;repository&quot;: {
-        &quot;repositoryArn&quot;: &quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&quot;,
-        &quot;registryId&quot;: &quot;845151661675&quot;,
-        &quot;repositoryName&quot;: &quot;aws-workshop&quot;,
-        &quot;repositoryUri&quot;: &quot;845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop&quot;,
-        &quot;createdAt&quot;: 1602848100.0,
-        &quot;imageTagMutability&quot;: &quot;MUTABLE&quot;,
-        &quot;imageScanningConfiguration&quot;: {
-            &quot;scanOnPush&quot;: true
-        },
-        &quot;encryptionConfiguration&quot;: {
-            &quot;encryptionType&quot;: &quot;AES256&quot;
-        }
-    }
-}
-</code></pre>
-
-<!--
-**TRAINING NOTE: Can we remove this UI method below?**
-
-For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
-
-1. Browse to [https://console.aws.amazon.com/ecr/get-started](https://console.aws.amazon.com/ecr/get-started),
-
-2. For the purposes of this exercise we will be using AWS Region us-east-1. Select **'US East (N. Virginia)** us-east-1' from the 'Select a Region' dropdown on the top right
-
-3. Click “Get Started” ![ECR](/images/30_module_1/ecr.png)
-
-4. Give your repository an appropriate name, and enable “**Scan on push**”. The other setting may be left as default ![Repo name](/images/30_module_1/name_repo.png)
-
-5. Click '**Create repository**'
-
-6. Please make a note of the URI as you will require this in a later step. ![URI](/images/30_module_1/uri.png) -->
-
-<h3 id="set-up-credentials-in-command-line-docker">Set up Credentials in Command line Docker</h3>
-
-<p>Shortly you will use your Cloud9 Workspace to create and push a docker container to your new ECR Repository, however, before doing so you must configure docker&rsquo;s access to the repository.</p>
-
-<ol>
-<li><p>Log into your Cloud9 workspace</p></li>
-
-<li><p>Authenticate the Docker command line tool to this Amazon ECR registry, using AWS CLI tool as follows</p></li>
-</ol>
-
-<pre><code class="language-bash">export ECR_NAME=aws-workshop
-export REGION=us-east-1
-export AWS_ACCOUNT=$(aws sts get-caller-identity | jq '.Account' | xargs)
-echo &quot;$ECR_NAME, $REGION, $AWS_ACCOUNT&quot;
-aws ecr get-login-password --region $REGION | \
-  docker login --username AWS --password-stdin \
-  $AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com
-</code></pre>
-
-<!-- <&lt;alternative for AWS_ACCOUNT using sed instead>>
-
-```bash
-export AWS_ACCOUNT=$(aws sts get-caller-identity | grep "UserId" | sed 's/^[^"]*"\([^"]*\)".*"\([^"]*\)".*/\2/')
-``` -->
-
-<p>The output should look similar to the following</p>
-
-<pre><code class="language-bash">WARNING! Your password will be stored unencrypted in /home/ec2-user/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
-
-Login Succeeded
-</code></pre>
-
-<p><em>Note</em> For more details on this procedure, please refer to <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html"><a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html">Amazon ECR registries - Amazon ECR</a></a></p>
+<p>Falco is an open source threat detection language that is widely used to detect and alert on runtime abnormalities.  This tool can also be used to detect changes within the AWS environment.</p>
 
 
 <footer class="footline">
@@ -1353,55 +1263,6 @@ Login Succeeded
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1419,37 +1280,8 @@ Login Succeeded
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -1458,22 +1290,6 @@ Login Succeeded
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -1557,54 +1373,6 @@ Login Succeeded
                     
 
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1636,6 +1404,8 @@ Login Succeeded
                 
 
                     
+                    
+                        
                     
                     
 
@@ -1672,6 +1442,51 @@ Login Succeeded
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -1693,6 +1508,56 @@ Login Succeeded
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1710,8 +1575,53 @@ Login Succeeded
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1976,10 +1886,10 @@ Login Succeeded
 	 
 	 
 		
-			<a class="nav nav-prev" href="/30_module_1.html" title="Module 1: Amazon ECR Image Scanning"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/00_introduction/03_image_scanning.html" title="Image Scanning"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/30_module_1/31_deploy_ecr_integration.html" title="Deploy the Amazon ECR Integration" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/00_introduction/05_fargate_ecs_sec.html" title="AWS Fargate and ECS Security" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -2,56 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Module 1: Amazon ECR Image Scanning on AWS Modernization Workshop with Sysdig</title>
-    <link>/30_module_1.html</link>
+    <link>//localhost:1313/30_module_1.html</link>
     <description>Recent content in Module 1: Amazon ECR Image Scanning on AWS Modernization Workshop with Sysdig</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     
-	<atom:link href="/30_module_1/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/30_module_1/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>1.3. Setup Amazon ECR Registry</title>
-      <link>/30_module_1/30_setup_ecr.html</link>
+      <title>Setup Amazon ECR Registry</title>
+      <link>//localhost:1313/30_module_1/30_setup_ecr.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/30_module_1/30_setup_ecr.html</guid>
+      <guid>//localhost:1313/30_module_1/30_setup_ecr.html</guid>
       <description>For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
  Log into your Cloud9 Workspace
  Run the following commands, naming it as appropriate
   aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true  The output will be as follows
-{ &amp;quot;repository&amp;quot;: { &amp;quot;repositoryArn&amp;quot;: &amp;quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;quot;, &amp;quot;registryId&amp;quot;: &amp;quot;845151661675&amp;quot;, &amp;quot;repositoryName&amp;quot;: &amp;quot;aws-workshop&amp;quot;, &amp;quot;repositoryUri&amp;quot;: &amp;quot;845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop&amp;quot;, &amp;quot;createdAt&amp;quot;: 1602848100.0, &amp;quot;imageTagMutability&amp;quot;: &amp;quot;MUTABLE&amp;quot;, &amp;quot;imageScanningConfiguration&amp;quot;: { &amp;quot;scanOnPush&amp;quot;: true }, &amp;quot;encryptionConfiguration&amp;quot;: { &amp;quot;encryptionType&amp;quot;: &amp;quot;AES256&amp;quot; } } }  NOTE: Can we remove this UI method below?</description>
+{ &amp;quot;repository&amp;quot;: { &amp;quot;repositoryArn&amp;quot;: &amp;quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;quot;, &amp;quot;registryId&amp;quot;: &amp;quot;845151661675&amp;quot;, &amp;quot;repositoryName&amp;quot;: &amp;quot;aws-workshop&amp;quot;, &amp;quot;repositoryUri&amp;quot;: &amp;quot;845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop&amp;quot;, &amp;quot;createdAt&amp;quot;: 1602848100.0, &amp;quot;imageTagMutability&amp;quot;: &amp;quot;MUTABLE&amp;quot;, &amp;quot;imageScanningConfiguration&amp;quot;: { &amp;quot;scanOnPush&amp;quot;: true }, &amp;quot;encryptionConfiguration&amp;quot;: { &amp;quot;encryptionType&amp;quot;: &amp;quot;AES256&amp;quot; } } }  Set up Credentials in Command line Docker Shortly you will use your Cloud9 Workspace to create and push a docker container to your new ECR Repository, however, before doing so you must configure docker&amp;rsquo;s access to the repository.</description>
     </item>
     
     <item>
-      <title>1.4 Deploy the Amazon ECR Integration</title>
-      <link>/30_module_1/31_deploy_ecr_integration.html</link>
+      <title>Deploy the Amazon ECR Integration</title>
+      <link>//localhost:1313/30_module_1/31_deploy_ecr_integration.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/30_module_1/31_deploy_ecr_integration.html</guid>
+      <guid>//localhost:1313/30_module_1/31_deploy_ecr_integration.html</guid>
       <description>This integration enables the Amazon Elastic Container Registry (ECR) to automatically trigger an action to scan every new container that is pushed into the registry.
  Log into your AWS Console and select &amp;lsquo;US East (N. Virginia) us-east-1&amp;rsquo; from the &amp;lsquo;Select a Region&amp;rsquo; dropdown on the top right. For the purposes of this exercise we will be using AWS Region us-east-1
  Navigate to this CloudFormation template.  Click Next.  For &amp;lsquo;ScanningType&amp;rsquo; make sure the default value of &amp;lsquo;Inline&amp;rsquo; is selected</description>
     </item>
     
     <item>
-      <title>1.5 Push and scan an image from the registry</title>
-      <link>/30_module_1/32_image_from_registry.html</link>
+      <title>Push and Scan an Image from the Registry</title>
+      <link>//localhost:1313/30_module_1/32_image_from_registry.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/30_module_1/32_image_from_registry.html</guid>
-      <description>1.5.1 Download Example Dockerfile and Sources To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in their website.
+      <guid>//localhost:1313/30_module_1/32_image_from_registry.html</guid>
+      <description>Download Example Dockerfile and Sources To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in their website.
  Go to your Cloud9 Workspace and download and uncompress example container files
 wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip unzip hello-world-node-vulnerable.zip cd hello-world-node-vulnerable/  And build and push the image to ECR
 export IMAGE=$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME docker build . -t $IMAGE docker push $IMAGE  Check that an image scan is automatically triggered  Once complete you will see that this image has some issues  As soon as the image finishes being pushed to the registry, a new Amazon CodeBuild pipeline will be automatically created that executes an image scan.</description>
     </item>
     
     <item>
-      <title>1.6 Modify the image and trigger a second scan</title>
-      <link>/30_module_1/33_image_rescan.html</link>
+      <title>Modify the image and trigger a second scan</title>
+      <link>//localhost:1313/30_module_1/33_image_rescan.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/30_module_1/33_image_rescan.html</guid>
+      <guid>//localhost:1313/30_module_1/33_image_rescan.html</guid>
       <description>For illustration purposes, let&amp;rsquo;s rebuild our image and make it more secure by starting with a different Base image. To do so:
  Go back into Cloud9 Workspace Edit the Dockerfile and in the first line update the base image from
 FROM node:12  to

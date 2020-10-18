@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Conclusions on AWS Modernization Workshop with Sysdig</title>
-    <link>/60_conclusions.html</link>
+    <link>//localhost:1313/60_conclusions.html</link>
     <description>Recent content in Conclusions on AWS Modernization Workshop with Sysdig</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     
-	<atom:link href="/60_conclusions/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//localhost:1313/60_conclusions/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
