@@ -22,5 +22,12 @@ This integration enables the Amazon Elastic Container Registry (ECR) to automati
 
 8. Make sure you tick the box acknowledging that AWS CloudFormation might create IAM resources with custom names.
 
-9. Click '**Create stack**'. </br>You can view the status of the deployment from the Amazon CloudFormation screen. ![ECR](/images/30_module_1/cf_status.png)</br>This deployment will create a new Amazon CloudBuild project to automatically scan container images pushed to ECR registries. To view your Amazon CloudBuild projects, browse to [https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) ![ECR](/images/30_module_1/codebuild.png)
+9. Click '**Create stack**'. </br>You can view the status of the deployment from the Amazon CloudFormation screen. ![ECR](/images/30_module_1/cf_status.png)
 
+This deployment will create a new Amazon CloudBuild project to automatically scan container images pushed to ECR registries.
+
+To view your Amazon CloudBuild projects, browse to [https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1)
+
+**TRAINING NOTE: New ScreenShot Below!!!**
+
+![ECR](/images/30_module_1/codebuild.png)

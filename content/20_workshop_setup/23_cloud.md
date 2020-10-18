@@ -17,7 +17,7 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
 
 
-Let's run the command below, the following actions will take place as we do that: 
+Let's run the command below, the following actions will take place as we do that:
 
 :small_blue_diamond: Install jq- jq is a command-line tool for parsing JSON
 
@@ -27,7 +27,7 @@ Let's run the command below, the following actions will take place as we do that
 
 :small_blue_diamond: Set the region to work with our desired region.
 
-:small_blue_diamond: Validate that our IAM role is valid. 
+:small_blue_diamond: Validate that our IAM role is valid.
 
 ```sh
 sudo yum -y install jq
@@ -36,11 +36,13 @@ export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
 export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region')
 test -n "$AWS_REGION" && echo AWS_REGION is "$AWS_REGION" || echo AWS_REGION is not set
 echo "export ACCOUNT_ID=${ACCOUNT_ID}" | tee -a ~/.bash_profile
-echo "export AWS_REGION=${AWS_REGION}" | 
+echo "export AWS_REGION=${AWS_REGION}" |
 tee -a ~/.bash_profile
 aws configure set default.region ${AWS_REGION}
 aws configure get default.region
-aws sts get-caller-identity --query Arn | grep Gremlin-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
+aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
+curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
+chmod +x deploy-amazon-ecs-sample.sh
 ```
 
-If the IAM role is not valid, <span style="color: red;">**DO NOT PROCEED**</span>. Go back and confirm the steps on this page. 
+If the IAM role is not valid, <span style="color: red;">**DO NOT PROCEED**</span>. Go back and confirm the steps on this page.
