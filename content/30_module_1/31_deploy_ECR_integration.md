@@ -28,6 +28,6 @@ This deployment will create a new Amazon CloudBuild project to automatically sca
 
 To view your Amazon CloudBuild projects, browse to [https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1)
 
-**ToDo:** **NEED New ScreenShot!!!**
+**TRAINING NOTE: New ScreenShot Below!!!**
 
 ![ECR](/images/30_module_1/codebuild.png)

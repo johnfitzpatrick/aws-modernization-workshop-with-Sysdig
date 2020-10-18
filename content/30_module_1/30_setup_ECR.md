@@ -34,11 +34,8 @@ The output will be as follows
     }
 }
 ```
-
-___
-
-**NOTE: Can we remove this UI method below?**
-___
+<!--
+**TRAINING NOTE: Can we remove this UI method below?**
 
 For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
 
@@ -52,14 +49,12 @@ For the purposes of this lab you need to create an Amazon ECR registry. To do th
 
 5. Click '**Create repository**'
 
-6. Please make a note of the URI as you will require this in a later step. ![URI](/images/30_module_1/uri.png)
+6. Please make a note of the URI as you will require this in a later step. ![URI](/images/30_module_1/uri.png) -->
 
 
-#### 1.3.1 Set up Credentials in Command line Docker
+### Set up Credentials in Command line Docker
 
-Shortly you will use your Cloud9 workspace to create and push a docker container to your new ECR Repository, however, before doing so you must configure docker's access to the repository.
-
-
+Shortly you will use your Cloud9 Workspace to create and push a docker container to your new ECR Repository, however, before doing so you must configure docker's access to the repository.
 
 1. Log into your Cloud9 workspace
 
@@ -67,7 +62,7 @@ Shortly you will use your Cloud9 workspace to create and push a docker container
 
 ```bash
 export ECR_NAME=aws-workshop
-export REGION=us-east-1 
+export REGION=us-east-1
 export AWS_ACCOUNT=$(aws sts get-caller-identity | jq '.Account' | xargs)
 echo "$ECR_NAME, $REGION, $AWS_ACCOUNT"
 aws ecr get-login-password --region $REGION | \

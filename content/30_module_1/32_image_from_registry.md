@@ -1,10 +1,10 @@
 ---
-title: "1.5 Push and scan an image from the registry"
+title: "1.5 Push and Scan an Image from the Registry"
 chapter: false
 weight: 32
 ---
 
-### 1.5.1 Download Example Dockerfile and Sources
+### Download Example Dockerfile and Sources
 
 To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in [[their website](https://nodejs.org/de/docs/guides/nodejs-docker-webapp/)](https://nodejs.org/de/docs/guides/nodejs-docker-webapp/).
 
@@ -34,16 +34,18 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 	If you wish, you can check the CodeBuild pipeline status by visiting: [https://console.aws.amazon.com/codesuite/codebuild/projects](https://console.aws.amazon.com/codesuite/codebuild/projects) ![Stack details](/images/30_module_1/codebuild.png)
 
+	**TRAINING NOTE: New ScreenShot Above and Below!!!**
 
-Click on “InlineSecure Scanning” build project. ![JohnImagePendingTODO](/images/30_module_1/johnImagePending.png)
+
+Click on “InlineSecure Scanning” build project. ![JohnImagePendingTODO](/images/30_module_1/image1.png)
 
 
-### 1.5.2 See scan results on Sysdig Secure dashboard
+### See Scan Results on Sysdig Secure Dashboard
 
-[Instructions how to get to scan results and search the image]
+**TRAINING NOTE: Instructions here on how to get to scan results and search the image**
 
 As you can see, the image have several major vulnerabilities.
 
 ![Sysdig Secure](/images/30_module_1/securescann.png)
 
-**ToDo** Explanation of the benefits of a single source of truth, and some Sysdig marketing stuff: policies, stopping gates, misconfigurations.
+**TRAINING NOTE: Explanation of the benefits of a single source of truth, and some Sysdig marketing stuff: policies, stopping gates, misconfigurations**

@@ -12,14 +12,15 @@ Amazon Elastic Container Registry (ECR) is a fully-managed Docker container regi
 
 In this lab we will:
 
-Remove this list and just keep the interactive one once that all is build
+**TRAINING NOTE: Remove this list and just keep the interactive one once that all is build**
+
 
 1. Setup the Amazon ECR Registry
 2. Deploy the Amazon ECR Integration
 3. Push and scan an image from the registry
 4. See scan results on Sysdig Secure dashboard
 5. Download Example Dockerfile and Sources
-6. Modify the image and trigger a second scan	
+6. Modify the image and trigger a second scan
 
 {{% children showhidden="false" %}}
 

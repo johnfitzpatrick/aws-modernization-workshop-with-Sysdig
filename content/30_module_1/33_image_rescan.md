@@ -51,6 +51,6 @@ For illustration purposes, let's rebuild our image and make it more secure by st
 
 	The image will automatically be scanned, as before.
 
-4. Once completed, you will see that the scan result now shows it doesn’t have any vulnerabilities. ![JohnImagePendingTODO2](/images/30_module_1/johnImagePending.png)
+4. Once completed, you will see that the scan result now shows it doesn’t have any vulnerabilities. ![JohnImagePendingTODO2](/images/30_module_1/image3.png)
 
-**ToDo** Replace screenshot above
+**TRAINING NOTE: New ScreenShot Above!!!**
