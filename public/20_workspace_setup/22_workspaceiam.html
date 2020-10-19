@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Prerequisites :: AWS Modernization Workshop with Sysdig</title>
+    <title>Attach the IAM role to your Workspace :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603140970" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603140970" rel="stylesheet">
-    <link href="/css/hybrid.css?1603140970" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603140970" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603140970" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603140970" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603140970" rel="stylesheet">
-    <link href="/css/theme.css?1603140970" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603140970" rel="stylesheet">
+    <link href="/css/nucleus.css?1603139829" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603139829" rel="stylesheet">
+    <link href="/css/hybrid.css?1603139829" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603139829" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603139829" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603139829" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603139829" rel="stylesheet">
+    <link href="/css/theme.css?1603139829" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603139829" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603140970" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603139829" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603140970"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603139829"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/10_prerequisites.html">
+  <body class="" data-url="/20_workspace_setup/22_workspaceiam.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603140970"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603140970"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603139829"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603139829"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603140970"></script>
+<script type="text/javascript" src="/js/search.js?1603139829"></script>
 
     
   </div>
@@ -205,8 +205,8 @@
   
     
     <li data-nav-id="/10_prerequisites.html" title="Prerequisites" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/10_prerequisites.html">
@@ -360,7 +360,7 @@
   
     
     <li data-nav-id="/20_workspace_setup.html" title="Workspace Setup" class="dd-item 
-        
+        parent
         
         
         ">
@@ -424,7 +424,7 @@
  
   
     
-      <li data-nav-id="/20_workspace_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
+      <li data-nav-id="/20_workspace_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item active">
         <a href="/20_workspace_setup/22_workspaceiam.html">
         Attach the IAM role to your Workspace
         <i class="fas fa-check read-icon"></i>
@@ -975,7 +975,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/10_prerequisites/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/20_workspace_setup/22_workspaceiam.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -990,6 +990,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -1000,7 +1002,13 @@
             
           
           
-            <a href='/'>Main Page</a> > Prerequisites
+            
+            
+          
+          
+            <a href='/'>Main Page</a> > <a href='/20_workspace_setup.html'>Workspace Setup</a> > Attach the IAM role to your Workspace
+          
+         
           
          
           
@@ -1009,6 +1017,13 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -1016,114 +1031,33 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Attach the IAM role to your Workspace
+            </h1>
           
 
         
 
 
 
+<ol>
+<li>Follow <a href="https://console.aws.amazon.com/ec2/v2/home?#Instances:tag:Name=aws-cloud9-.*workshop.*;sort=desc:launchTime">this deep link to find your Cloud9 EC2 instance</a></li>
+<li>Select the instance, then choose <strong>Actions / Instance Settings /Modify IAM Role</strong>
+<img src="/images/c9instancerole.png" alt="c9instancerole" /></li>
+<li>Choose <strong>Sysdig-Workshop-Admin</strong> from the <strong>IAM Role</strong> drop down, and select <strong>Apply</strong></li>
+</ol>
 
-	
-
-<h1 id="prerequisites">Prerequisites</h1>
-
-<p>There are a few prerequisite tasks you must perform before getting started on this workshop.  These are:</p>
-
-
-
-
-
+<p><img src="/images/c9attachrole.png" alt="c9attachrole" />
+<a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime">https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime</a></p>
 
 
-
-<ul class="children children-li">
-	
-
-	
-		
-			
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/10_prerequisites/11_sysdig.html" >Sign-up for a Sysdig Trial account</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/10_prerequisites/12_start_workshop.html" >Start the Workshop...</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/10_prerequisites/13_aws_event.html" >At an AWS Event...</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/10_prerequisites/14_self_paced.html" >...or on your own</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
-</ul>
-
-<p>We will step through each of these in turn.</p>
-
-
-
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -1254,7 +1188,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1269,9 +1202,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1401,6 +1331,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1416,6 +1347,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1760,10 +1694,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/00_introduction/05_fargate_ecs_sec.html" title="AWS Fargate and ECS Security"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/20_workspace_setup/21_iamrole.html" title="Create an IAM role for your workspace"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/10_prerequisites/11_sysdig.html" title="Sign-up for a Sysdig Trial account" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/20_workspace_setup/23_cloud.html" title="Update IAM settings for your Workspace" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1773,19 +1707,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603140970"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603140970"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603140970"></script>
-    <script src="/js/jquery.sticky.js?1603140970"></script>
-    <script src="/js/featherlight.min.js?1603140970"></script>
-    <script src="/js/highlight.pack.js?1603140970"></script>
+    <script src="/js/clipboard.min.js?1603139829"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603139829"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603139829"></script>
+    <script src="/js/jquery.sticky.js?1603139829"></script>
+    <script src="/js/featherlight.min.js?1603139829"></script>
+    <script src="/js/highlight.pack.js?1603139829"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603140970"></script>
-    <script src="/js/learn.js?1603140970"></script>
-    <script src="/js/hugo-learn.js?1603140970"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603139829"></script>
+    <script src="/js/learn.js?1603139829"></script>
+    <script src="/js/hugo-learn.js?1603139829"></script>
 
-    <link href="/mermaid/mermaid.css?1603140970" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603140970"></script>
+    <link href="/mermaid/mermaid.css?1603139829" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603139829"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1793,3 +1727,4 @@
 
   <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
 </html>
+

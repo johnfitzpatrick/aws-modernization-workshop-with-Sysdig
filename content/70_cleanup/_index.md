@@ -23,9 +23,26 @@ weight = 70
 - Remove ECS Cluster
 
     ```
-    ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
-    ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile
+    stack=tutorial
+    services="$(aws ecs list-services --cluster "$stack" | grep "$stack" | sed -e 's/"//g' -e 's/,//')"
+    for service in $services; do
+        aws ecs update-service --cluster "$stack" --service "$service" --desired-count 0
+        aws ecs delete-service --cluster "$stack" --service "$service"
+    done
+
+    for id in $(aws ecs list-container-instances --cluster "$stack" | grep container-instance | sed -e 's/"//g' -e 's/,//'); do
+        aws ecs deregister-container-instance --cluster "$stack" --container-instance "$id" --force
+    done
+
+    for service in $services; do
+        aws ecs wait services-inactive --cluster "$stack" --services "$service"
+    done
+
+    aws ecs delete-cluster --cluster "$stack"
+    aws cloudformation delete-stack --stack-name "$stack"
     ```
+<!-- ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
+ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile -->
 
 - Remove Image Scanner Integration for Fargate
 
@@ -43,10 +60,10 @@ weight = 70
 
 
 #### Module 1
-- Remove container image from Amazon ECR Registry
+<!-- - Remove container image from Amazon ECR Registry
     ```
     docker registry rmi $IMAGE
-    ```
+    ``` -->
 
 - Remove Amazon ECR Integration
 
@@ -74,8 +91,11 @@ weight = 70
     aws securityhub disable-security-hub
     ```
 
- - **Remove Cloud9**
+ - Remove Cloud9
 
+
+
+**The S3 bucket 'cf-templates-t7cnkhhb1d0p-us-east-1' still exisist in the account - that cool?**
 
 <!-- ___
 

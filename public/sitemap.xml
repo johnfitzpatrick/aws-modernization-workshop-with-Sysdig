@@ -55,23 +55,23 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/20_cloud9.html</loc>
+    <loc>//localhost:1313/20_workspace_setup/20_cloud9.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup.html</loc>
+    <loc>//localhost:1313/20_workspace_setup.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/21_iamrole.html</loc>
+    <loc>//localhost:1313/20_workspace_setup/21_iamrole.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/22_workspaceiam.html</loc>
+    <loc>//localhost:1313/20_workspace_setup/22_workspaceiam.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/23_cloud.html</loc>
+    <loc>//localhost:1313/20_workspace_setup/23_cloud.html</loc>
   </url>
   
   <url>
@@ -152,10 +152,6 @@
   
   <url>
     <loc>//localhost:1313/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html</loc>
-  </url>
-  
-  <url>
-    <loc>//localhost:1313/25_setup_cloudtrail_integration/__242_install_cloudconnector.html</loc>
   </url>
   
   <url>

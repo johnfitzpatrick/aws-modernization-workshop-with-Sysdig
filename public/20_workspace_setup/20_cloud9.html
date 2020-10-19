@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Prerequisites :: AWS Modernization Workshop with Sysdig</title>
+    <title>AWS Cloud9 :: AWS Modernization Workshop with Sysdig</title>
 
     
     <link href="/css/nucleus.css?1603140970" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/10_prerequisites.html">
+  <body class="" data-url="/20_workspace_setup/20_cloud9.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -205,8 +205,8 @@
   
     
     <li data-nav-id="/10_prerequisites.html" title="Prerequisites" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/10_prerequisites.html">
@@ -360,7 +360,7 @@
   
     
     <li data-nav-id="/20_workspace_setup.html" title="Workspace Setup" class="dd-item 
-        
+        parent
         
         
         ">
@@ -386,7 +386,7 @@
  
   
     
-      <li data-nav-id="/20_workspace_setup/20_cloud9.html" title="AWS Cloud9" class="dd-item ">
+      <li data-nav-id="/20_workspace_setup/20_cloud9.html" title="AWS Cloud9" class="dd-item active">
         <a href="/20_workspace_setup/20_cloud9.html">
         AWS Cloud9
         <i class="fas fa-check read-icon"></i>
@@ -975,7 +975,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/10_prerequisites/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/20_workspace_setup/20_cloud9.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -990,6 +990,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -1000,7 +1002,13 @@
             
           
           
-            <a href='/'>Main Page</a> > Prerequisites
+            
+            
+          
+          
+            <a href='/'>Main Page</a> > <a href='/20_workspace_setup.html'>Workspace Setup</a> > AWS Cloud9
+          
+         
           
          
           
@@ -1009,6 +1017,24 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#add-a-new-cloud9-ide-environment">Add a new Cloud9 IDE environment</a></li>
+<li><a href="#configure-cloud9-ide-environment">Configure Cloud9 IDE environment</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -1016,9 +1042,12 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              AWS Cloud9
+            </h1>
           
 
         
@@ -1026,104 +1055,70 @@
 
 
 
-	
 
-<h1 id="prerequisites">Prerequisites</h1>
+<p><a href="https://aws.amazon.com/cloud9/">AWS Cloud9</a> is a cloud-based integrated development environment (IDE) that Let’s you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.</p>
 
-<p>There are a few prerequisite tasks you must perform before getting started on this workshop.  These are:</p>
+<h3 id="add-a-new-cloud9-ide-environment">Add a new Cloud9 IDE environment</h3>
+
+<p>1 . Within the AWS console, use the region drop list to select <strong>us-east-1 (N. Virginia)</strong>.  This will ensure the workshop script provisions the resources in this same region..</p>
+
+<p><img src="/images/aws-pick-region.png" alt="image" /></p>
+
+<p>2 . Navigate to the <a href="https://console.aws.amazon.com/cloud9/home">cloud9 console</a> or just search for it under the <strong>AWS console services</strong> menu.</p>
+
+<p><img src="/images/c9-search.png" alt="image" /></p>
+
+<p>3 . Click the <code>Create environment</code> button</p>
+
+<p><img src="/images/c9-create.png" alt="image" /></p>
+
+<p>4 . For the name use <code>sysdig-workshop</code></p>
+
+<p>5 . Select the default instance type <code>t2.micro</code></p>
+
+<p><strong>TRAINING NOTE: Need to change this to one w/ more space!!!</strong>
+<strong>Seeing this creating a Docker container later &ldquo;failed to register layer: Error processing tar file(exit status 1): write /usr/lib/x86_64-linux-gnu/perl/5.28.1/auto/Unicode/Collate/Collate.so: no space left on device&rdquo;</strong></p>
+
+<p>6 . Leave all the other settings as default</p>
+
+<p><img src="/images/c9-settings.png" alt="image" /></p>
 
 
+<div class="notices info" ><p>This will take about 1-2 minutes to provision</p>
+</div>
 
 
+<h3 id="configure-cloud9-ide-environment">Configure Cloud9 IDE environment</h3>
+
+<p>When the environment comes up, customize the environment by:</p>
+
+<p>1 . Close the <strong>welcome page</strong> tab</p>
+
+<p>2 . Close the <strong>lower work area</strong> tab</p>
+
+<p>3 . Open a new <strong>terminal</strong> tab in the main work area.</p>
+
+<p><img src="/images/c9before.png" alt="c9before" /></p>
+
+<p>Your workspace should now look like this and can hide the left hand environment explorer by clicking on the left side <strong>environment</strong> tab.</p>
+
+<p><img src="/images/c9after.png" alt="c9after" /></p>
 
 
-
-
-<ul class="children children-li">
-	
-
-	
-		
-			
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/10_prerequisites/11_sysdig.html" >Sign-up for a Sysdig Trial account</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/10_prerequisites/12_start_workshop.html" >Start the Workshop...</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/10_prerequisites/13_aws_event.html" >At an AWS Event...</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/10_prerequisites/14_self_paced.html" >...or on your own</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
-</ul>
-
-<p>We will step through each of these in turn.</p>
+<div class="notices tip" ><p>If you don&rsquo;t like this dark theme, you can change it from the <strong>View / Themes</strong> Cloud9 workspace menu.</p>
+</div>
 
 
 
+<div class="notices tip" ><p>Cloud9 requires third-party-cookies. You can whitelist the <a href="https://docs.aws.amazon.com/cloud9/latest/user-guide/troubleshooting.html#troubleshooting-env-loading">specific domains</a>.  You are having issues with this, Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.</p>
+</div>
 
 
 
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -1254,7 +1249,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1269,9 +1263,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1369,6 +1360,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1384,6 +1376,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1760,10 +1755,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/00_introduction/05_fargate_ecs_sec.html" title="AWS Fargate and ECS Security"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/20_workspace_setup.html" title="Workspace Setup"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/10_prerequisites/11_sysdig.html" title="Sign-up for a Sysdig Trial account" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/20_workspace_setup/21_iamrole.html" title="Create an IAM role for your workspace" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1793,3 +1788,4 @@
 
   <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
 </html>
+

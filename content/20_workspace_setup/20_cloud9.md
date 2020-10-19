@@ -1,5 +1,5 @@
 ﻿---
-title: "Cloud9"
+title: "AWS Cloud9"
 chapter: false
 weight: 20
 ---
@@ -24,7 +24,8 @@ weight: 20
 
 
 5 . Select the default instance type `t2.micro`
-**TRAINING NOTE: Need to chnage this to one w/ more space!!!**
+
+**TRAINING NOTE: Need to change this to one w/ more space!!!**
 **Seeing this creating a Docker container later "failed to register layer: Error processing tar file(exit status 1): write /usr/lib/x86_64-linux-gnu/perl/5.28.1/auto/Unicode/Collate/Collate.so: no space left on device"**
 
 

@@ -23,15 +23,5 @@ aws securityhub enable-security-hub --enable-default-standards  Log into your AW
    You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made.</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>//localhost:1313/25_setup_cloudtrail_integration/__242_install_cloudconnector.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/25_setup_cloudtrail_integration/__242_install_cloudconnector.html</guid>
-      <description>Installing the CloudConnector To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:
- Navigate to the CloudFormation template for Sysdig Cloud Connector deployment template. The template will preview in CloudFormation.  On the “Create stack” section, click the &amp;lsquo;Next&amp;rsquo; button to start setting up the template.  The “Specify stack details” section has no parameters for you to configure, so you can just press the Next button.</description>
-    </item>
-    
   </channel>
 </rss>

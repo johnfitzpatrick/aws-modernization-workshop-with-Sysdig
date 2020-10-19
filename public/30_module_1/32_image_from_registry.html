@@ -12,20 +12,20 @@
     <title>Push and Scan an Image from the Registry :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603121645" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603121645" rel="stylesheet">
-    <link href="/css/hybrid.css?1603121645" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603121645" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603121645" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603121645" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603121645" rel="stylesheet">
-    <link href="/css/theme.css?1603121645" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603121645" rel="stylesheet">
+    <link href="/css/nucleus.css?1603139829" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603139829" rel="stylesheet">
+    <link href="/css/hybrid.css?1603139829" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603139829" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603139829" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603139829" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603139829" rel="stylesheet">
+    <link href="/css/theme.css?1603139829" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603139829" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603121645" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603139829" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603121645"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603139829"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603121645"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603121645"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603139829"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603139829"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603121645"></script>
+<script type="text/javascript" src="/js/search.js?1603139829"></script>
 
     
   </div>
@@ -359,13 +359,13 @@
  
   
     
-    <li data-nav-id="/20_workshop_setup.html" title="Workshop Setup" class="dd-item 
+    <li data-nav-id="/20_workspace_setup.html" title="Workspace Setup" class="dd-item 
         
         
         
         ">
-      <a href="/20_workshop_setup.html">
-          Workshop Setup
+      <a href="/20_workspace_setup.html">
+          Workspace Setup
           
             <i class="fas fa-check read-icon"></i>
           
@@ -386,9 +386,9 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/20_cloud9.html" title="Cloud9" class="dd-item ">
-        <a href="/20_workshop_setup/20_cloud9.html">
-        Cloud9
+      <li data-nav-id="/20_workspace_setup/20_cloud9.html" title="AWS Cloud9" class="dd-item ">
+        <a href="/20_workspace_setup/20_cloud9.html">
+        AWS Cloud9
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -405,8 +405,8 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/21_iamrole.html" title="Create an IAM role for your workspace" class="dd-item ">
-        <a href="/20_workshop_setup/21_iamrole.html">
+      <li data-nav-id="/20_workspace_setup/21_iamrole.html" title="Create an IAM role for your workspace" class="dd-item ">
+        <a href="/20_workspace_setup/21_iamrole.html">
         Create an IAM role for your workspace
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -424,8 +424,8 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
-        <a href="/20_workshop_setup/22_workspaceiam.html">
+      <li data-nav-id="/20_workspace_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
+        <a href="/20_workspace_setup/22_workspaceiam.html">
         Attach the IAM role to your Workspace
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -443,8 +443,8 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/23_cloud.html" title="Update IAM settings for your Workspace" class="dd-item ">
-        <a href="/20_workshop_setup/23_cloud.html">
+      <li data-nav-id="/20_workspace_setup/23_cloud.html" title="Update IAM settings for your Workspace" class="dd-item ">
+        <a href="/20_workspace_setup/23_cloud.html">
         Update IAM settings for your Workspace
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -499,25 +499,6 @@
       <li data-nav-id="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
         <a href="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html">
         Installing the CloudConnector
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html" title="" class="dd-item ">
-        <a href="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html">
-        
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1094,26 +1075,40 @@ docker build . -t $IMAGE
 docker push $IMAGE
 </code></pre></li>
 
-<li><p>Check that an image scan is automatically triggered <img src="/images/30_module_1/triggerscan.png" alt="Trigger Scan" /></p></li>
+<li><p>Check that an image scan is automatically triggered in <a href="https://console.aws.amazon.com/ecr/repositories/aws-workshop/?region=us-east-1">Amazon ECR</a></p></li>
+</ol>
 
+<p><img src="/images/30_module_1/triggerscan.png" alt="Trigger Scan" /></p>
+
+<ol>
 <li><p>Once complete you will see that this image has some issues <img src="/images/30_module_1/scannissues.png" alt="Stack details" /></p></li>
 
 <li><p>As soon as the image finishes being pushed to the registry, a new <strong>Amazon CodeBuild pipeline</strong> will be automatically created that executes an image scan.</p>
 
-<p>If you wish, you can check the CodeBuild pipeline status by visiting: <a href="https://console.aws.amazon.com/codesuite/codebuild/projects">https://console.aws.amazon.com/codesuite/codebuild/projects</a> <img src="/images/30_module_1/codebuild.png" alt="Stack details" /></p>
-
-<p><strong>TRAINING NOTE: New ScreenShot Above and Below!!!</strong></p></li>
+<p>If you wish, you can check the CodeBuild pipeline status by visiting: <a href="https://console.aws.amazon.com/codesuite/codebuild/projects">https://console.aws.amazon.com/codesuite/codebuild/projects</a> <img src="/images/30_module_1/CodeBuild-InProgress.png" alt="Stack details" /></p></li>
 </ol>
 
-<p>Click on “InlineSecure Scanning” build project. <img src="/images/30_module_1/image1.png" alt="JohnImagePendingTODO" /></p>
+<p>Once it transitions to &ldquo;Succeeded&rdquo;, click on &ldquo;InlineSecure Scanning&rdquo; build project. <img src="/images/30_module_1/CodeBuild-ScanComplete.png" alt="Build Complete" /></p>
 
 <h3 id="see-scan-results-on-sysdig-secure-dashboard">See Scan Results on Sysdig Secure Dashboard</h3>
 
 <p><strong>TRAINING NOTE: Instructions here on how to get to scan results and search the image</strong></p>
 
-<p>As you can see, the image have several major vulnerabilities.</p>
+<ol>
+<li>Now log into the Sysdig Secure UI, and browse to &lsquo;Image Scanning &gt; Scan Results&rsquo;.</li>
+</ol>
+
+<p><img src="/images/30_module_1/Sysdig_Secure01.png" alt="Sysdig Secure" /></p>
+
+<ol>
+<li><p>Click your new <code>aws-workshop</code> image.</p>
+
+<p>You&rsquo;ll see the image have several major vulnerabilities.</p></li>
+</ol>
 
 <p><img src="/images/30_module_1/securescann.png" alt="Sysdig Secure" /></p>
+
+<p><strong>TRAINING NOTE: I&rsquo;m not seeing the details displayed - seems to be constantly fetching/spinning</strong></p>
 
 <p><strong>TRAINING NOTE: Explanation of the benefits of a single source of truth, and some Sysdig marketing stuff: policies, stopping gates, misconfigurations</strong></p>
 
@@ -1454,22 +1449,6 @@ docker push $IMAGE
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1787,19 +1766,19 @@ docker push $IMAGE
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603121645"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603121645"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603121645"></script>
-    <script src="/js/jquery.sticky.js?1603121645"></script>
-    <script src="/js/featherlight.min.js?1603121645"></script>
-    <script src="/js/highlight.pack.js?1603121645"></script>
+    <script src="/js/clipboard.min.js?1603139829"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603139829"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603139829"></script>
+    <script src="/js/jquery.sticky.js?1603139829"></script>
+    <script src="/js/featherlight.min.js?1603139829"></script>
+    <script src="/js/highlight.pack.js?1603139829"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603121645"></script>
-    <script src="/js/learn.js?1603121645"></script>
-    <script src="/js/hugo-learn.js?1603121645"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603139829"></script>
+    <script src="/js/learn.js?1603139829"></script>
+    <script src="/js/hugo-learn.js?1603139829"></script>
 
-    <link href="/mermaid/mermaid.css?1603121645" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603121645"></script>
+    <link href="/mermaid/mermaid.css?1603139829" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603139829"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

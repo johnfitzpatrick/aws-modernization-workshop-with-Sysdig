@@ -38,8 +38,9 @@ INITIALS=&amp;lt;your initial&amp;gt; BUCKETNAME=$INITIALS-$(date +%s) aws s3api
       
       <guid>//localhost:1313/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html</guid>
       <description>You can check these events without leaving the AWS console. This is how findings reported by Sysdig Cloud Connector look in the AWS Security Hub:
- Browse to Security Hub and click &amp;lsquo;Findings&amp;rsquo; on the left.  The details of one of these findings provide all the information you need to take immediate action:
-And they appear in JSON format in AWS CloudWatch log streams:</description>
+ Browse to Security Hub and click &amp;lsquo;Findings&amp;rsquo; on the left.  Seems my Security Hub isn&amp;rsquo;t configured correctly. Getting error instead of above
+&amp;ldquo;CLOUDTRAIL_MULTI_REGION_NOT_PRESENT A multi-region CloudTrail trail with the required configuration does not exist in the account&amp;rdquo;
+  Click the details of one of these findings to view all the information you need to take immediate action:  And they appear in JSON format in AWS CloudWatch log streams:</description>
     </item>
     
     <item>
