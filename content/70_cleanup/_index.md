@@ -91,11 +91,23 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
     aws securityhub disable-security-hub
     ```
 
- - Remove Cloud9
+{{% notice warning %}}
+The following action stops the Cloud9 Workspace you are working on.
+{{% /notice %}}
 
+  - Remove Cloud9 Workstation
 
+    <!-- ```
+    aws ec2 stop-instances --instance-ids $(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.instanceId')
+    ```
 
-**The S3 bucket 'cf-templates-t7cnkhhb1d0p-us-east-1' still exisist in the account - that cool?**
+    Or this? -->
+
+    ```
+    aws cloud9 delete-environment --environment-id $(aws cloud9 list-environments | jq '.environmentIds[]' | xargs)
+    ```
+
+**The S3 bucket 'cf-templates-t7cnkhhb1d0p-us-east-1' still exists in the account - that cool?**
 
 <!-- ___
 
