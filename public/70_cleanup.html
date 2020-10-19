@@ -12,20 +12,20 @@
     <title>Cleanup :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603052897" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603052897" rel="stylesheet">
-    <link href="/css/hybrid.css?1603052897" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603052897" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603052897" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603052897" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603052897" rel="stylesheet">
-    <link href="/css/theme.css?1603052897" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603052897" rel="stylesheet">
+    <link href="/css/nucleus.css?1603120020" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603120020" rel="stylesheet">
+    <link href="/css/hybrid.css?1603120020" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603120020" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603120020" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603120020" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603120020" rel="stylesheet">
+    <link href="/css/theme.css?1603120020" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603120020" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603052897" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603120020" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603052897"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603120020"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603052897"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603052897"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603120020"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603120020"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603052897"></script>
+<script type="text/javascript" src="/js/search.js?1603120020"></script>
 
     
   </div>
@@ -591,9 +591,9 @@
  
   
     
-      <li data-nav-id="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html" title="Enable AWS Security Hub" class="dd-item ">
+      <li data-nav-id="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
         <a href="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html">
-        Enable AWS Security Hub
+        Installing the CloudConnector
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -610,9 +610,9 @@
  
   
     
-      <li data-nav-id="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html" title="Installing the CloudConnector" class="dd-item ">
+      <li data-nav-id="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html" title="" class="dd-item ">
         <a href="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html">
-        Installing the CloudConnector
+        
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1142,7 +1142,106 @@
 
 	
 
-<h1 id="cleanup">Cleanup</h1>
+<h2 id="cleanup">Cleanup</h2>
+
+<h4 id="module-3">Module 3</h4>
+
+<ul>
+<li><p>Delete the log group created to test the Falco rule modification</p>
+
+<pre><code>aws logs delete-log-group --log-group-name &quot;test_unused_region&quot; --region=&quot;us-west-2&quot;
+</code></pre></li>
+
+<li><p>Delete an S3 bucket</p>
+
+<pre><code>aws s3api delete-bucket --bucket $BUCKETNAME
+</code></pre></li>
+</ul>
+
+<h4 id="module-2">Module 2</h4>
+
+<ul>
+<li><p>Remove ECS Cluster</p>
+
+<pre><code>ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
+ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile
+</code></pre></li>
+
+<li><p>Remove Image Scanner Integration for Fargate</p>
+
+<pre><code>aws cloudformation delete-stack --stack-name ECSImageScanning
+</code></pre></li>
+
+<li><p>Unattach the task execution role policy &amp; delete role:</p>
+
+<pre><code>aws iam --region us-east-1 detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+
+aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
+</code></pre></li>
+</ul>
+
+<h4 id="module-1">Module 1</h4>
+
+<ul>
+<li><p>Remove container image from Amazon ECR Registry</p>
+
+<pre><code>docker registry rmi $IMAGE
+</code></pre></li>
+
+<li><p>Remove Amazon ECR Integration</p>
+
+<pre><code>aws cloudformation delete-stack --stack-name ECSImageScanning
+</code></pre></li>
+
+<li><p>Remove Amazon ECR Registry</p>
+
+<pre><code>aws ecr delete-repository --repository-name aws-workshop --force
+</code></pre></li>
+</ul>
+
+<h4 id="introduction">Introduction</h4>
+
+<ul>
+<li><p>Installing the CloudConnector CloudFormation Template</p>
+
+<pre><code>aws cloudformation delete-stack --stack-name CloudConnector
+</code></pre></li>
+
+<li><p>Disable Security Hub</p>
+
+<pre><code>aws securityhub disable-security-hub
+</code></pre></li>
+</ul>
+
+<!-- ___
+
+#### Delete images pushed and ECR registry
+
+Go to ECR dashboard on AWS, and remove all repositories \
+[https://console.aws.amazon.com/ecr/repositories?region=us-east-1](https://console.aws.amazon.com/ecr/repositories?region=us-east-1)
+
+
+#### Delete ECS Fargate cluster
+
+_[Use CloudFormation stack delete]_
+
+
+#### Delete CloudFormation stacks (only if you are not going to use them)
+
+Go to the CloudFormation dashboard on AWS, select and delete each of the stacks. \
+[https://console.aws.amazon.com/cloudformation/home?region=us-east-1](https://console.aws.amazon.com/cloudformation/home?region=us-east-1)
+
+[Insert screenshot with all stacks deployed when service role conflict is resolved]
+
+
+#### Delete other resources
+
+Delete the log group create to test the Falco rule modification
+
+  ```
+  aws logs delete-log-group --log-group-name "test_unused_region" --region="us-west-2"
+  ```
+____ -->
 
 
 
@@ -1882,19 +1981,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603052897"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603052897"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603052897"></script>
-    <script src="/js/jquery.sticky.js?1603052897"></script>
-    <script src="/js/featherlight.min.js?1603052897"></script>
-    <script src="/js/highlight.pack.js?1603052897"></script>
+    <script src="/js/clipboard.min.js?1603120020"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603120020"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603120020"></script>
+    <script src="/js/jquery.sticky.js?1603120020"></script>
+    <script src="/js/featherlight.min.js?1603120020"></script>
+    <script src="/js/highlight.pack.js?1603120020"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603052897"></script>
-    <script src="/js/learn.js?1603052897"></script>
-    <script src="/js/hugo-learn.js?1603052897"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603120020"></script>
+    <script src="/js/learn.js?1603120020"></script>
+    <script src="/js/hugo-learn.js?1603120020"></script>
 
-    <link href="/mermaid/mermaid.css?1603052897" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603052897"></script>
+    <link href="/mermaid/mermaid.css?1603120020" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603120020"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
