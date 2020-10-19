@@ -26,26 +26,38 @@ To illustrate the images scanning we will build an example Node.JS application b
 	docker push $IMAGE
 	```
 
-3. Check that an image scan is automatically triggered ![Trigger Scan](/images/30_module_1/triggerscan.png)
+3. Check that an image scan is automatically triggered in [Amazon ECR](https://console.aws.amazon.com/ecr/repositories/aws-workshop/?region=us-east-1)
+
+![Trigger Scan](/images/30_module_1/triggerscan.png)
 
 4. Once complete you will see that this image has some issues ![Stack details](/images/30_module_1/scannissues.png)
 
 5. As soon as the image finishes being pushed to the registry, a new **Amazon CodeBuild pipeline** will be automatically created that executes an image scan.
 
-	If you wish, you can check the CodeBuild pipeline status by visiting: [https://console.aws.amazon.com/codesuite/codebuild/projects](https://console.aws.amazon.com/codesuite/codebuild/projects) ![Stack details](/images/30_module_1/codebuild.png)
-
-	**TRAINING NOTE: New ScreenShot Above and Below!!!**
+	If you wish, you can check the CodeBuild pipeline status by visiting: [https://console.aws.amazon.com/codesuite/codebuild/projects](https://console.aws.amazon.com/codesuite/codebuild/projects) ![Stack details](/images/30_module_1/CodeBuild-InProgress.png)
 
 
-Click on “InlineSecure Scanning” build project. ![JohnImagePendingTODO](/images/30_module_1/image1.png)
+Once it transitions to "Succeeded", click on "InlineSecure Scanning" build project. ![Build Complete](/images/30_module_1/CodeBuild-ScanComplete.png)
 
 
 ### See Scan Results on Sysdig Secure Dashboard
 
 **TRAINING NOTE: Instructions here on how to get to scan results and search the image**
 
-As you can see, the image have several major vulnerabilities.
+
+1. Now log into the Sysdig Secure UI, and browse to 'Image Scanning > Scan Results'.
+
+![Sysdig Secure](/images/30_module_1/Sysdig_Secure01.png)
+
+2. Click your new `aws-workshop` image.
+
+	You'll see the image have several major vulnerabilities.
 
 ![Sysdig Secure](/images/30_module_1/securescann.png)
+
+**TRAINING NOTE: I'm not seeing the details displayed - seems to be constantly fetching/spinning**
+
+
+
 
 **TRAINING NOTE: Explanation of the benefits of a single source of truth, and some Sysdig marketing stuff: policies, stopping gates, misconfigurations**

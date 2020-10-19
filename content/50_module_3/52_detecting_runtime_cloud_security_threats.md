@@ -24,57 +24,82 @@ Let's look at an example of AWS threat detection in action with CloudTrail and t
 4. To view details of this event, browse to [CloudTrail](https://console.aws.amazon.com/cloudtrail/home) then 'Event History'
 
     **Dev Note** Add screenshot here
+    ![CloudTrail](/images/50_module_3/cloudtrail01.png)
 
-5. Click the event just created
+{{% notice info %}}
+It can take several minutes for new events to appear in CloudTrail. In the meantime you could browse the existing events created earlier from earlier activity in the account.
+{{% /notice %}}
+
+5. Click the 'DeleteRolePolicy' event just created
 
     If you scroll down you'll see details of the new CloudTrail event that was created.  It looks like this in JSON format:
 
+{{% notice info %}}
+Please note that all data in the following JSON blob is ficticious
+{{% /notice %}}
 
-    ```JSON
+```JSON
+{
+"eventVersion": "1.05",
+"userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROJ2JML2BN4IFASO2OGL:MasterKey",
+    "arn": "arn:aws:sts::161134881107:assumed-role/TeamRole/MasterKey",
+    "accountId": "161134881107",
+    "accessKeyId": "ASIAJRUKKVSOVIBJRNLA",
+    "sessionContext": {
+        "sessionIssuer": {
+            "type": "Role",
+            "principalId": "AROJ2JML2BN4IFASO2OGL",
+            "arn": "arn:aws:iam::161134881107:role/TeamRole",
+            "accountId": "161134881107",
+            "userName": "TeamRole"
+        },
+        "webIdFederationData": {},
+        "attributes": {
+            "mfaAuthenticated": "false",
+            "creationDate": "2020-10-19T15:06:44Z"
+        }
+    },
+    "invokedBy": "cloudformation.amazonaws.com"
+},
+"eventTime": "2020-10-19T17:24:16Z",
+"eventSource": "kms.amazonaws.com",
+"eventName": "ScheduleKeyDeletion",
+"awsRegion": "us-east-1",
+"sourceIPAddress": "cloudformation.amazonaws.com",
+"userAgent": "cloudformation.amazonaws.com",
+"requestParameters": {
+    "keyId": "d3914791-8d06-47b5-a976-2fae1851a848"
+},
+"responseElements": {
+    "keyId": "arn:aws:kms:us-east-1:168110711348:key/d4739191-8d06-47b5-a976-21a8fe1854a8",
+    "deletionDate": "Nov 19, 2020 12:00:00 AM"
+},
+"requestID": "a9667575-e5b2-488a-b2bf-a3c335887d51",
+"eventID": "78c15027-2ad8-492e-a26f-058a0ce48e96",
+"readOnly": false,
+"resources": [
     {
-        "eventVersion": "1.05",
-        "userIdentity": {
-            "type": "Root",
-            "principalId": "999999999999",
-            "arn": "arn:aws:iam::972909301756:root",
-            "accountId": "999999999999",
-            "accessKeyId": "FE1D489888F66424BBE7",
-            "sessionContext": {
-                "sessionIssuer": {},
-                "webIdFederationData": {},
-                "attributes": {
-                    "mfaAuthenticated": "true",
-                    "creationDate": "2020-06-18T07:52:40Z"
-                }
-            }
-        },
-        "eventTime": "2020-06-18T09:05:23Z",
-        "eventSource": "iam.amazonaws.com",
-        "eventName": "AttachUserPolicy",
-        "awsRegion": "us-east-1",
-        "sourceIPAddress": "37.132.12.63",
-        "userAgent": "console.amazonaws.com",
-        "requestParameters": {
-            "userName": "admin_test",
-            "policyArn": "arn:aws:iam::aws:policy/AdministratorAccess"
-        },
-        "responseElements": null,
-        "requestID": "7fe1d489-550c-527f-6155-70d1522b95f0",
-        "eventID": "dd9fe2aa-70d1-4bbf-2ac4-b4766642e73b",
-        "eventType": "AwsApiCall",
-        "recipientAccountId": "999999999999"
+        "accountId": "161134881107",
+        "type": "AWS::KMS::Key",
+        "ARN": "arn:aws:kms:us-east-1:161134881107:key/d4739191-8d06-47b5-a976-21a8fe1854a8"
     }
-    ```
+],
+"eventType": "AwsApiCall",
+"recipientAccountId": "161134881107"
+}
+```
 
 All CloudTrail events have the following key fields:
 
-- *userIdentity*: The user who sent the request.
-- *eventName*: Specifies the type of event.
-- *requestParameters*: Contains all of the parameters related to the request.
+- **userIdentity**: The user who sent the request.
+- **eventName**: Specifies the type of event.
+- **requestParameters**: Contains all of the parameters related to the request.
 
-If a request has an *errorCode* field, it means that it could not be processed because of an error. For example, the requester may not have had permission to perform a change.
+If a request has an **errorCode** field, it means that it could not be processed because of an error. For example, the requester may not have had permission to perform a change.
 
-In this case, we can see how a policy has just been attached (*AttachUserPolicy*) to a user (*admin_test*) with administrator access (*arn:aws:iam::aws:policy/AdministratorAccess*).
+In this case, we can see how a policy has just been attached (**AttachUserPolicy**) to a user (**admin_test**) with administrator access (**arn:aws:iam::aws:policy/AdministratorAccess**).
 
 A Falco rule to detect this elevation of privileges would look like this:
 
@@ -95,10 +120,10 @@ A Falco rule to detect this elevation of privileges would look like this:
   source: k8s_audit
 ```
 
-This particular rule is already included out-of-the-box in Sysdig Cloud Connector.
+Some points to note about this rules
 
-The *jevt.value* contains the JSON content of the event, and we are using it in the *condition*. Using the [jsonpath](https://jsonpath.com/) format, we can indicate what parts of the event we want to evaluate.
+ - The **jevt.value** contains the JSON content of the event, and we are using it in the **condition**. Using the [jsonpath](https://jsonpath.com/) format, we can indicate what parts of the event we want to evaluate.
 
-The *output* will provide context information including the requester *username* and *IP address* - this is what will be sent through all of the enabled notification channels.
+ - The **output** will provide context information including the requester **username** and **IP address** - this is what will be sent through all of the enabled notification channels.
 
-As you can see, this is a regular Falco rule. CloudTrail compatibility is achieved by handling its events as JSON objects, and referring to the event information using JSONPath.
+As you can see, this is a regular Falco rule. In fact, this particular rule is already included out-of-the-box in Sysdig Cloud Connector. CloudTrail compatibility is achieved by handling its events as JSON objects, and referring to the event information using JSONPath.

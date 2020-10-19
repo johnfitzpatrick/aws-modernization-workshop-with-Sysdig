@@ -74,6 +74,9 @@ weight = 70
     aws securityhub disable-security-hub
     ```
 
+ - **Remove Cloud9**
+
+
 <!-- ___
 
 #### Delete images pushed and ECR registry

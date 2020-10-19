@@ -28,6 +28,7 @@ To illustrate the automatic scanning, we will now deploy a sample ECS cluster th
     Cluster creation succeeded.
     ```
 
+**TRAINING NOTE: THE FOLLOWING STEPS SEEM ERROR PRONE. ALTERNATIVE FLOW BELOW**
 
 1. Set the names of the VPC and Subnets as an environment variables, as follows
 
@@ -131,9 +132,10 @@ We'll use a custom deployment script that will
     cat -n deploy-amazon-ecs-sample.sh
     ```
 
-3. Now run the script
+3. Now run the script `deploy-amazon-ecs-sample.sh`
 
     ```bash
+    cd /home/ec2-user/environment
     ./deploy-amazon-ecs-sample.sh
     ```
 

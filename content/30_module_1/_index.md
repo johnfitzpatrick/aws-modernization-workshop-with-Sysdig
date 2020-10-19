@@ -12,7 +12,7 @@ Amazon Elastic Container Registry (ECR) is a fully-managed Docker container regi
 
 In this lab we will:
 
-**TRAINING NOTE: Remove this list and just keep the interactive one once that all is build**
+**TRAINING NOTE: Remove this list and just keep the interactive one once that all is build?**
 
 
 1. Setup the Amazon ECR Registry

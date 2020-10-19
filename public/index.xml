@@ -132,17 +132,6 @@ Add a new Cloud9 IDE environment 1 .</description>
     </item>
     
     <item>
-      <title>Setup CloudTrail Runtime Security</title>
-      <link>//localhost:1313/20_workshop_setup/24_setup_cloudtrail.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/20_workshop_setup/24_setup_cloudtrail.html</guid>
-      <description>We will be looking at CloudTrail runtime security in module 3 of this workshop. However, the CloudFormation template required can take up to ten minutes to deploy. So, we will start the deployment now, and it should be complete later when we need it.
-There are two steps required to enable CloudTrail runtime security:
- Firstly, you must enable AWS Security Hub in the account, then Deploy the Sysdig CloudConnector CloudFormation template.</description>
-    </item>
-    
-    <item>
       <title>Setup Amazon ECR Registry</title>
       <link>//localhost:1313/30_module_1/30_setup_ecr.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -293,19 +282,6 @@ Let’s try first modifying a rule. The following rule checks if a resource is c
     </item>
     
     <item>
-      <title>Enable AWS Security Hub</title>
-      <link>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html</guid>
-      <description>TRAINING NOTE: Security Hub isn&amp;rsquo;t a Sysdig thing, so in the interests of making things shorter, can we remove the individual steps/screenshots and replace them with this single command?
-To enable AWS Security Hub:
- Log into your Cloud9 Workspace
- Run the following command
-  aws securityhub enable-security-hub --enable-default-standards  TRAINING NOTE: MAKE A GIF OF THIS STEPS!!! having all the pictures here adds little extra info but takes a lot of scrolling</description>
-    </item>
-    
-    <item>
       <title>Installing the CloudConnector</title>
       <link>//localhost:1313/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -316,16 +292,6 @@ To enable AWS Security Hub:
  Run the following command
 aws securityhub enable-security-hub --enable-default-standards  Log into your AWS account with your browser then browse to AWS Security Hub.
    You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made.</description>
-    </item>
-    
-    <item>
-      <title>Installing the CloudConnector</title>
-      <link>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html</guid>
-      <description>Steps To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:
- Navigate to the CloudFormation template for Sysdig Cloud Connector deployment template. The template will preview in CloudFormation.  On the “Create stack” section, click the &amp;lsquo;Next&amp;rsquo; button to start setting up the template.  The “Specify stack details” section has no parameters for you to configure, so you can just press the Next button.</description>
     </item>
     
     <item>

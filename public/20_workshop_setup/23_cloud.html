@@ -12,20 +12,20 @@
     <title>Update IAM settings for your Workspace :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603119847" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603119847" rel="stylesheet">
-    <link href="/css/hybrid.css?1603119847" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603119847" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603119847" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603119847" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603119847" rel="stylesheet">
-    <link href="/css/theme.css?1603119847" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603119847" rel="stylesheet">
+    <link href="/css/nucleus.css?1603121645" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603121645" rel="stylesheet">
+    <link href="/css/hybrid.css?1603121645" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603121645" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603121645" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603121645" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603121645" rel="stylesheet">
+    <link href="/css/theme.css?1603121645" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603121645" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603119847" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603121645" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603119847"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603121645"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603119847"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603119847"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603121645"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603121645"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603119847"></script>
+<script type="text/javascript" src="/js/search.js?1603121645"></script>
 
     
   </div>
@@ -375,8 +375,6 @@
         <ul>
           
           
-            
-          
           
           
         
@@ -452,99 +450,6 @@
         </a>
     </li>
      
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail.html">
-        Setup CloudTrail Runtime Security
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/20_workshop_setup/24_setup_cloudtrail.html">
-          Setup CloudTrail Runtime Security
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html" title="Enable AWS Security Hub" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html">
-        Enable AWS Security Hub
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html" title="Installing the CloudConnector" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html">
-        Installing the CloudConnector
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
   
  
 
@@ -1183,6 +1088,8 @@ the EKS IAM authentication, so we will disable it and rely on the IAM role inste
 
 <p>🔹 Validate that our IAM role is valid.</p>
 
+<p>🔹 Copy a script into place for use later in the workshop.</p>
+
 <pre><code class="language-sh">sudo yum -y install jq
 rm -vf ${HOME}/.aws/credentials
 export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account)
@@ -1193,9 +1100,9 @@ echo &quot;export AWS_REGION=${AWS_REGION}&quot; |
 tee -a ~/.bash_profile
 aws configure set default.region ${AWS_REGION}
 aws configure get default.region
-aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q &amp;&amp; echo &quot;IAM role valid&quot; || echo &quot;IAM role NOT valid&quot;
 curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh &gt; deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
+aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q &amp;&amp; echo &quot;IAM role valid&quot; || echo &quot;IAM role NOT valid&quot;
 </code></pre>
 
 <p>If the IAM role is not valid, <span style="color: red;"><strong>DO NOT PROCEED</strong></span>. Go back and confirm the steps on this page.</p>
@@ -1438,8 +1345,6 @@ chmod +x deploy-amazon-ecs-sample.sh
 
                     
                     
-                        
-                    
                     
 
                     
@@ -1508,22 +1413,6 @@ chmod +x deploy-amazon-ecs-sample.sh
             
         
                     
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1532,56 +1421,8 @@ chmod +x deploy-amazon-ecs-sample.sh
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1926,7 +1767,7 @@ chmod +x deploy-amazon-ecs-sample.sh
 			<a class="nav nav-prev" href="/20_workshop_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/25_setup_cloudtrail_integration.html" title="Module 3 Prework: Setup CloudTrail Runtime Security" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1936,19 +1777,19 @@ chmod +x deploy-amazon-ecs-sample.sh
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603119847"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603119847"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603119847"></script>
-    <script src="/js/jquery.sticky.js?1603119847"></script>
-    <script src="/js/featherlight.min.js?1603119847"></script>
-    <script src="/js/highlight.pack.js?1603119847"></script>
+    <script src="/js/clipboard.min.js?1603121645"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603121645"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603121645"></script>
+    <script src="/js/jquery.sticky.js?1603121645"></script>
+    <script src="/js/featherlight.min.js?1603121645"></script>
+    <script src="/js/highlight.pack.js?1603121645"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603119847"></script>
-    <script src="/js/learn.js?1603119847"></script>
-    <script src="/js/hugo-learn.js?1603119847"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603121645"></script>
+    <script src="/js/learn.js?1603121645"></script>
+    <script src="/js/hugo-learn.js?1603121645"></script>
 
-    <link href="/mermaid/mermaid.css?1603119847" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603119847"></script>
+    <link href="/mermaid/mermaid.css?1603121645" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603121645"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

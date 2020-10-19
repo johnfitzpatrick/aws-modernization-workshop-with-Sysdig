@@ -23,7 +23,9 @@ weight: 20
 4 . For the name use `sysdig-workshop`
 
 
-5 . Select Other instance type and choose t3.medium
+5 . Select the default instance type `t2.micro`
+**TRAINING NOTE: Need to chnage this to one w/ more space!!!**
+**Seeing this creating a Docker container later "failed to register layer: Error processing tar file(exit status 1): write /usr/lib/x86_64-linux-gnu/perl/5.28.1/auto/Unicode/Collate/Collate.so: no space left on device"**
 
 
 6 . Leave all the other settings as default

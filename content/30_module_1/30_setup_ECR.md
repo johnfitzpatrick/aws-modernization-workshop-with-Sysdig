@@ -34,6 +34,11 @@ The output will be as follows
     }
 }
 ```
+
+You can view the repository in [Amazon UI](https://console.aws.amazon.com/ecr/repositories?region=us-east-1)
+
+![ECR](/images/30_module_1/Amazon_ECR.png)
+
 <!--
 **TRAINING NOTE: Can we remove this UI method below?**
 

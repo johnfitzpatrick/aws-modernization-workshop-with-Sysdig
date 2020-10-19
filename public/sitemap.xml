@@ -75,14 +75,6 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/24_setup_cloudtrail.html</loc>
-  </url>
-  
-  <url>
-    <loc>//localhost:1313/20_workshop_setup/24_setup_cloudtrail.html</loc>
-  </url>
-  
-  <url>
     <loc>//localhost:1313/25_setup_cloudtrail_integration.html</loc>
   </url>
   
@@ -159,15 +151,7 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html</loc>
-  </url>
-  
-  <url>
     <loc>//localhost:1313/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html</loc>
-  </url>
-  
-  <url>
-    <loc>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html</loc>
   </url>
   
   <url>
