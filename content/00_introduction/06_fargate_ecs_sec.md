@@ -1,7 +1,7 @@
 ---
 title: "AWS Fargate and ECS Security"
 draft: false
-weight: 05
+weight: 06
 ---
 
 **AWS Fargate and ECS** allow you to deploy containerized workloads quickly. Those services are so convenient that many people leave them unattended, risking exposure to vulnerabilities inside their containers that can exfiltrate secrets, compromise business data, impact performance, and increase their AWS costs.

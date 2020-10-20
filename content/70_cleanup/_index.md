@@ -19,13 +19,37 @@ weight = 70
     ```
 
 #### Module 2
+- Remove `ecsTaskExecutionRole`
+
+    ```
+    aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::168110711348:role/ecsTaskExecutionRole --region us-east-1
+
+    aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
+    ```
 
 - Remove ECS Cluster
 
     ```
-    ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
-    ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile
+    stack=tutorial
+    services="$(aws ecs list-services --cluster "$stack" | grep "$stack" | sed -e 's/"//g' -e 's/,//')"
+    for service in $services; do
+        aws ecs update-service --cluster "$stack" --service "$service" --desired-count 0
+        aws ecs delete-service --cluster "$stack" --service "$service"
+    done
+
+    for id in $(aws ecs list-container-instances --cluster "$stack" | grep container-instance | sed -e 's/"//g' -e 's/,//'); do
+        aws ecs deregister-container-instance --cluster "$stack" --container-instance "$id" --force
+    done
+
+    for service in $services; do
+        aws ecs wait services-inactive --cluster "$stack" --services "$service"
+    done
+
+    aws ecs delete-cluster --cluster "$stack"
+    aws cloudformation delete-stack --stack-name "$stack"
     ```
+<!-- ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
+ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile -->
 
 - Remove Image Scanner Integration for Fargate
 
@@ -36,23 +60,25 @@ weight = 70
 - Unattach the task execution role policy & delete role:
 
     ```
-    aws iam --region us-east-1 detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+    aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
 
     aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
     ```
 
-
 #### Module 1
-- Remove container image from Amazon ECR Registry
+<!-- - Remove container image from Amazon ECR Registry
     ```
     docker registry rmi $IMAGE
-    ```
+    ``` -->
 
 - Remove Amazon ECR Integration
 
     ```
     aws cloudformation delete-stack --stack-name ECSImageScanning
     ```
+**TrainingNote** Check This works. ECRImageScanning stack still in acconut
+https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml
+
 
 - Remove Amazon ECR Registry
 
@@ -73,6 +99,28 @@ weight = 70
     ```
     aws securityhub disable-security-hub
     ```
+
+{{% notice warning %}}
+The following action stops the Cloud9 Workspace you are working on.
+{{% /notice %}}
+
+  - Remove Cloud9 Workstation
+
+    <!-- ```
+    aws ec2 stop-instances --instance-ids $(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.instanceId')
+    ```
+
+    Or this? -->
+
+    ```
+    aws cloud9 delete-environment --environment-id $(aws cloud9 list-environments | jq '.environmentIds[]' | xargs)
+    ```
+
+ - Remove IAM Role `Sysdig-Workshop-Admin` used for Cloud9 Workspace
+
+**TrainingNote** ToDo
+
+**TrainingNote** The S3 bucket 'cf-templates-t7cnkhhb1d0p-us-east-1' still exists in the account - that cool?
 
 <!-- ___
 

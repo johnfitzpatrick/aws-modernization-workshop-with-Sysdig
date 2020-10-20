@@ -1,5 +1,5 @@
 +++
-title = "Module 3: CloudTrail Runtime Security"
+title = "Module 3"
 chapter = true
 weight = 50
 +++
@@ -27,7 +27,6 @@ A set of out-of-the-box Falco rules for CloudTrail is available in the Sysdig Cl
 
 The included out-of-the-box CloudTrail rules can detect events like:
 
-
 *   Add an AWS user to a group.
 *   Allocate a New Elastic IP Address to AWS Account.
 *   Attach an Administrator Policy.
@@ -35,4 +34,4 @@ The included out-of-the-box CloudTrail rules can detect events like:
 *   Deactivate MFA for user access.
 *   Delete bucket encryption.
 
-These rules are also mapped against NIST 800-190 security standard controls. More compliance mapping for additional security standards like PCI or CIS will be provided in the future
+These rules are also mapped against **NIST 800-190** security standard controls. More compliance mapping for additional security standards like PCI or CIS will be provided in the future

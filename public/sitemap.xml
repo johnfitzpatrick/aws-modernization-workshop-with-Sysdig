@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>//localhost:1313/10_prerequisites/14_self_paced/account.html</loc>
-  </url>
-  
-  <url>
     <loc>//localhost:1313/</loc>
   </url>
   
@@ -23,11 +19,11 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/00_introduction/04_infra_runtime_sec.html</loc>
+    <loc>//localhost:1313/00_introduction/04_inline_scanning.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/00_introduction/05_fargate_ecs_sec.html</loc>
+    <loc>//localhost:1313/00_introduction/05_infra_runtime_sec.html</loc>
   </url>
   
   <url>
@@ -35,11 +31,15 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/10_prerequisites.html</loc>
+    <loc>//localhost:1313/00_introduction/06_fargate_ecs_sec.html</loc>
   </url>
   
   <url>
     <loc>//localhost:1313/10_prerequisites/11_sysdig.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/10_prerequisites.html</loc>
   </url>
   
   <url>
@@ -55,35 +55,27 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/20_cloud9.html</loc>
+    <loc>//localhost:1313/10_prerequisites/16_start_cloud9workspace.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup.html</loc>
+    <loc>//localhost:1313/10_prerequisites/15_workspace_setup/20_cloud9.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/21_iamrole.html</loc>
+    <loc>//localhost:1313/10_prerequisites/15_workspace_setup/21_iamrole.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/22_workspaceiam.html</loc>
+    <loc>//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/23_cloud.html</loc>
+    <loc>//localhost:1313/10_prerequisites/15_workspace_setup/23_cloud.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/24_setup_cloudtrail.html</loc>
-  </url>
-  
-  <url>
-    <loc>//localhost:1313/20_workshop_setup/24_setup_cloudtrail.html</loc>
-  </url>
-  
-  <url>
-    <loc>//localhost:1313/25_setup_cloudtrail_integration.html</loc>
+    <loc>//localhost:1313/25_module_3_prework.html</loc>
   </url>
   
   <url>
@@ -159,19 +151,7 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html</loc>
-  </url>
-  
-  <url>
-    <loc>//localhost:1313/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html</loc>
-  </url>
-  
-  <url>
-    <loc>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html</loc>
-  </url>
-  
-  <url>
-    <loc>//localhost:1313/25_setup_cloudtrail_integration/__242_install_cloudconnector.html</loc>
+    <loc>//localhost:1313/25_module_3_prework/241_enable_aws_security_hub.html</loc>
   </url>
   
   <url>

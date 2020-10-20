@@ -1,7 +1,8 @@
 ---
 title: "Infrastructure Runtime Security"
 draft: false
-weight: 04
+weight: 05
+
 ---
 
 In the same way image scanning gives you visibility of vulnerabilities and threats pertaining specifically to an application's containers, infrastructure scanning gives visibility of potential issues emanating from the environment on which these containers run.

@@ -27,7 +27,7 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
     --capabilities "CAPABILITY_NAMED_IAM"
     ```
 
-    You can check the status of the CloudFormation task by browsing to the [CloudFormation UI]([https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/)).
+You can check the status of the CloudFormation task by browsing to the [CloudFormation UI](https://console.aws.amazon.com/cloudformation/)
 
 ![CloudFormation](/images/40_module_2/image3.png)
 

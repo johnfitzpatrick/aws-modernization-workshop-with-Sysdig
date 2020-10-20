@@ -12,20 +12,20 @@
     <title>Detecting Runtime Cloud Security Threats :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603119847" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603119847" rel="stylesheet">
-    <link href="/css/hybrid.css?1603119847" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603119847" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603119847" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603119847" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603119847" rel="stylesheet">
-    <link href="/css/theme.css?1603119847" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603119847" rel="stylesheet">
+    <link href="/css/nucleus.css?1603191310" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603191310" rel="stylesheet">
+    <link href="/css/hybrid.css?1603191310" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603191310" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603191310" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603191310" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603191310" rel="stylesheet">
+    <link href="/css/theme.css?1603191310" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603191310" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603119847" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603191310" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603119847"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603191310"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603119847"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603119847"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603191310"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603191310"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603119847"></script>
+<script type="text/javascript" src="/js/search.js?1603191310"></script>
 
     
   </div>
@@ -159,8 +159,27 @@
  
   
     
-      <li data-nav-id="/00_introduction/04_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item ">
-        <a href="/00_introduction/04_infra_runtime_sec.html">
+      <li data-nav-id="/00_introduction/04_inline_scanning.html" title="Inline Scanning" class="dd-item ">
+        <a href="/00_introduction/04_inline_scanning.html">
+        Inline Scanning
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/05_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item ">
+        <a href="/00_introduction/05_infra_runtime_sec.html">
         Infrastructure Runtime Security
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -178,8 +197,8 @@
  
   
     
-      <li data-nav-id="/00_introduction/05_fargate_ecs_sec.html" title="AWS Fargate and ECS Security" class="dd-item ">
-        <a href="/00_introduction/05_fargate_ecs_sec.html">
+      <li data-nav-id="/00_introduction/06_fargate_ecs_sec.html" title="AWS Fargate and ECS Security" class="dd-item ">
+        <a href="/00_introduction/06_fargate_ecs_sec.html">
         AWS Fargate and ECS Security
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -233,9 +252,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/11_sysdig.html" title="Sign-up for a Sysdig Trial account" class="dd-item ">
+      <li data-nav-id="/10_prerequisites/11_sysdig.html" title="1. Sign-up for a Sysdig Trial account" class="dd-item ">
         <a href="/10_prerequisites/11_sysdig.html">
-        Sign-up for a Sysdig Trial account
+        1. Sign-up for a Sysdig Trial account
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -252,9 +271,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="Start the Workshop..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        Start the Workshop...
+        2. Workshop AWS Environment...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -309,35 +328,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/10_prerequisites/14_self_paced/account.html" title="Create an AWS account" class="dd-item ">
-        <a href="/10_prerequisites/14_self_paced/account.html">
-        Create an AWS account
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -345,42 +335,6 @@
 
             
           
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/20_workshop_setup.html" title="Workshop Setup" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/20_workshop_setup.html">
-          Workshop Setup
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
             
             
 
@@ -388,9 +342,9 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/20_cloud9.html" title="Cloud9" class="dd-item ">
-        <a href="/20_workshop_setup/20_cloud9.html">
-        Cloud9
+      <li data-nav-id="/10_prerequisites/16_start_cloud9workspace.html" title="3. Launch Cloud9 IDE Workspace" class="dd-item ">
+        <a href="/10_prerequisites/16_start_cloud9workspace.html">
+        3. Launch Cloud9 IDE Workspace
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -407,8 +361,27 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/21_iamrole.html" title="Create an IAM role for your workspace" class="dd-item ">
-        <a href="/20_workshop_setup/21_iamrole.html">
+      <li data-nav-id="/10_prerequisites/15_workspace_setup/20_cloud9.html" title="Create a new Cloud9 IDE environment" class="dd-item ">
+        <a href="/10_prerequisites/15_workspace_setup/20_cloud9.html">
+        Create a new Cloud9 IDE environment
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/15_workspace_setup/21_iamrole.html" title="Create an IAM role for your workspace" class="dd-item ">
+        <a href="/10_prerequisites/15_workspace_setup/21_iamrole.html">
         Create an IAM role for your workspace
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -426,8 +399,8 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
-        <a href="/20_workshop_setup/22_workspaceiam.html">
+      <li data-nav-id="/10_prerequisites/15_workspace_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
+        <a href="/10_prerequisites/15_workspace_setup/22_workspaceiam.html">
         Attach the IAM role to your Workspace
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -445,9 +418,9 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/23_cloud.html" title="Update IAM settings for your Workspace" class="dd-item ">
-        <a href="/20_workshop_setup/23_cloud.html">
-        Update IAM settings for your Workspace
+      <li data-nav-id="/10_prerequisites/15_workspace_setup/23_cloud.html" title="Configure workspace for Sysdig Workshop" class="dd-item ">
+        <a href="/10_prerequisites/15_workspace_setup/23_cloud.html">
+        Configure workspace for Sysdig Workshop
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -457,39 +430,27 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail.html">
-        Setup CloudTrail Runtime Security
-        <i class="fas fa-check read-icon"></i>
-        </a>
+        
+        </ul>
+              
     </li>
-     
   
  
 
-            
           
-            
-            
+          
 
 
  
   
     
-    <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item 
+    <li data-nav-id="/25_module_3_prework.html" title="Module 3 Prework" class="dd-item 
         
         
         
         ">
-      <a href="/20_workshop_setup/24_setup_cloudtrail.html">
-          Setup CloudTrail Runtime Security
+      <a href="/25_module_3_prework.html">
+          Module 3 Prework
           
             <i class="fas fa-check read-icon"></i>
           
@@ -510,27 +471,8 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html" title="Enable AWS Security Hub" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html">
-        Enable AWS Security Hub
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html" title="Installing the CloudConnector" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html">
+      <li data-nav-id="/25_module_3_prework/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
+        <a href="/25_module_3_prework/241_enable_aws_security_hub.html">
         Installing the CloudConnector
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -548,15 +490,6 @@
   
  
 
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
           
           
 
@@ -564,85 +497,13 @@
  
   
     
-    <li data-nav-id="/25_setup_cloudtrail_integration.html" title="Module 3 Prework: Setup CloudTrail Runtime Security" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/25_setup_cloudtrail_integration.html">
-          Module 3 Prework: Setup CloudTrail Runtime Security
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
-        <a href="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html">
-        Installing the CloudConnector
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html" title="" class="dd-item ">
-        <a href="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html">
-        
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/30_module_1.html" title="Module 1: Amazon ECR Image Scanning" class="dd-item 
+    <li data-nav-id="/30_module_1.html" title="Module 1" class="dd-item 
         
         
         
         ">
       <a href="/30_module_1.html">
-          Module 1: Amazon ECR Image Scanning
+          Module 1
           
             <i class="fas fa-check read-icon"></i>
           
@@ -746,13 +607,13 @@
  
   
     
-    <li data-nav-id="/40_module_2.html" title="Module 2: Fargate automatic image scanning" class="dd-item 
+    <li data-nav-id="/40_module_2.html" title="Module 2" class="dd-item 
         
         
         
         ">
       <a href="/40_module_2.html">
-          Module 2: Fargate automatic image scanning
+          Module 2
           
             <i class="fas fa-check read-icon"></i>
           
@@ -875,13 +736,13 @@
  
   
     
-    <li data-nav-id="/50_module_3.html" title="Module 3: CloudTrail Runtime Security" class="dd-item 
+    <li data-nav-id="/50_module_3.html" title="Module 3" class="dd-item 
         parent
         
         
         ">
       <a href="/50_module_3.html">
-          Module 3: CloudTrail Runtime Security
+          Module 3
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1120,7 +981,7 @@
             
           
           
-            <a href='/'>Main Page</a> > <a href='/50_module_3.html'>Module 3: CloudTrail Runtime Security</a> > Detecting Runtime Cloud Security Threats
+            <a href='/'>Main Page</a> > <a href='/50_module_3.html'>Module 3</a> > Detecting Runtime Cloud Security Threats
           
          
           
@@ -1176,59 +1037,89 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
 
 <li><p>To view details of this event, browse to <a href="https://console.aws.amazon.com/cloudtrail/home">CloudTrail</a> then &lsquo;Event History&rsquo;</p>
 
-<p><strong>Dev Note</strong> Add screenshot here</p></li>
+<p><strong>Dev Note</strong> Add screenshot here
+<img src="/images/50_module_3/cloudtrail01.png" alt="CloudTrail" /></p></li>
+</ol>
 
-<li><p>Click the event just created</p>
 
-<p>If you scroll down you&rsquo;ll see details of the new CloudTrail event that was created.  It looks like this in JSON format:</p>
+<div class="notices info" ><p>It can take several minutes for new events to appear in CloudTrail. In the meantime you could browse the existing events created earlier from earlier activity in the account.</p>
+</div>
+
+
+<ol>
+<li><p>Click the &lsquo;DeleteRolePolicy&rsquo; event just created</p>
+
+<p>If you scroll down you&rsquo;ll see details of the new CloudTrail event that was created.  It looks like this in JSON format:</p></li>
+</ol>
+
+
+<div class="notices info" ><p>Please note that all data in the following JSON blob is ficticious</p>
+</div>
+
 
 <pre><code class="language-JSON">{
-    &quot;eventVersion&quot;: &quot;1.05&quot;,
-    &quot;userIdentity&quot;: {
-        &quot;type&quot;: &quot;Root&quot;,
-        &quot;principalId&quot;: &quot;999999999999&quot;,
-        &quot;arn&quot;: &quot;arn:aws:iam::972909301756:root&quot;,
-        &quot;accountId&quot;: &quot;999999999999&quot;,
-        &quot;accessKeyId&quot;: &quot;FE1D489888F66424BBE7&quot;,
-        &quot;sessionContext&quot;: {
-            &quot;sessionIssuer&quot;: {},
-            &quot;webIdFederationData&quot;: {},
-            &quot;attributes&quot;: {
-                &quot;mfaAuthenticated&quot;: &quot;true&quot;,
-                &quot;creationDate&quot;: &quot;2020-06-18T07:52:40Z&quot;
-            }
+&quot;eventVersion&quot;: &quot;1.05&quot;,
+&quot;userIdentity&quot;: {
+    &quot;type&quot;: &quot;AssumedRole&quot;,
+    &quot;principalId&quot;: &quot;AROJ2JML2BN4IFASO2OGL:MasterKey&quot;,
+    &quot;arn&quot;: &quot;arn:aws:sts::161134881107:assumed-role/TeamRole/MasterKey&quot;,
+    &quot;accountId&quot;: &quot;161134881107&quot;,
+    &quot;accessKeyId&quot;: &quot;ASIAJRUKKVSOVIBJRNLA&quot;,
+    &quot;sessionContext&quot;: {
+        &quot;sessionIssuer&quot;: {
+            &quot;type&quot;: &quot;Role&quot;,
+            &quot;principalId&quot;: &quot;AROJ2JML2BN4IFASO2OGL&quot;,
+            &quot;arn&quot;: &quot;arn:aws:iam::161134881107:role/TeamRole&quot;,
+            &quot;accountId&quot;: &quot;161134881107&quot;,
+            &quot;userName&quot;: &quot;TeamRole&quot;
+        },
+        &quot;webIdFederationData&quot;: {},
+        &quot;attributes&quot;: {
+            &quot;mfaAuthenticated&quot;: &quot;false&quot;,
+            &quot;creationDate&quot;: &quot;2020-10-19T15:06:44Z&quot;
         }
     },
-    &quot;eventTime&quot;: &quot;2020-06-18T09:05:23Z&quot;,
-    &quot;eventSource&quot;: &quot;iam.amazonaws.com&quot;,
-    &quot;eventName&quot;: &quot;AttachUserPolicy&quot;,
-    &quot;awsRegion&quot;: &quot;us-east-1&quot;,
-    &quot;sourceIPAddress&quot;: &quot;37.132.12.63&quot;,
-    &quot;userAgent&quot;: &quot;console.amazonaws.com&quot;,
-    &quot;requestParameters&quot;: {
-        &quot;userName&quot;: &quot;admin_test&quot;,
-        &quot;policyArn&quot;: &quot;arn:aws:iam::aws:policy/AdministratorAccess&quot;
-    },
-    &quot;responseElements&quot;: null,
-    &quot;requestID&quot;: &quot;7fe1d489-550c-527f-6155-70d1522b95f0&quot;,
-    &quot;eventID&quot;: &quot;dd9fe2aa-70d1-4bbf-2ac4-b4766642e73b&quot;,
-    &quot;eventType&quot;: &quot;AwsApiCall&quot;,
-    &quot;recipientAccountId&quot;: &quot;999999999999&quot;
+    &quot;invokedBy&quot;: &quot;cloudformation.amazonaws.com&quot;
+},
+&quot;eventTime&quot;: &quot;2020-10-19T17:24:16Z&quot;,
+&quot;eventSource&quot;: &quot;kms.amazonaws.com&quot;,
+&quot;eventName&quot;: &quot;ScheduleKeyDeletion&quot;,
+&quot;awsRegion&quot;: &quot;us-east-1&quot;,
+&quot;sourceIPAddress&quot;: &quot;cloudformation.amazonaws.com&quot;,
+&quot;userAgent&quot;: &quot;cloudformation.amazonaws.com&quot;,
+&quot;requestParameters&quot;: {
+    &quot;keyId&quot;: &quot;d3914791-8d06-47b5-a976-2fae1851a848&quot;
+},
+&quot;responseElements&quot;: {
+    &quot;keyId&quot;: &quot;arn:aws:kms:us-east-1:168110711348:key/d4739191-8d06-47b5-a976-21a8fe1854a8&quot;,
+    &quot;deletionDate&quot;: &quot;Nov 19, 2020 12:00:00 AM&quot;
+},
+&quot;requestID&quot;: &quot;a9667575-e5b2-488a-b2bf-a3c335887d51&quot;,
+&quot;eventID&quot;: &quot;78c15027-2ad8-492e-a26f-058a0ce48e96&quot;,
+&quot;readOnly&quot;: false,
+&quot;resources&quot;: [
+    {
+        &quot;accountId&quot;: &quot;161134881107&quot;,
+        &quot;type&quot;: &quot;AWS::KMS::Key&quot;,
+        &quot;ARN&quot;: &quot;arn:aws:kms:us-east-1:161134881107:key/d4739191-8d06-47b5-a976-21a8fe1854a8&quot;
+    }
+],
+&quot;eventType&quot;: &quot;AwsApiCall&quot;,
+&quot;recipientAccountId&quot;: &quot;161134881107&quot;
 }
-</code></pre></li>
-</ol>
+</code></pre>
 
 <p>All CloudTrail events have the following key fields:</p>
 
 <ul>
-<li><em>userIdentity</em>: The user who sent the request.</li>
-<li><em>eventName</em>: Specifies the type of event.</li>
-<li><em>requestParameters</em>: Contains all of the parameters related to the request.</li>
+<li><strong>userIdentity</strong>: The user who sent the request.</li>
+<li><strong>eventName</strong>: Specifies the type of event.</li>
+<li><strong>requestParameters</strong>: Contains all of the parameters related to the request.</li>
 </ul>
 
-<p>If a request has an <em>errorCode</em> field, it means that it could not be processed because of an error. For example, the requester may not have had permission to perform a change.</p>
+<p>If a request has an <strong>errorCode</strong> field, it means that it could not be processed because of an error. For example, the requester may not have had permission to perform a change.</p>
 
-<p>In this case, we can see how a policy has just been attached (<em>AttachUserPolicy</em>) to a user (<em>admin_test</em>) with administrator access (<em>arn:aws:iam::aws:policy/AdministratorAccess</em>).</p>
+<p>In this case, we can see how a policy has just been attached (<strong>AttachUserPolicy</strong>) to a user (<strong>admin_test</strong>) with administrator access (<strong>arn:aws:iam::aws:policy/AdministratorAccess</strong>).</p>
 
 <p>A Falco rule to detect this elevation of privileges would look like this:</p>
 
@@ -1247,13 +1138,15 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
   source: k8s_audit
 </code></pre>
 
-<p>This particular rule is already included out-of-the-box in Sysdig Cloud Connector.</p>
+<p>Some points to note about this rules</p>
 
-<p>The <em>jevt.value</em> contains the JSON content of the event, and we are using it in the <em>condition</em>. Using the <a href="https://jsonpath.com/">jsonpath</a> format, we can indicate what parts of the event we want to evaluate.</p>
+<ul>
+<li><p>The <strong>jevt.value</strong> contains the JSON content of the event, and we are using it in the <strong>condition</strong>. Using the <a href="https://jsonpath.com/">jsonpath</a> format, we can indicate what parts of the event we want to evaluate.</p></li>
 
-<p>The <em>output</em> will provide context information including the requester <em>username</em> and <em>IP address</em> - this is what will be sent through all of the enabled notification channels.</p>
+<li><p>The <strong>output</strong> will provide context information including the requester <strong>username</strong> and <strong>IP address</strong> - this is what will be sent through all of the enabled notification channels.</p></li>
+</ul>
 
-<p>As you can see, this is a regular Falco rule. CloudTrail compatibility is achieved by handling its events as JSON objects, and referring to the event information using JSONPath.</p>
+<p>As you can see, this is a regular Falco rule. In fact, this particular rule is already included out-of-the-box in Sysdig Cloud Connector. CloudTrail compatibility is achieved by handling its events as JSON objects, and referring to the event information using JSONPath.</p>
 
 
 <footer class="footline">
@@ -1382,24 +1275,6 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
                         
             
             
@@ -1412,70 +1287,6 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -1591,6 +1402,25 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
                     
 
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -1626,9 +1456,6 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1641,22 +1468,6 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1991,19 +1802,19 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603119847"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603119847"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603119847"></script>
-    <script src="/js/jquery.sticky.js?1603119847"></script>
-    <script src="/js/featherlight.min.js?1603119847"></script>
-    <script src="/js/highlight.pack.js?1603119847"></script>
+    <script src="/js/clipboard.min.js?1603191310"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603191310"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603191310"></script>
+    <script src="/js/jquery.sticky.js?1603191310"></script>
+    <script src="/js/featherlight.min.js?1603191310"></script>
+    <script src="/js/highlight.pack.js?1603191310"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603119847"></script>
-    <script src="/js/learn.js?1603119847"></script>
-    <script src="/js/hugo-learn.js?1603119847"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603191310"></script>
+    <script src="/js/learn.js?1603191310"></script>
+    <script src="/js/hugo-learn.js?1603191310"></script>
 
-    <link href="/mermaid/mermaid.css?1603119847" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603119847"></script>
+    <link href="/mermaid/mermaid.css?1603191310" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603191310"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

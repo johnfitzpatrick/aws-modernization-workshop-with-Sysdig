@@ -1,5 +1,5 @@
 ﻿---
-title: "Update IAM settings for your Workspace"
+title: "Configure workspace for Sysdig Workshop"
 chapter: false
 weight: 23
 ---
@@ -29,6 +29,8 @@ Let's run the command below, the following actions will take place as we do that
 
 :small_blue_diamond: Validate that our IAM role is valid.
 
+:small_blue_diamond: Copy a script into place for use later in the workshop.
+
 ```sh
 sudo yum -y install jq
 rm -vf ${HOME}/.aws/credentials
@@ -40,9 +42,9 @@ echo "export AWS_REGION=${AWS_REGION}" |
 tee -a ~/.bash_profile
 aws configure set default.region ${AWS_REGION}
 aws configure get default.region
-aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
 curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
 chmod +x deploy-amazon-ecs-sample.sh
+aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
 ```
 
 If the IAM role is not valid, <span style="color: red;">**DO NOT PROCEED**</span>. Go back and confirm the steps on this page.

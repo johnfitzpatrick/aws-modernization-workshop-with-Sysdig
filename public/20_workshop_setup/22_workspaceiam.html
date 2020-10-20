@@ -12,20 +12,20 @@
     <title>Attach the IAM role to your Workspace :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603119847" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603119847" rel="stylesheet">
-    <link href="/css/hybrid.css?1603119847" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603119847" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603119847" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603119847" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603119847" rel="stylesheet">
-    <link href="/css/theme.css?1603119847" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603119847" rel="stylesheet">
+    <link href="/css/nucleus.css?1603133347" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603133347" rel="stylesheet">
+    <link href="/css/hybrid.css?1603133347" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603133347" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603133347" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603133347" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603133347" rel="stylesheet">
+    <link href="/css/theme.css?1603133347" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603133347" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603119847" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603133347" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603119847"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603133347"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603119847"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603119847"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603133347"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603133347"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603119847"></script>
+<script type="text/javascript" src="/js/search.js?1603133347"></script>
 
     
   </div>
@@ -375,8 +375,6 @@
         <ul>
           
           
-            
-          
           
           
         
@@ -457,99 +455,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail.html">
-        Setup CloudTrail Runtime Security
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/20_workshop_setup/24_setup_cloudtrail.html">
-          Setup CloudTrail Runtime Security
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html" title="Enable AWS Security Hub" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html">
-        Enable AWS Security Hub
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html" title="Installing the CloudConnector" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html">
-        Installing the CloudConnector
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -594,25 +499,6 @@
       <li data-nav-id="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
         <a href="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html">
         Installing the CloudConnector
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html" title="" class="dd-item ">
-        <a href="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html">
-        
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1159,12 +1045,13 @@
 
 <ol>
 <li>Follow <a href="https://console.aws.amazon.com/ec2/v2/home?#Instances:tag:Name=aws-cloud9-.*workshop.*;sort=desc:launchTime">this deep link to find your Cloud9 EC2 instance</a></li>
-<li>Select the instance, then choose <strong>Actions / Instance Settings / Attach/Replace IAM Role</strong>
+<li>Select the instance, then choose <strong>Actions / Instance Settings /Modify IAM Role</strong>
 <img src="/images/c9instancerole.png" alt="c9instancerole" /></li>
 <li>Choose <strong>Sysdig-Workshop-Admin</strong> from the <strong>IAM Role</strong> drop down, and select <strong>Apply</strong></li>
 </ol>
 
-<p><img src="/images/c9attachrole.png" alt="c9attachrole" /></p>
+<p><img src="/images/c9attachrole.png" alt="c9attachrole" />
+<a href="https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime">https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime</a></p>
 
 
 <footer class="footline">
@@ -1404,8 +1291,6 @@
 
                     
                     
-                        
-                    
                     
 
                     
@@ -1477,19 +1362,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1505,73 +1377,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1902,19 +1707,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603119847"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603119847"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603119847"></script>
-    <script src="/js/jquery.sticky.js?1603119847"></script>
-    <script src="/js/featherlight.min.js?1603119847"></script>
-    <script src="/js/highlight.pack.js?1603119847"></script>
+    <script src="/js/clipboard.min.js?1603133347"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603133347"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603133347"></script>
+    <script src="/js/jquery.sticky.js?1603133347"></script>
+    <script src="/js/featherlight.min.js?1603133347"></script>
+    <script src="/js/highlight.pack.js?1603133347"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603119847"></script>
-    <script src="/js/learn.js?1603119847"></script>
-    <script src="/js/hugo-learn.js?1603119847"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603133347"></script>
+    <script src="/js/learn.js?1603133347"></script>
+    <script src="/js/hugo-learn.js?1603133347"></script>
 
-    <link href="/mermaid/mermaid.css?1603119847" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603119847"></script>
+    <link href="/mermaid/mermaid.css?1603133347" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603133347"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

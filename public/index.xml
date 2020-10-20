@@ -11,17 +11,6 @@
     
     
     <item>
-      <title>Create an AWS account</title>
-      <link>//localhost:1313/10_prerequisites/14_self_paced/account.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/10_prerequisites/14_self_paced/account.html</guid>
-      <description>Your account must have the ability to create new IAM roles and scope other IAM permissions.
-  If you don&amp;rsquo;t already have an AWS account with Administrator access: create one now by clicking here
- Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: Create a new IAM user to use for the workshop</description>
-    </item>
-    
-    <item>
       <title>Workshop Overview</title>
       <link>//localhost:1313/00_introduction/01_workshop_overview.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -52,27 +41,36 @@ An image scanner inspects a container&amp;rsquo;s content to detect threats such
     </item>
     
     <item>
-      <title>Infrastructure Runtime Security</title>
-      <link>//localhost:1313/00_introduction/04_infra_runtime_sec.html</link>
+      <title>Inline Scanning</title>
+      <link>//localhost:1313/00_introduction/04_inline_scanning.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/00_introduction/04_infra_runtime_sec.html</guid>
+      <guid>//localhost:1313/00_introduction/04_inline_scanning.html</guid>
+      <description>TrainingNote Inline scanning detailed description here</description>
+    </item>
+    
+    <item>
+      <title>Infrastructure Runtime Security</title>
+      <link>//localhost:1313/00_introduction/05_infra_runtime_sec.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/00_introduction/05_infra_runtime_sec.html</guid>
       <description>In the same way image scanning gives you visibility of vulnerabilities and threats pertaining specifically to an application&amp;rsquo;s containers, infrastructure scanning gives visibility of potential issues emanating from the environment on which these containers run.
 AWS provides a rich environment upon which to base your application, but it&amp;rsquo;s not without its risks. There are many places where bad actors can create harm, for example exposing data by making S3 buckets public, deleting bucket encryption, disabling MFA for an account, adding/removing IAM policies.</description>
     </item>
     
     <item>
       <title>AWS Fargate and ECS Security</title>
-      <link>//localhost:1313/00_introduction/05_fargate_ecs_sec.html</link>
+      <link>//localhost:1313/00_introduction/06_fargate_ecs_sec.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/00_introduction/05_fargate_ecs_sec.html</guid>
+      <guid>//localhost:1313/00_introduction/06_fargate_ecs_sec.html</guid>
       <description>AWS Fargate and ECS allow you to deploy containerized workloads quickly. Those services are so convenient that many people leave them unattended, risking exposure to vulnerabilities inside their containers that can exfiltrate secrets, compromise business data, impact performance, and increase their AWS costs.
 For example, think of some credentials mistakenly included in an image, later deployed on Fargate. They will be exposed to anyone with access to the image (think on the repository), or to the Fargate service.</description>
     </item>
     
     <item>
-      <title>Sign-up for a Sysdig Trial account</title>
+      <title>1. Sign-up for a Sysdig Trial account</title>
       <link>//localhost:1313/10_prerequisites/11_sysdig.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -83,7 +81,7 @@ For example, think of some credentials mistakenly included in an image, later de
     </item>
     
     <item>
-      <title>Start the Workshop...</title>
+      <title>2. Workshop AWS Environment...</title>
       <link>//localhost:1313/10_prerequisites/12_start_workshop.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -93,53 +91,57 @@ For example, think of some credentials mistakenly included in an image, later de
     </item>
     
     <item>
-      <title>Cloud9</title>
-      <link>//localhost:1313/20_workshop_setup/20_cloud9.html</link>
+      <title>3. Launch Cloud9 IDE Workspace</title>
+      <link>//localhost:1313/10_prerequisites/16_start_cloud9workspace.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/20_workshop_setup/20_cloud9.html</guid>
+      <guid>//localhost:1313/10_prerequisites/16_start_cloud9workspace.html</guid>
       <description>AWS Cloud9 is a cloud-based integrated development environment (IDE) that Let’s you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.
-Add a new Cloud9 IDE environment 1 .</description>
+We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Workshop.</description>
+    </item>
+    
+    <item>
+      <title>Create a new Cloud9 IDE environment</title>
+      <link>//localhost:1313/10_prerequisites/15_workspace_setup/20_cloud9.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//localhost:1313/10_prerequisites/15_workspace_setup/20_cloud9.html</guid>
+      <description>1 . Within the AWS console, use the region drop list to select us-east-1 (N. Virginia). This will ensure the workshop script provisions the resources in this same region..
+2 . Navigate to the cloud9 console or just search for it under the AWS console services menu.
+3 . Click the Create environment button
+4 . For the name use sysdig-workshop
+5 . Select the default instance type t2.medium</description>
     </item>
     
     <item>
       <title>Create an IAM role for your workspace</title>
-      <link>//localhost:1313/20_workshop_setup/21_iamrole.html</link>
+      <link>//localhost:1313/10_prerequisites/15_workspace_setup/21_iamrole.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/20_workshop_setup/21_iamrole.html</guid>
+      <guid>//localhost:1313/10_prerequisites/15_workspace_setup/21_iamrole.html</guid>
       <description>Starting from here, when you see command to be entered such as below, you will enter these commands into Cloud9 IDE. You can use the Copy to clipboard feature (right hand upper corner) to simply copy and paste into Cloud9. In order to paste, you can use Ctrl + V for Windows or Command + V for Mac.
   Follow this deep link to create an IAM role with Administrator access.</description>
     </item>
     
     <item>
       <title>Attach the IAM role to your Workspace</title>
-      <link>//localhost:1313/20_workshop_setup/22_workspaceiam.html</link>
+      <link>//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/20_workshop_setup/22_workspaceiam.html</guid>
-      <description> Follow this deep link to find your Cloud9 EC2 instance Select the instance, then choose Actions / Instance Settings / Attach/Replace IAM Role  Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Apply  </description>
+      <guid>//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html</guid>
+      <description>Follow this deep link to find your Cloud9 EC2 instance  TrainingNote Fix this deep link!
+ Select the instance, then choose Actions / Instance Settings / Modify IAM role  Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Apply
+  https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime</description>
     </item>
     
     <item>
-      <title>Update IAM settings for your Workspace</title>
-      <link>//localhost:1313/20_workshop_setup/23_cloud.html</link>
+      <title>Configure workspace for Sysdig Workshop</title>
+      <link>//localhost:1313/10_prerequisites/15_workspace_setup/23_cloud.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/20_workshop_setup/23_cloud.html</guid>
+      <guid>//localhost:1313/10_prerequisites/15_workspace_setup/23_cloud.html</guid>
       <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
   Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   Let&amp;rsquo;s run the command below, the following actions will take place as we do that:</description>
-    </item>
-    
-    <item>
-      <title>Setup CloudTrail Runtime Security</title>
-      <link>//localhost:1313/20_workshop_setup/24_setup_cloudtrail.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/20_workshop_setup/24_setup_cloudtrail.html</guid>
-      <description>We will be looking at CloudTrail runtime security in module 3 of this workshop. However, the CloudFormation template required can take up to ten minutes to deploy. So, we will start the deployment now, and it should be complete later when we need it.
-There are two steps required to enable CloudTrail runtime security:
- Firstly, you must enable AWS Security Hub in the account, then Deploy the Sysdig CloudConnector CloudFormation template.</description>
     </item>
     
     <item>
@@ -152,7 +154,7 @@ There are two steps required to enable CloudTrail runtime security:
  Log into your Cloud9 Workspace
  Run the following commands, naming it as appropriate
   aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true  The output will be as follows
-{ &amp;quot;repository&amp;quot;: { &amp;quot;repositoryArn&amp;quot;: &amp;quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;quot;, &amp;quot;registryId&amp;quot;: &amp;quot;845151661675&amp;quot;, &amp;quot;repositoryName&amp;quot;: &amp;quot;aws-workshop&amp;quot;, &amp;quot;repositoryUri&amp;quot;: &amp;quot;845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop&amp;quot;, &amp;quot;createdAt&amp;quot;: 1602848100.0, &amp;quot;imageTagMutability&amp;quot;: &amp;quot;MUTABLE&amp;quot;, &amp;quot;imageScanningConfiguration&amp;quot;: { &amp;quot;scanOnPush&amp;quot;: true }, &amp;quot;encryptionConfiguration&amp;quot;: { &amp;quot;encryptionType&amp;quot;: &amp;quot;AES256&amp;quot; } } }  Set up Credentials in Command line Docker Shortly you will use your Cloud9 Workspace to create and push a docker container to your new ECR Repository, however, before doing so you must configure docker&amp;rsquo;s access to the repository.</description>
+{ &amp;quot;repository&amp;quot;: { &amp;quot;repositoryArn&amp;quot;: &amp;quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;quot;, &amp;quot;registryId&amp;quot;: &amp;quot;845151661675&amp;quot;, &amp;quot;repositoryName&amp;quot;: &amp;quot;aws-workshop&amp;quot;, &amp;quot;repositoryUri&amp;quot;: &amp;quot;845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop&amp;quot;, &amp;quot;createdAt&amp;quot;: 1602848100.0, &amp;quot;imageTagMutability&amp;quot;: &amp;quot;MUTABLE&amp;quot;, &amp;quot;imageScanningConfiguration&amp;quot;: { &amp;quot;scanOnPush&amp;quot;: true }, &amp;quot;encryptionConfiguration&amp;quot;: { &amp;quot;encryptionType&amp;quot;: &amp;quot;AES256&amp;quot; } } }  You can view the repository in Amazon UI</description>
     </item>
     
     <item>
@@ -162,8 +164,9 @@ There are two steps required to enable CloudTrail runtime security:
       
       <guid>//localhost:1313/30_module_1/31_deploy_ecr_integration.html</guid>
       <description>This integration enables the Amazon Elastic Container Registry (ECR) to automatically trigger an action to scan every new container that is pushed into the registry.
- Log into your AWS Console and select &amp;lsquo;US East (N. Virginia) us-east-1&amp;rsquo; from the &amp;lsquo;Select a Region&amp;rsquo; dropdown on the top right. For the purposes of this exercise we will be using AWS Region us-east-1
- Navigate to this CloudFormation template.  Click Next.  For &amp;lsquo;ScanningType&amp;rsquo; make sure the default value of &amp;lsquo;Inline&amp;rsquo; is selected</description>
+ Log into your AWS Console and select &amp;lsquo;US East (N. Virginia) us-east-1&amp;rsquo; from the &amp;lsquo;Select a Region&amp;rsquo; dropdown on the top right.
+For the purposes of this exercise we will be using AWS Region us-east-1
+ Navigate to this CloudFormation template.  Click Next.  There are two items to update on this screen:</description>
     </item>
     
     <item>
@@ -175,7 +178,7 @@ There are two steps required to enable CloudTrail runtime security:
       <description>Download Example Dockerfile and Sources To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in their website.
  Go to your Cloud9 Workspace and download and uncompress example container files
 wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip unzip hello-world-node-vulnerable.zip cd hello-world-node-vulnerable/  And build and push the image to ECR
-export IMAGE=$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME docker build . -t $IMAGE docker push $IMAGE  Check that an image scan is automatically triggered  Once complete you will see that this image has some issues  As soon as the image finishes being pushed to the registry, a new Amazon CodeBuild pipeline will be automatically created that executes an image scan.</description>
+export IMAGE=$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME docker build . -t $IMAGE docker push $IMAGE  Check that an image scan is automatically triggered in Amazon ECR</description>
     </item>
     
     <item>
@@ -187,7 +190,7 @@ export IMAGE=$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME docker build .
       <description>For illustration purposes, let&amp;rsquo;s rebuild our image and make it more secure by starting with a different Base image. To do so:
  Go back into Cloud9 Workspace Edit the Dockerfile and in the first line update the base image from
 FROM node:12  to
-FROM bitnami/node:12`  The file should look like this
+FROM bitnami/node:12  The file should look like this
 FROM bitnami/node:12 # Create app directory WORKDIR /usr/src/app # Install app dependencies # A wildcard is used to ensure both package.</description>
     </item>
     
@@ -234,7 +237,10 @@ INFO[0000] Created cluster cluster=tutorial region=us-east-1 INFO[0000] Waiting 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/40_module_2/43_initiate_scan.html</guid>
-      <description>Now go to CodeBuild &amp;gt; Build projects and see the task in progress.  TRAINING NOTE: Recheck the following steps &amp;amp; screens in live environment - need to fix Cloud9 issues first</description>
+      <description>Now that a sample image has been deployed, the scanner should pick this up and scan it automatically
+ Now go to CodeBuild &amp;gt; Build projects and see the task progress.
+ Click on ECSInlineSecureScanning to drill down on it.
+   Click &amp;lsquo;Build run&amp;rsquo; link  </description>
     </item>
     
     <item>
@@ -245,7 +251,7 @@ INFO[0000] Created cluster cluster=tutorial region=us-east-1 INFO[0000] Waiting 
       <guid>//localhost:1313/40_module_2/44_sysdig_secure_dashboard.html</guid>
       <description>The beauty of the Amazon ECS Fargate with Sysdig is that you have a centralised location to report on your scanning results.
  Log into Sysdig Secure, and Browse to &amp;lsquo;Image Scanning &amp;gt; Scan Results&amp;rsquo;.
- You can drill into TRAINING NOTE: UPDATE INSTRUCTION WHEN GRABBING FINAL SCREENSHOT
+ You can drill into amazon/amazon-ecs-sample to see details results of the scan
   </description>
     </item>
     
@@ -277,8 +283,9 @@ INITIALS=&amp;lt;your initial&amp;gt; BUCKETNAME=$INITIALS-$(date +%s) aws s3api
       
       <guid>//localhost:1313/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html</guid>
       <description>You can check these events without leaving the AWS console. This is how findings reported by Sysdig Cloud Connector look in the AWS Security Hub:
- Browse to Security Hub and click &amp;lsquo;Findings&amp;rsquo; on the left.  The details of one of these findings provide all the information you need to take immediate action:
-And they appear in JSON format in AWS CloudWatch log streams:</description>
+ Browse to Security Hub and click &amp;lsquo;Findings&amp;rsquo; on the left.  Seems my Security Hub isn&amp;rsquo;t configured correctly. Getting error instead of above
+&amp;ldquo;CLOUDTRAIL_MULTI_REGION_NOT_PRESENT A multi-region CloudTrail trail with the required configuration does not exist in the account&amp;rdquo;
+  Click the details of one of these findings to view all the information you need to take immediate action:  And they appear in JSON format in AWS CloudWatch log streams:</description>
     </item>
     
     <item>
@@ -293,49 +300,16 @@ Let’s try first modifying a rule. The following rule checks if a resource is c
     </item>
     
     <item>
-      <title>Enable AWS Security Hub</title>
-      <link>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html</guid>
-      <description>TRAINING NOTE: Security Hub isn&amp;rsquo;t a Sysdig thing, so in the interests of making things shorter, can we remove the individual steps/screenshots and replace them with this single command?
-To enable AWS Security Hub:
- Log into your Cloud9 Workspace
- Run the following command
-  aws securityhub enable-security-hub --enable-default-standards  TRAINING NOTE: MAKE A GIF OF THIS STEPS!!! having all the pictures here adds little extra info but takes a lot of scrolling</description>
-    </item>
-    
-    <item>
       <title>Installing the CloudConnector</title>
-      <link>//localhost:1313/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html</link>
+      <link>//localhost:1313/25_module_3_prework/241_enable_aws_security_hub.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>//localhost:1313/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html</guid>
+      <guid>//localhost:1313/25_module_3_prework/241_enable_aws_security_hub.html</guid>
       <description>Step 1. Enable AWS Security Hub To enable AWS Security Hub:
  Log into your Cloud9 Workspace
  Run the following command
 aws securityhub enable-security-hub --enable-default-standards  Log into your AWS account with your browser then browse to AWS Security Hub.
    You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made.</description>
-    </item>
-    
-    <item>
-      <title>Installing the CloudConnector</title>
-      <link>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html</guid>
-      <description>Steps To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:
- Navigate to the CloudFormation template for Sysdig Cloud Connector deployment template. The template will preview in CloudFormation.  On the “Create stack” section, click the &amp;lsquo;Next&amp;rsquo; button to start setting up the template.  The “Specify stack details” section has no parameters for you to configure, so you can just press the Next button.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>//localhost:1313/25_setup_cloudtrail_integration/__242_install_cloudconnector.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>//localhost:1313/25_setup_cloudtrail_integration/__242_install_cloudconnector.html</guid>
-      <description>Installing the CloudConnector To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:
- Navigate to the CloudFormation template for Sysdig Cloud Connector deployment template. The template will preview in CloudFormation.  On the “Create stack” section, click the &amp;lsquo;Next&amp;rsquo; button to start setting up the template.  The “Specify stack details” section has no parameters for you to configure, so you can just press the Next button.</description>
     </item>
     
   </channel>

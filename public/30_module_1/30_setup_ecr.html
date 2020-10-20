@@ -12,20 +12,20 @@
     <title>Setup Amazon ECR Registry :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603119847" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603119847" rel="stylesheet">
-    <link href="/css/hybrid.css?1603119847" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603119847" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603119847" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603119847" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603119847" rel="stylesheet">
-    <link href="/css/theme.css?1603119847" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603119847" rel="stylesheet">
+    <link href="/css/nucleus.css?1603196093" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603196093" rel="stylesheet">
+    <link href="/css/hybrid.css?1603196093" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603196093" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603196093" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603196093" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603196093" rel="stylesheet">
+    <link href="/css/theme.css?1603196093" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603196093" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603119847" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603196093" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603119847"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603196093"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603119847"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603119847"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603196093"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603196093"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603119847"></script>
+<script type="text/javascript" src="/js/search.js?1603196093"></script>
 
     
   </div>
@@ -159,8 +159,27 @@
  
   
     
-      <li data-nav-id="/00_introduction/04_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item ">
-        <a href="/00_introduction/04_infra_runtime_sec.html">
+      <li data-nav-id="/00_introduction/04_inline_scanning.html" title="Inline Scanning" class="dd-item ">
+        <a href="/00_introduction/04_inline_scanning.html">
+        Inline Scanning
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/00_introduction/05_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item ">
+        <a href="/00_introduction/05_infra_runtime_sec.html">
         Infrastructure Runtime Security
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -178,8 +197,8 @@
  
   
     
-      <li data-nav-id="/00_introduction/05_fargate_ecs_sec.html" title="AWS Fargate and ECS Security" class="dd-item ">
-        <a href="/00_introduction/05_fargate_ecs_sec.html">
+      <li data-nav-id="/00_introduction/06_fargate_ecs_sec.html" title="AWS Fargate and ECS Security" class="dd-item ">
+        <a href="/00_introduction/06_fargate_ecs_sec.html">
         AWS Fargate and ECS Security
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -233,9 +252,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/11_sysdig.html" title="Sign-up for a Sysdig Trial account" class="dd-item ">
+      <li data-nav-id="/10_prerequisites/11_sysdig.html" title="1. Sign-up for a Sysdig Trial account" class="dd-item ">
         <a href="/10_prerequisites/11_sysdig.html">
-        Sign-up for a Sysdig Trial account
+        1. Sign-up for a Sysdig Trial account
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -252,9 +271,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="Start the Workshop..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        Start the Workshop...
+        2. Workshop AWS Environment...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -309,35 +328,6 @@
           
       </a>
       
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/10_prerequisites/14_self_paced/account.html" title="Create an AWS account" class="dd-item ">
-        <a href="/10_prerequisites/14_self_paced/account.html">
-        Create an AWS account
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -345,42 +335,6 @@
 
             
           
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/20_workshop_setup.html" title="Workshop Setup" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/20_workshop_setup.html">
-          Workshop Setup
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
             
             
 
@@ -388,9 +342,9 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/20_cloud9.html" title="Cloud9" class="dd-item ">
-        <a href="/20_workshop_setup/20_cloud9.html">
-        Cloud9
+      <li data-nav-id="/10_prerequisites/16_start_cloud9workspace.html" title="3. Launch Cloud9 IDE Workspace" class="dd-item ">
+        <a href="/10_prerequisites/16_start_cloud9workspace.html">
+        3. Launch Cloud9 IDE Workspace
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -407,8 +361,27 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/21_iamrole.html" title="Create an IAM role for your workspace" class="dd-item ">
-        <a href="/20_workshop_setup/21_iamrole.html">
+      <li data-nav-id="/10_prerequisites/15_workspace_setup/20_cloud9.html" title="Create a new Cloud9 IDE environment" class="dd-item ">
+        <a href="/10_prerequisites/15_workspace_setup/20_cloud9.html">
+        Create a new Cloud9 IDE environment
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/10_prerequisites/15_workspace_setup/21_iamrole.html" title="Create an IAM role for your workspace" class="dd-item ">
+        <a href="/10_prerequisites/15_workspace_setup/21_iamrole.html">
         Create an IAM role for your workspace
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -426,8 +399,8 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
-        <a href="/20_workshop_setup/22_workspaceiam.html">
+      <li data-nav-id="/10_prerequisites/15_workspace_setup/22_workspaceiam.html" title="Attach the IAM role to your Workspace" class="dd-item ">
+        <a href="/10_prerequisites/15_workspace_setup/22_workspaceiam.html">
         Attach the IAM role to your Workspace
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -445,9 +418,9 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/23_cloud.html" title="Update IAM settings for your Workspace" class="dd-item ">
-        <a href="/20_workshop_setup/23_cloud.html">
-        Update IAM settings for your Workspace
+      <li data-nav-id="/10_prerequisites/15_workspace_setup/23_cloud.html" title="Configure workspace for Sysdig Workshop" class="dd-item ">
+        <a href="/10_prerequisites/15_workspace_setup/23_cloud.html">
+        Configure workspace for Sysdig Workshop
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -457,39 +430,27 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail.html">
-        Setup CloudTrail Runtime Security
-        <i class="fas fa-check read-icon"></i>
-        </a>
+        
+        </ul>
+              
     </li>
-     
   
  
 
-            
           
-            
-            
+          
 
 
  
   
     
-    <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail.html" title="Setup CloudTrail Runtime Security" class="dd-item 
+    <li data-nav-id="/25_module_3_prework.html" title="Module 3 Prework" class="dd-item 
         
         
         
         ">
-      <a href="/20_workshop_setup/24_setup_cloudtrail.html">
-          Setup CloudTrail Runtime Security
+      <a href="/25_module_3_prework.html">
+          Module 3 Prework
           
             <i class="fas fa-check read-icon"></i>
           
@@ -510,27 +471,8 @@
  
   
     
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html" title="Enable AWS Security Hub" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail/241_enable_aws_security_hub.html">
-        Enable AWS Security Hub
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html" title="Installing the CloudConnector" class="dd-item ">
-        <a href="/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html">
+      <li data-nav-id="/25_module_3_prework/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
+        <a href="/25_module_3_prework/241_enable_aws_security_hub.html">
         Installing the CloudConnector
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -548,15 +490,6 @@
   
  
 
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
           
           
 
@@ -564,85 +497,13 @@
  
   
     
-    <li data-nav-id="/25_setup_cloudtrail_integration.html" title="Module 3 Prework: Setup CloudTrail Runtime Security" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/25_setup_cloudtrail_integration.html">
-          Module 3 Prework: Setup CloudTrail Runtime Security
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
-        <a href="/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html">
-        Installing the CloudConnector
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html" title="" class="dd-item ">
-        <a href="/25_setup_cloudtrail_integration/__242_install_cloudconnector.html">
-        
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/30_module_1.html" title="Module 1: Amazon ECR Image Scanning" class="dd-item 
+    <li data-nav-id="/30_module_1.html" title="Module 1" class="dd-item 
         parent
         
         
         ">
       <a href="/30_module_1.html">
-          Module 1: Amazon ECR Image Scanning
+          Module 1
           
             <i class="fas fa-check read-icon"></i>
           
@@ -746,13 +607,13 @@
  
   
     
-    <li data-nav-id="/40_module_2.html" title="Module 2: Fargate automatic image scanning" class="dd-item 
+    <li data-nav-id="/40_module_2.html" title="Module 2" class="dd-item 
         
         
         
         ">
       <a href="/40_module_2.html">
-          Module 2: Fargate automatic image scanning
+          Module 2
           
             <i class="fas fa-check read-icon"></i>
           
@@ -875,13 +736,13 @@
  
   
     
-    <li data-nav-id="/50_module_3.html" title="Module 3: CloudTrail Runtime Security" class="dd-item 
+    <li data-nav-id="/50_module_3.html" title="Module 3" class="dd-item 
         
         
         
         ">
       <a href="/50_module_3.html">
-          Module 3: CloudTrail Runtime Security
+          Module 3
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1120,7 +981,7 @@
             
           
           
-            <a href='/'>Main Page</a> > <a href='/30_module_1.html'>Module 1: Amazon ECR Image Scanning</a> > Setup Amazon ECR Registry
+            <a href='/'>Main Page</a> > <a href='/30_module_1.html'>Module 1</a> > Setup Amazon ECR Registry
           
          
           
@@ -1199,6 +1060,10 @@
     }
 }
 </code></pre>
+
+<p>You can view the repository in <a href="https://console.aws.amazon.com/ecr/repositories?region=us-east-1">Amazon UI</a></p>
+
+<p><img src="/images/30_module_1/Amazon_ECR.png" alt="ECR" /></p>
 
 <!--
 **TRAINING NOTE: Can we remove this UI method below?**
@@ -1380,24 +1245,6 @@ Login Succeeded
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
                         
             
             
@@ -1410,70 +1257,6 @@ Login Succeeded
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
             
         
@@ -1589,6 +1372,25 @@ Login Succeeded
                     
 
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -1624,9 +1426,6 @@ Login Succeeded
             
         
                     
-            
-        
-                    
                         
             
             
@@ -1639,22 +1438,6 @@ Login Succeeded
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1976,7 +1759,7 @@ Login Succeeded
 	 
 	 
 		
-			<a class="nav nav-prev" href="/30_module_1.html" title="Module 1: Amazon ECR Image Scanning"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/30_module_1.html" title="Module 1"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/30_module_1/31_deploy_ecr_integration.html" title="Deploy the Amazon ECR Integration" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1989,19 +1772,19 @@ Login Succeeded
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603119847"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603119847"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603119847"></script>
-    <script src="/js/jquery.sticky.js?1603119847"></script>
-    <script src="/js/featherlight.min.js?1603119847"></script>
-    <script src="/js/highlight.pack.js?1603119847"></script>
+    <script src="/js/clipboard.min.js?1603196093"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603196093"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603196093"></script>
+    <script src="/js/jquery.sticky.js?1603196093"></script>
+    <script src="/js/featherlight.min.js?1603196093"></script>
+    <script src="/js/highlight.pack.js?1603196093"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603119847"></script>
-    <script src="/js/learn.js?1603119847"></script>
-    <script src="/js/hugo-learn.js?1603119847"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603196093"></script>
+    <script src="/js/learn.js?1603196093"></script>
+    <script src="/js/hugo-learn.js?1603196093"></script>
 
-    <link href="/mermaid/mermaid.css?1603119847" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603119847"></script>
+    <link href="/mermaid/mermaid.css?1603196093" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603196093"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

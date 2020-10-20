@@ -1,5 +1,5 @@
 +++
-title = "Module 2: Fargate automatic image scanning"
+title = "Module 2"
 chapter = true
 weight = 40
 +++

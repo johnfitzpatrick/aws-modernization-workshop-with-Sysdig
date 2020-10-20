@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Module 2: Fargate automatic image scanning on AWS Modernization Workshop with Sysdig</title>
+    <title>Module 2 on AWS Modernization Workshop with Sysdig</title>
     <link>//localhost:1313/40_module_2.html</link>
-    <description>Recent content in Module 2: Fargate automatic image scanning on AWS Modernization Workshop with Sysdig</description>
+    <description>Recent content in Module 2 on AWS Modernization Workshop with Sysdig</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     
@@ -53,7 +53,10 @@ INFO[0000] Created cluster cluster=tutorial region=us-east-1 INFO[0000] Waiting 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/40_module_2/43_initiate_scan.html</guid>
-      <description>Now go to CodeBuild &amp;gt; Build projects and see the task in progress.  TRAINING NOTE: Recheck the following steps &amp;amp; screens in live environment - need to fix Cloud9 issues first</description>
+      <description>Now that a sample image has been deployed, the scanner should pick this up and scan it automatically
+ Now go to CodeBuild &amp;gt; Build projects and see the task progress.
+ Click on ECSInlineSecureScanning to drill down on it.
+   Click &amp;lsquo;Build run&amp;rsquo; link  </description>
     </item>
     
     <item>
@@ -64,7 +67,7 @@ INFO[0000] Created cluster cluster=tutorial region=us-east-1 INFO[0000] Waiting 
       <guid>//localhost:1313/40_module_2/44_sysdig_secure_dashboard.html</guid>
       <description>The beauty of the Amazon ECS Fargate with Sysdig is that you have a centralised location to report on your scanning results.
  Log into Sysdig Secure, and Browse to &amp;lsquo;Image Scanning &amp;gt; Scan Results&amp;rsquo;.
- You can drill into TRAINING NOTE: UPDATE INSTRUCTION WHEN GRABBING FINAL SCREENSHOT
+ You can drill into amazon/amazon-ecs-sample to see details results of the scan
   </description>
     </item>
     

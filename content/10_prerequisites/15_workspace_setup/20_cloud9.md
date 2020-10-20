@@ -1,12 +1,8 @@
 ﻿---
-title: "Cloud9"
+title: "Create a new Cloud9 IDE environment"
 chapter: false
 weight: 20
 ---
-
-[AWS Cloud9](https://aws.amazon.com/cloud9/) is a cloud-based integrated development environment (IDE) that Let’s you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.
-
-### Add a new Cloud9 IDE environment
 
 1 . Within the AWS console, use the region drop list to select **us-east-1 (N. Virginia)**.  This will ensure the workshop script provisions the resources in this same region..
 
@@ -23,8 +19,11 @@ weight: 20
 4 . For the name use `sysdig-workshop`
 
 
-5 . Select Other instance type and choose t3.medium
+5 . Select the default instance type `t2.medium`
 
+<!-- **TRAINING NOTE: Need to change this to one w/ more space!!!**
+**Seeing this creating a Docker container later "failed to register layer: Error processing tar file(exit status 1): write /usr/lib/x86_64-linux-gnu/perl/5.28.1/auto/Unicode/Collate/Collate.so: no space left on device"**
+ -->
 
 6 . Leave all the other settings as default
 

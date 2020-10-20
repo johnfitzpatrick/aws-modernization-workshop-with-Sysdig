@@ -1,5 +1,5 @@
 ---
-title: "Start the Workshop..."
+title: "2. Workshop AWS Environment..."
 chapter: true
 weight: 11
 ---
