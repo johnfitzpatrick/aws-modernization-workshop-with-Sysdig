@@ -22,7 +22,7 @@
     </item>
     
     <item>
-      <title>2. Start the Workshop...</title>
+      <title>2. Workshop AWS Environment...</title>
       <link>//localhost:1313/10_prerequisites/12_start_workshop.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -51,7 +51,7 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
 2 . Navigate to the cloud9 console or just search for it under the AWS console services menu.
 3 . Click the Create environment button
 4 . For the name use sysdig-workshop
-5 . Select the default instance type t2.micro</description>
+5 . Select the default instance type t2.medium</description>
     </item>
     
     <item>
@@ -70,7 +70,9 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html</guid>
-      <description>Follow this deep link to find your Cloud9 EC2 instance Select the instance, then choose Actions / Instance Settings /Modify IAM Role  Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Apply  https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime</description>
+      <description>Follow this deep link to find your Cloud9 EC2 instance  TrainingNote Fix this deep link!
+ Select the instance, then choose Actions / Instance Settings / Modify IAM role  Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Apply
+  https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime</description>
     </item>
     
     <item>

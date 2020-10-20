@@ -9,23 +9,23 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Module 2 :: AWS Modernization Workshop with Sysdig</title>
+    <title>Infrastructure Runtime Security :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603187579" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603187579" rel="stylesheet">
-    <link href="/css/hybrid.css?1603187579" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603187579" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603187579" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603187579" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603187579" rel="stylesheet">
-    <link href="/css/theme.css?1603187579" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603187579" rel="stylesheet">
+    <link href="/css/nucleus.css?1603188786" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603188786" rel="stylesheet">
+    <link href="/css/hybrid.css?1603188786" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603188786" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603188786" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603188786" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603188786" rel="stylesheet">
+    <link href="/css/theme.css?1603188786" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603188786" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603187579" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603188786" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603187579"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603188786"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/40_module_2.html">
+  <body class="" data-url="/00_introduction/05_infra_runtime_sec.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603187579"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603187579"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603188786"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603188786"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603187579"></script>
+<script type="text/javascript" src="/js/search.js?1603188786"></script>
 
     
   </div>
@@ -76,7 +76,7 @@
   
     
     <li data-nav-id="/00_introduction.html" title="Introduction" class="dd-item 
-        
+        parent
         
         
         ">
@@ -178,7 +178,7 @@
  
   
     
-      <li data-nav-id="/00_introduction/05_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item ">
+      <li data-nav-id="/00_introduction/05_infra_runtime_sec.html" title="Infrastructure Runtime Security" class="dd-item active">
         <a href="/00_introduction/05_infra_runtime_sec.html">
         Infrastructure Runtime Security
         <i class="fas fa-check read-icon"></i>
@@ -271,9 +271,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Start the Workshop..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        2. Start the Workshop...
+        2. Workshop AWS Environment...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -608,8 +608,8 @@
   
     
     <li data-nav-id="/40_module_2.html" title="Module 2" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/40_module_2.html">
@@ -950,7 +950,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/40_module_2/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/00_introduction/05_infra_runtime_sec.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -965,6 +965,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -975,7 +977,13 @@
             
           
           
-            <a href='/'>Main Page</a> > Module 2
+            
+            
+          
+          
+            <a href='/'>Main Page</a> > <a href='/00_introduction.html'>Introduction</a> > Infrastructure Runtime Security
+          
+         
           
          
           
@@ -984,6 +992,13 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -991,56 +1006,29 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Infrastructure Runtime Security
+            </h1>
           
 
         
 
 
 
+<p>In the same way image scanning gives you visibility of vulnerabilities and threats pertaining specifically to an application&rsquo;s containers, infrastructure scanning gives visibility of potential issues emanating from the environment on which these containers run.</p>
 
-	
+<p>AWS provides a rich environment upon which to base your application, but it&rsquo;s not without its risks.  There are many places where bad actors can create harm, for example exposing data by making S3 buckets public, deleting bucket encryption, disabling MFA for an account, adding/removing IAM policies.</p>
 
-<h1 id="module-2-fargate-automatic-image-scanning">Module 2: Fargate automatic image scanning</h1>
-
-<h2 id="module-overview">Module Overview</h2>
-
-<p>Amazon Fargate is a serverless compute engine for containers that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). It allocates the correct amount of compute resources, eliminating the need to choose instance types and scaling cluster capacity. With Fargate, you pay for the minimum resources required to run your containers.  Sysdig provides the ability to scan running Fargate services for known issues, in a similar manner to how it scans Amazon ECR.</p>
-
-<p>In this lab we will</p>
-
-<ol>
-<li>Install Amazon ECS CLI</li>
-<li>Deploy Sysdig Secure automatic image scanner for Fargate</li>
-<li>Deploy an ECS cluster using Fargate</li>
-<li>See that CodeBuild pipelines are automatically created to scan them</li>
-<li>See scan results on Sysdig Secure dashboard</li>
-</ol>
-
-<h2 id="reference-architecture">Reference Architecture</h2>
-
-<p>Any <strong>deploy command</strong> directed at ECS Fargate will trigger an <strong>image scanning</strong> event. In particular the deploy command is detected by Amazon EventBridge, which will trigger a CodeBuild pipeline via an AWS Lambda function. It is within this CodeBuild pipeline that the image scanning runs. This is very similar workflow to how we seen earlier with Amazon ECR scanning.</p>
-
-<p><img src="/images/40_module_2/image2.png" alt="Reference Architecture" title="image_tooltip" /></p>
-
-<p>The Sysdig inline image scanner will inspect the image to be deployed and will send its metadata to the Sysdig backend. The actual image contents won&rsquo;t leave the CodeBuild pipeline.</p>
-
-<p><img src="/images/40_module_2/image13.png" alt="alt_text" title="image_tooltip" /></p>
-
-<p>The Sysdig backend then <strong>evaluates</strong> the container metadata against your security policies. It will generate a <strong>scan report</strong> if the image doesn&rsquo;t pass your security requirements, so you can <strong>take action</strong>.</p>
+<p>Falco is an open source threat detection language that is widely used to detect and alert on runtime abnormalities.  This tool can also be used to detect changes within the AWS environment.</p>
 
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -1152,55 +1140,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1218,6 +1157,9 @@
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -1228,6 +1170,24 @@
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
                     
                         
             
@@ -1341,86 +1301,6 @@
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -1461,6 +1341,37 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1475,8 +1386,85 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1677,10 +1665,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/30_module_1/33_image_rescan.html" title="Modify the image and trigger a second scan"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/00_introduction/04_inline_scanning.html" title="Inline Scanning"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/40_module_2/40_install_amazon_ecs_cli.html" title="Install Amazon ECS CLI" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/00_introduction/06_fargate_ecs_sec.html" title="AWS Fargate and ECS Security" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1690,19 +1678,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603187579"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603187579"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603187579"></script>
-    <script src="/js/jquery.sticky.js?1603187579"></script>
-    <script src="/js/featherlight.min.js?1603187579"></script>
-    <script src="/js/highlight.pack.js?1603187579"></script>
+    <script src="/js/clipboard.min.js?1603188786"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603188786"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603188786"></script>
+    <script src="/js/jquery.sticky.js?1603188786"></script>
+    <script src="/js/featherlight.min.js?1603188786"></script>
+    <script src="/js/highlight.pack.js?1603188786"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603187579"></script>
-    <script src="/js/learn.js?1603187579"></script>
-    <script src="/js/hugo-learn.js?1603187579"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603188786"></script>
+    <script src="/js/learn.js?1603188786"></script>
+    <script src="/js/hugo-learn.js?1603188786"></script>
 
-    <link href="/mermaid/mermaid.css?1603187579" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603187579"></script>
+    <link href="/mermaid/mermaid.css?1603188786" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603188786"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
@@ -1710,3 +1698,4 @@
 
   <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
 </html>
+

@@ -1,6 +1,6 @@
 ---
 title: "3. Launch Cloud9 IDE Workspace"
-chapter: true
+chapter: false
 weight: 16
 ---
 

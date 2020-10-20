@@ -107,7 +107,11 @@ The following action stops the Cloud9 Workspace you are working on.
     aws cloud9 delete-environment --environment-id $(aws cloud9 list-environments | jq '.environmentIds[]' | xargs)
     ```
 
-**The S3 bucket 'cf-templates-t7cnkhhb1d0p-us-east-1' still exists in the account - that cool?**
+ - Remove IAM Role `Sysdig-Workshop-Admin` used for Cloud9 Workspace
+
+**TrainingNote** ToDo
+
+**TrainingNote** The S3 bucket 'cf-templates-t7cnkhhb1d0p-us-east-1' still exists in the account - that cool?
 
 <!-- ___
 

@@ -19,15 +19,19 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/00_introduction/04_infra_runtime_sec.html</loc>
+    <loc>//localhost:1313/00_introduction/04_inline_scanning.html</loc>
   </url>
   
   <url>
-    <loc>//localhost:1313/00_introduction/05_fargate_ecs_sec.html</loc>
+    <loc>//localhost:1313/00_introduction/05_infra_runtime_sec.html</loc>
   </url>
   
   <url>
     <loc>//localhost:1313/00_introduction.html</loc>
+  </url>
+  
+  <url>
+    <loc>//localhost:1313/00_introduction/06_fargate_ecs_sec.html</loc>
   </url>
   
   <url>
