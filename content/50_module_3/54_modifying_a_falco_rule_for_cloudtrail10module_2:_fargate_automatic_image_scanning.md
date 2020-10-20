@@ -33,22 +33,20 @@ _[Include here instructions on how to download and update rules files when that 
 
 1. For the *disallowed_aws_regions* list, edit the items to include **us-west-1** and **us-west-2**:
 
-    ```
-    -- list: disallowed_aws_regions
-      items: [us-west-1, us-west-2]
-    ```
+```
+- list: disallowed_aws_regions
+  items: [us-west-1, us-west-2]
+```
 
-    **DEV NOTE** How do I escape '-' within ```? Parser renders it as a html list, so added '--'
 
-    _[Instructions to update and reload rules]_
+_[Instructions to update and reload rules]_
 
 2. Now we create a new log group on **us-west-2**
 
-    ```
-    aws logs create-log-group --log-group-name "test_unused_region" --region="us-west-2"
+```
+aws logs create-log-group --log-group-name "test_unused_region" --region="us-west-2"
     ```
 
-
-    CloudTrail takes up to 10 minutes to provide the events. When the event is available, Cloud Connector will trigger the rule and we will see a new security finding appear in AWS Security Hub.
+CloudTrail takes up to 10 minutes to provide the events. When the event is available, Cloud Connector will trigger the rule and we will see a new security finding appear in AWS Security Hub.
 
 _[Introduce screenshots when rule update process is available]_
