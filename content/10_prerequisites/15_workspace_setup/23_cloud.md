@@ -9,27 +9,12 @@ Cloud9 normally manages IAM credentials dynamically. This isn't currently compat
 the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
 {{% /notice %}}
 
-- Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose "Open Preferences"
-- Select **AWS SETTINGS**
-- Turn off **AWS managed temporary credentials**
-- Close the Preferences tab
-![c9disableiam](/images/c9disableiam.png)
+1. Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose "Open Preferences"
+2. Select **AWS SETTINGS** and turn off **AWS managed temporary credentials**
+3. Close the Preferences tab
+4. And copy and run (paste with **Ctrl+P**) the command below. Before running it, review what it does at the end of this step.
 
-
-
-Let's run the command below, the following actions will take place as we do that:
-
-:small_blue_diamond: Install jq- jq is a command-line tool for parsing JSON
-
-:small_blue_diamond: Ensure temporary credentials aren’t already in place.
-
-:small_blue_diamond: Remove any existing credentials file.
-
-:small_blue_diamond: Set the region to work with our desired region.
-
-:small_blue_diamond: Validate that our IAM role is valid.
-
-:small_blue_diamond: Copy a script into place for use later in the workshop.
+<img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" >
 
 ```sh
 sudo yum -y install jq
@@ -46,5 +31,21 @@ curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e144238
 chmod +x deploy-amazon-ecs-sample.sh
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q && echo "IAM role valid" || echo "IAM role NOT valid"
 ```
-
+{{% notice warning %}}
 If the IAM role is not valid, <span style="color: red;">**DO NOT PROCEED**</span>. Go back and confirm the steps on this page.
+{{% /notice %}}
+
+### Explanation of the commands:
+
+Actions executed:
+:small_blue_diamond: Install jq- jq is a command-line tool for parsing JSON
+
+:small_blue_diamond: Ensure temporary credentials aren’t already in place.
+
+:small_blue_diamond: Remove any existing credentials file.
+
+:small_blue_diamond: Set the region to work with our desired region.
+
+:small_blue_diamond: Validate that our IAM role is valid.
+
+:small_blue_diamond: Copy a script into place for use later in the workshop.

@@ -4,14 +4,11 @@ chapter: false
 weight: 22
 ---
 
-1. Follow [this deep link to find your Cloud9 EC2 instance](https://console.aws.amazon.com/ec2/v2/home?#Instances:tag:Name=aws-cloud9-.*workshop.*;sort=desc:launchTime)
+1. Follow [this deep link to find your Cloud9 EC2 instance](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:search=aws-cloud9-sysdig;sort=desc:launchTime)
 
-**TrainingNote** Fix this deep link!
+2. Select the instance, then choose **Actions / Instance Settings / Modify IAM role**
 
-1. Select the instance, then choose **Actions / Instance Settings / Modify IAM role**
-![c9instancerole](/images/c9instancerole.png)
+3. Choose **Sysdig-Workshop-Admin** from the **IAM Role** drop down, and select **Save**
 
-1. Choose **Sysdig-Workshop-Admin** from the **IAM Role** drop down, and select **Apply**
+<img src=/images/10_prerequisites/iamRoleAttach.gif width="75%" height="57%">
 
-![c9attachrole](/images/c9attachrole.png)
-https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime

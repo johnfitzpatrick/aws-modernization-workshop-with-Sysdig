@@ -6,20 +6,13 @@ weight: 20
 
 1 . Within the AWS console, use the region drop list to select **us-east-1 (N. Virginia)**.  This will ensure the workshop script provisions the resources in this same region..
 
-![image](/images/aws-pick-region.png)
-
 2 . Navigate to the [cloud9 console](https://console.aws.amazon.com/cloud9/home) or just search for it under the **AWS console services** menu.
 
-![image](/images/c9-search.png)
-
-3 . Click the `Create environment` button
-
-![image](/images/c9-create.png)
+3 . Click the **Create environment** button
 
 4 . For the name use `sysdig-workshop`
 
-
-5 . Select the default instance type `t2.medium`
+5 . Select the default instance type **t2.medium**
 
 <!-- **TRAINING NOTE: Need to change this to one w/ more space!!!**
 **Seeing this creating a Docker container later "failed to register layer: Error processing tar file(exit status 1): write /usr/lib/x86_64-linux-gnu/perl/5.28.1/auto/Unicode/Collate/Collate.so: no space left on device"**
@@ -27,7 +20,8 @@ weight: 20
 
 6 . Leave all the other settings as default
 
-![image](/images/c9-settings.png)
+<!-- ![Deploy Cloud9](/images/10_prerequisites/cloud9.gif) -->
+<img src=/images/10_prerequisites/cloud9.gif width="75%" height="57%">
 
 {{% notice info %}}
 This will take about 1-2 minutes to provision
@@ -43,11 +37,9 @@ When the environment comes up, customize the environment by:
 
 3 . Open a new **terminal** tab in the main work area.
 
-![c9before](/images/c9before.png)
+4 . Hide the left hand environment explorer by clicking on the left side **environment** tab.
 
-Your workspace should now look like this and can hide the left hand environment explorer by clicking on the left side **environment** tab.
-
-![c9after](/images/c9after.png)
+<img src=/images/10_prerequisites/cloud9config.gif width="75%" height="57%">
 
 {{% notice tip %}}
 If you don't like this dark theme, you can change it from the **View / Themes** Cloud9 workspace menu.
