@@ -12,20 +12,20 @@
     <title>Cleanup :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603214715" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603214715" rel="stylesheet">
+    <link href="/css/hybrid.css?1603214715" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603214715" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603214715" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603214715" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603214715" rel="stylesheet">
+    <link href="/css/theme.css?1603214715" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603214715" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603214715" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603214715"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603214715"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603214715"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603214715"></script>
 
     
   </div>
@@ -1024,7 +1024,7 @@
 <ul>
 <li><p>Remove <code>ecsTaskExecutionRole</code></p>
 
-<pre><code>aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::168110711348:role/ecsTaskExecutionRole --region us-east-1
+<pre><code>aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
 
 aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
 </code></pre></li>
@@ -1051,10 +1051,11 @@ aws cloudformation delete-stack --stack-name &quot;$stack&quot;
 </code></pre></li>
 </ul>
 
-<p><strong>TrainingNote</strong> Undo this</p>
-
-<pre><code>ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile
-</code></pre>
+<!-- **TrainingNote** Undo this
+```
+aws ecs delete-cluster
+ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile
+``` -->
 
 <!-- ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
 ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile -->
@@ -1063,17 +1064,20 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
 <li><p>Remove Image Scanner Integration for Fargate</p>
 
 <pre><code>aws cloudformation delete-stack --stack-name ECSImageScanning
+
+aws cloudformation delete-stack --stack-name amazon-ecs-cli-setup-tutorial
 </code></pre></li>
-
-<li><p>Unattach the task execution role policy &amp; delete role:</p>
-
-<pre><code>aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
-
-aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
-</code></pre>
-
-<p><strong>TrainingNote when running &lsquo;./deploy-amazon-ecs-sample.sh&rsquo; - &lsquo;WARN[0000] Failed to create log group tutorial in us-east-1: The specified log group already exists&rsquo; - remove this</strong></p></li>
 </ul>
+
+<!-- - Unattach the task execution role policy & delete role:
+
+    ```
+    aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
+
+    aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
+    ``` -->
+
+<p><strong>TrainingNote when running &lsquo;./deploy-amazon-ecs-sample.sh&rsquo; - &lsquo;WARN[0000] Failed to create log group tutorial in us-east-1: The specified log group already exists&rsquo; - remove this</strong></p>
 
 <h4 id="module-1">Module 1</h4>
 
@@ -1094,18 +1098,42 @@ aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
 <li><p>Remove Amazon ECR Registry</p>
 
 <pre><code>aws ecr delete-repository --repository-name aws-workshop --force
+
+aws cloudformation delete-stack --stack-name ECRImageScanning
+
 </code></pre></li>
 </ul>
 
 <h4 id="introduction">Introduction</h4>
 
 <ul>
-<li><p>Installing the CloudConnector CloudFormation Template</p>
+<li><p>These</p>
+
+<pre><code>aws s3 rm s3://cf-templates-t7cnkhhb1d0p-us-east-1 --recursive
+aws s3 rm s3://cloud-connector-ct-logs-b9261f40 --recursive
+
+aws s3api delete-bucket --bucket cloud-connector-ct-logs-b9261f40
+aws s3api delete-bucket --bucket cf-templates-t7cnkhhb1d0p-us-east-1
+
+</code></pre>
+
+<ul>
+<li>Remove CloudConnector ECS Cluster</li>
+</ul>
+
+<pre><code> aws ecs delete-cluster --cluster CloudConnector
+</code></pre>
+
+<ul>
+<li>Installing the CloudConnector CloudFormation Template</li>
+</ul>
 
 <pre><code>aws cloudformation delete-stack --stack-name CloudConnector
-</code></pre></li>
+</code></pre>
 
-<li><p>Disable Security Hub</p>
+<ul>
+<li>Disable Security Hub</li>
+</ul>
 
 <pre><code>aws securityhub disable-security-hub
 </code></pre></li>
@@ -1130,10 +1158,6 @@ Or this? -->
 
 <li><p>Remove IAM Role <code>Sysdig-Workshop-Admin</code> used for Cloud9 Workspace</p></li>
 </ul>
-
-<p><strong>TrainingNote</strong> ToDo</p>
-
-<p><strong>TrainingNote</strong> The S3 bucket &lsquo;cf-templates-t7cnkhhb1d0p-us-east-1&rsquo; still exists in the account - that cool?</p>
 
 <!-- ___
 
@@ -1821,19 +1845,19 @@ ____ -->
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603214715"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603214715"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603214715"></script>
+    <script src="/js/jquery.sticky.js?1603214715"></script>
+    <script src="/js/featherlight.min.js?1603214715"></script>
+    <script src="/js/highlight.pack.js?1603214715"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603214715"></script>
+    <script src="/js/learn.js?1603214715"></script>
+    <script src="/js/hugo-learn.js?1603214715"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603214715" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603214715"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

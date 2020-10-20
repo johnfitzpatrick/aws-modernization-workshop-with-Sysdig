@@ -22,7 +22,7 @@ weight = 70
 - Remove `ecsTaskExecutionRole`
 
     ```
-    aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::168110711348:role/ecsTaskExecutionRole --region us-east-1
+    aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
 
     aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
     ```
@@ -49,10 +49,11 @@ weight = 70
     aws cloudformation delete-stack --stack-name "$stack"
     ```
 
-**TrainingNote** Undo this
+<!-- **TrainingNote** Undo this
 ```
+aws ecs delete-cluster
 ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile
-```
+``` -->
 
 <!-- ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
 ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile -->
@@ -61,15 +62,17 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
 
     ```
     aws cloudformation delete-stack --stack-name ECSImageScanning
+
+    aws cloudformation delete-stack --stack-name amazon-ecs-cli-setup-tutorial
     ```
 
-- Unattach the task execution role policy & delete role:
+<!-- - Unattach the task execution role policy & delete role:
 
     ```
     aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
 
     aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
-    ```
+    ``` -->
 **TrainingNote when running './deploy-amazon-ecs-sample.sh' - 'WARN[0000] Failed to create log group tutorial in us-east-1: The specified log group already exists' - remove this**
 
 #### Module 1
@@ -91,10 +94,29 @@ https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml
 
     ```
     aws ecr delete-repository --repository-name aws-workshop --force
+
+    aws cloudformation delete-stack --stack-name ECRImageScanning
+
     ```
 
 
 #### Introduction
+- These
+
+    ```
+    aws s3 rm s3://cf-templates-t7cnkhhb1d0p-us-east-1 --recursive
+    aws s3 rm s3://cloud-connector-ct-logs-b9261f40 --recursive
+
+    aws s3api delete-bucket --bucket cloud-connector-ct-logs-b9261f40
+    aws s3api delete-bucket --bucket cf-templates-t7cnkhhb1d0p-us-east-1
+
+    ```
+  - Remove CloudConnector ECS Cluster
+
+     ```
+     aws ecs delete-cluster --cluster CloudConnector
+     ```
+
   - Installing the CloudConnector CloudFormation Template
 
     ```
@@ -106,6 +128,8 @@ https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml
     ```
     aws securityhub disable-security-hub
     ```
+
+
 
 {{% notice warning %}}
 The following action stops the Cloud9 Workspace you are working on.
@@ -125,9 +149,6 @@ The following action stops the Cloud9 Workspace you are working on.
 
  - Remove IAM Role `Sysdig-Workshop-Admin` used for Cloud9 Workspace
 
-**TrainingNote** ToDo
-
-**TrainingNote** The S3 bucket 'cf-templates-t7cnkhhb1d0p-us-east-1' still exists in the account - that cool?
 
 <!-- ___
 
