@@ -19,6 +19,13 @@ weight = 70
     ```
 
 #### Module 2
+- Remove `ecsTaskExecutionRole`
+
+    ```
+    aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::168110711348:role/ecsTaskExecutionRole --region us-east-1
+
+    aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
+    ```
 
 - Remove ECS Cluster
 
@@ -53,11 +60,10 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
 - Unattach the task execution role policy & delete role:
 
     ```
-    aws iam --region us-east-1 detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy
+    aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
 
     aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
     ```
-
 
 #### Module 1
 <!-- - Remove container image from Amazon ECR Registry
@@ -70,6 +76,9 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
     ```
     aws cloudformation delete-stack --stack-name ECSImageScanning
     ```
+**TrainingNote** Check This works. ECRImageScanning stack still in acconut
+https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml
+
 
 - Remove Amazon ECR Registry
 

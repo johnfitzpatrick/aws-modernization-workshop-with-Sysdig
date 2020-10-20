@@ -36,16 +36,18 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 	If you wish, you can check the CodeBuild pipeline status by visiting: [https://console.aws.amazon.com/codesuite/codebuild/projects](https://console.aws.amazon.com/codesuite/codebuild/projects) ![Stack details](/images/30_module_1/CodeBuild-InProgress.png)
 
+**TrainingNote - explanation here on this as phase one of the inline scan**
 
 Once it transitions to "Succeeded", click on "InlineSecure Scanning" build project. ![Build Complete](/images/30_module_1/CodeBuild-ScanComplete.png)
 
 
 ### See Scan Results on Sysdig Secure Dashboard
 
-**TRAINING NOTE: Instructions here on how to get to scan results and search the image**
+**TrainingNote - explanation here that the scan metada is passed to Sysdig for analysis**
 
+To see the scan results,
 
-1. Now log into the Sysdig Secure UI, and browse to 'Image Scanning > Scan Results'.
+1. Log into the Sysdig Secure UI, and browse to 'Image Scanning > Scan Results'.
 
 ![Sysdig Secure](/images/30_module_1/Sysdig_Secure01.png)
 

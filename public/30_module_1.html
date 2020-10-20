@@ -12,20 +12,20 @@
     <title>Module 1 :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603187579" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603187579" rel="stylesheet">
-    <link href="/css/hybrid.css?1603187579" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603187579" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603187579" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603187579" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603187579" rel="stylesheet">
-    <link href="/css/theme.css?1603187579" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603187579" rel="stylesheet">
+    <link href="/css/nucleus.css?1603196093" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603196093" rel="stylesheet">
+    <link href="/css/hybrid.css?1603196093" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603196093" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603196093" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603196093" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603196093" rel="stylesheet">
+    <link href="/css/theme.css?1603196093" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603196093" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603187579" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603196093" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603187579"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603196093"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603187579"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603187579"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603196093"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603196093"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603187579"></script>
+<script type="text/javascript" src="/js/search.js?1603196093"></script>
 
     
   </div>
@@ -271,9 +271,9 @@
  
   
     
-      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Start the Workshop..." class="dd-item ">
+      <li data-nav-id="/10_prerequisites/12_start_workshop.html" title="2. Workshop AWS Environment..." class="dd-item ">
         <a href="/10_prerequisites/12_start_workshop.html">
-        2. Start the Workshop...
+        2. Workshop AWS Environment...
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -1011,8 +1011,6 @@
 
 <p>In this lab we will:</p>
 
-<p><strong>TRAINING NOTE: Remove this list and just keep the interactive one once that all is build?</strong></p>
-
 <ol>
 <li>Setup the Amazon ECR Registry</li>
 <li>Deploy the Amazon ECR Integration</li>
@@ -1021,81 +1019,6 @@
 <li>Download Example Dockerfile and Sources</li>
 <li>Modify the image and trigger a second scan</li>
 </ol>
-
-
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/30_module_1/30_setup_ecr.html" >Setup Amazon ECR Registry</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/30_module_1/31_deploy_ecr_integration.html" >Deploy the Amazon ECR Integration</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/30_module_1/32_image_from_registry.html" >Push and Scan an Image from the Registry</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/30_module_1/33_image_rescan.html" >Modify the image and trigger a second scan</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
-</ul>
 
 <h2 id="reference-architecture">Reference Architecture</h2>
 
@@ -1108,9 +1031,6 @@
 <p>Once a new image is pushed to Amazon ECR, this is picked up by Amazon EventBridge and passed to a Lambda function which creates an ephemeral CodeBuild task to build and scan the base image.  The results of the scan are then sent to the Sysdig Secure backend.  You are not required to configure, or expose, the registry on the Sysdig Secure side. Also, the image itself is not sent to Sysdig, but only the image metadata.</p>
 
 <p>An important point to note is that, although the scan actually happens with this AWS pipeline, you maintain the scanning policies and results with Sysdig.</p>
-
-
-
 
 
 
@@ -1771,19 +1691,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603187579"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603187579"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603187579"></script>
-    <script src="/js/jquery.sticky.js?1603187579"></script>
-    <script src="/js/featherlight.min.js?1603187579"></script>
-    <script src="/js/highlight.pack.js?1603187579"></script>
+    <script src="/js/clipboard.min.js?1603196093"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603196093"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603196093"></script>
+    <script src="/js/jquery.sticky.js?1603196093"></script>
+    <script src="/js/featherlight.min.js?1603196093"></script>
+    <script src="/js/highlight.pack.js?1603196093"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603187579"></script>
-    <script src="/js/learn.js?1603187579"></script>
-    <script src="/js/hugo-learn.js?1603187579"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603196093"></script>
+    <script src="/js/learn.js?1603196093"></script>
+    <script src="/js/hugo-learn.js?1603196093"></script>
 
-    <link href="/mermaid/mermaid.css?1603187579" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603187579"></script>
+    <link href="/mermaid/mermaid.css?1603196093" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603196093"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
