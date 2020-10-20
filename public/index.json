@@ -60,7 +60,7 @@
 	"title": "1. Sign-up for a Sysdig Trial account",
 	"tags": [],
 	"description": "",
-	"content": "You need a Sysdig Secure account and the associated API token\n Sign-up for a free Sysdig trial here https://sysdig.com/company/free-trial/\n You will receive a confirmation email with a link Once registered, log in and click your initials on the left nav bar, click \u0026lsquo;Settings\u0026rsquo; and navigate to \u0026lsquo;User Profile\u0026rsquo; and make a note of your \u0026lsquo;Sysdig Secure API Token\u0026rsquo;.  "
+	"content": "You need a Sysdig Secure account and the associated API token\n Sign-up for a free Sysdig trial here https://sysdig.com/company/free-trial/\n You will receive a confirmation email with a link Once registered, log in and click your initials on the left nav bar, click \u0026lsquo;Settings\u0026rsquo; and navigate to \u0026lsquo;User Profile\u0026rsquo; and make a note of\n Your \u0026lsquo;Sysdig Secure API Token\u0026rsquo;. The URL you are routed to in Sysdig secure\n secure.sysdig.com eu1.app.sysdig.com us2.app.sysdig.com   This will be your API endpoint - you\u0026rsquo;ll need this later.\n  "
 },
 {
 	"uri": "//localhost:1313/10_prerequisites.html",
