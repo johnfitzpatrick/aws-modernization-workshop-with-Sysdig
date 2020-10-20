@@ -48,6 +48,12 @@ weight = 70
     aws ecs delete-cluster --cluster "$stack"
     aws cloudformation delete-stack --stack-name "$stack"
     ```
+
+**TrainingNote** Undo this
+```
+ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile
+```
+
 <!-- ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
 ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile -->
 
@@ -64,6 +70,7 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
 
     aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
     ```
+**TrainingNote when running './deploy-amazon-ecs-sample.sh' - 'WARN[0000] Failed to create log group tutorial in us-east-1: The specified log group already exists' - remove this**
 
 #### Module 1
 <!-- - Remove container image from Amazon ECR Registry

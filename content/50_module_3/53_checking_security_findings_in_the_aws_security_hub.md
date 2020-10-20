@@ -9,23 +9,15 @@ You can check these events without leaving the AWS console. This is how findings
 1. Browse to [Security Hub](https://console.aws.amazon.com/securityhub/home) and click 'Findings' on the left.
 
 
-![AWS Security Hub](/images/50_module_3/image5.png)
+  ![AWS Security Hub](/images/50_module_3/image5.png)
 
-{{% notice warning %}}
-Seems my Security Hub isn't configured correctly. Getting error instead of above
+2. Click on "Delete bucket encryption" to view all the information you need to take immediate action:
 
-"CLOUDTRAIL_MULTI_REGION_NOT_PRESENT
-A multi-region CloudTrail trail with the required configuration does not exist in the account"
-
-![ERROR.png](/images/50_module_3/SecHub_ERROR.png)
-{{% /notice %}}
-
-2. Click the details of one of these findings to view all the information you need to take immediate action:
-
-![Delete Encryption](/images/50_module_3/image2.png)
+  ![Delete Encryption](/images/50_module_3/image2.png)
 
 
-And they appear in JSON format in AWS CloudWatch log streams:
+3. And they appear in JSON format in AWS CloudWatch log streams.
 
+    Browse to [CloudWatch](https://console.aws.amazon.com/cloudwatch/), and click 'Log groups > cloud-connector > alerts'
 
-![AWS CloudWatch Log Streams](/images/50_module_3/image1.png)
+    ![AWS CloudWatch Log Streams](/images/50_module_3/image1.png)

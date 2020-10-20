@@ -12,20 +12,20 @@
     <title>Detecting Runtime Cloud Security Threats :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603191310" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603191310" rel="stylesheet">
-    <link href="/css/hybrid.css?1603191310" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603191310" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603191310" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603191310" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603191310" rel="stylesheet">
-    <link href="/css/theme.css?1603191310" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603191310" rel="stylesheet">
+    <link href="/css/nucleus.css?1603203234" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603203234" rel="stylesheet">
+    <link href="/css/hybrid.css?1603203234" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603203234" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603203234" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603203234" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603203234" rel="stylesheet">
+    <link href="/css/theme.css?1603203234" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603203234" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603191310" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603203234" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603191310"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603203234"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603191310"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603191310"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603203234"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603203234"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603191310"></script>
+<script type="text/javascript" src="/js/search.js?1603203234"></script>
 
     
   </div>
@@ -813,25 +813,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1023,7 +1004,7 @@
 <ol>
 <li>Log into Cloud9 Workspace</li>
 
-<li><p>Create an S3 bucket. S3 bucketnames are globally unique, so you use your initials combined with a timestamp</p>
+<li><p>Create an S3 bucket. S3 bucketnames are globally unique, so <strong>use your initials</strong> combined with a timestamp</p>
 
 <pre><code>INITIALS=&lt;your initial&gt;
 BUCKETNAME=$INITIALS-$(date +%s)
@@ -1037,8 +1018,9 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
 
 <li><p>To view details of this event, browse to <a href="https://console.aws.amazon.com/cloudtrail/home">CloudTrail</a> then &lsquo;Event History&rsquo;</p>
 
-<p><strong>Dev Note</strong> Add screenshot here
-<img src="/images/50_module_3/cloudtrail01.png" alt="CloudTrail" /></p></li>
+<p><img src="/images/50_module_3/cloudtrail01.png" alt="CloudTrail" /></p>
+
+<p>If you scroll down you&rsquo;ll see details of the new CloudTrail event in JSON format:</p></li>
 </ol>
 
 
@@ -1047,13 +1029,11 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
 
 
 <ol>
-<li><p>Click the &lsquo;DeleteRolePolicy&rsquo; event just created</p>
-
-<p>If you scroll down you&rsquo;ll see details of the new CloudTrail event that was created.  It looks like this in JSON format:</p></li>
+<li>Below is an example of a &lsquo;DeleteBucketEncryption&rsquo; event raised after our previous command</li>
 </ol>
 
 
-<div class="notices info" ><p>Please note that all data in the following JSON blob is ficticious</p>
+<div class="notices info" ><p>Please note that all data in the following JSON doc is ficticious</p>
 </div>
 
 
@@ -1138,7 +1118,7 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
   source: k8s_audit
 </code></pre>
 
-<p>Some points to note about this rules</p>
+<p>Some points to note about this rule:</p>
 
 <ul>
 <li><p>The <strong>jevt.value</strong> contains the JSON content of the event, and we are using it in the <strong>condition</strong>. Using the <a href="https://jsonpath.com/">jsonpath</a> format, we can indicate what parts of the event we want to evaluate.</p></li>
@@ -1729,22 +1709,6 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1802,19 +1766,19 @@ aws s3api create-bucket --bucket $BUCKETNAME --acl public-read
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603191310"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603191310"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603191310"></script>
-    <script src="/js/jquery.sticky.js?1603191310"></script>
-    <script src="/js/featherlight.min.js?1603191310"></script>
-    <script src="/js/highlight.pack.js?1603191310"></script>
+    <script src="/js/clipboard.min.js?1603203234"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603203234"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603203234"></script>
+    <script src="/js/jquery.sticky.js?1603203234"></script>
+    <script src="/js/featherlight.min.js?1603203234"></script>
+    <script src="/js/highlight.pack.js?1603203234"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603191310"></script>
-    <script src="/js/learn.js?1603191310"></script>
-    <script src="/js/hugo-learn.js?1603191310"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603203234"></script>
+    <script src="/js/learn.js?1603203234"></script>
+    <script src="/js/hugo-learn.js?1603203234"></script>
 
-    <link href="/mermaid/mermaid.css?1603191310" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603191310"></script>
+    <link href="/mermaid/mermaid.css?1603203234" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603203234"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

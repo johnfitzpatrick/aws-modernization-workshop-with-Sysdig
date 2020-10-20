@@ -12,20 +12,20 @@
     <title>Deploy an ECS cluster using Fargate :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603191310" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603191310" rel="stylesheet">
-    <link href="/css/hybrid.css?1603191310" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603191310" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603191310" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603191310" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603191310" rel="stylesheet">
-    <link href="/css/theme.css?1603191310" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603191310" rel="stylesheet">
+    <link href="/css/nucleus.css?1603203234" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603203234" rel="stylesheet">
+    <link href="/css/hybrid.css?1603203234" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603203234" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603203234" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603203234" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603203234" rel="stylesheet">
+    <link href="/css/theme.css?1603203234" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603203234" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603191310" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603203234" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603191310"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603203234"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603191310"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603191310"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603203234"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603203234"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603191310"></script>
+<script type="text/javascript" src="/js/search.js?1603203234"></script>
 
     
   </div>
@@ -813,25 +813,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail10module_2_fargate_automatic_image_scanning.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1018,7 +999,9 @@
 
 
 
-<p>To illustrate the automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate</p>
+<p>To illustrate the automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate.</p>
+
+<p><strong>TrainingNote - Do we need more details on whats going on here????</strong></p>
 
 <ol>
 <li><p>Create a cluster configuration and create a cluster</p>
@@ -1039,11 +1022,7 @@ Subnet created: subnet-045df8f58a51b2291
 Subnet created: subnet-0e4623283c4907ea7
 Cluster creation succeeded.
 </code></pre></li>
-</ol>
 
-<p><strong>TRAINING NOTE: THE FOLLOWING STEPS SEEM ERROR PRONE. ALTERNATIVE FLOW BELOW</strong></p>
-
-<ol>
 <li><p>Set the names of the VPC and Subnets as an environment variables, as follows</p>
 
 <pre><code class="language-bash">export VPC=vpc-046ed77edcd796e19
@@ -1051,10 +1030,12 @@ export SUBNET1=subnet-045df8f58a51b2291
 export SUBNET2=subnet-0e4623283c4907ea7
 </code></pre>
 
-<p><strong>Note</strong> You can subsequently get these details from the <a href="https://console.aws.amazon.com/cloudformation/home">CloudFormation UI</a></p></li>
+<p><strong>Note</strong> You can subsequently get these details from the <a href="https://console.aws.amazon.com/cloudformation/home">CloudFormation UI</a></p>
+
+<p><img src="/images/40_module_2/image7.png" alt="ECS Cluster" /></p></li>
 </ol>
 
-<p><img src="/images/40_module_2/image7.png" alt="ECS Cluster" /></p>
+<p><strong>TRAINING NOTE: THE FOLLOWING STEPS SEEM ERROR PRONE. ALTERNATIVE FLOW BELOW</strong></p>
 
 <ol>
 <li><p>Run the following command to retrieve the id of the default security group and allow inbound access on port 80</p>
@@ -1133,16 +1114,21 @@ EOF
 export SUBNET1=subnet-045df8f58a51b2291
 export SUBNET2=subnet-0e4623283c4907ea7
 </code></pre></li>
+</ol>
 
-<li><p>Retrieve and view the deployment script</p>
+<!--
+2. Retrieve and view the deployment script
 
-<pre><code class="language-bash">curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh &gt; deploy-amazon-ecs-sample.sh
+```bash
+curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
 
 chmod +x deploy-amazon-ecs-sample.sh
 
 cat -n deploy-amazon-ecs-sample.sh
-</code></pre></li>
+```
+-->
 
+<ol>
 <li><p>Now run the script <code>deploy-amazon-ecs-sample.sh</code></p>
 
 <pre><code class="language-bash">cd /home/ec2-user/environment
@@ -1735,22 +1721,6 @@ cat -n deploy-amazon-ecs-sample.sh
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1808,19 +1778,19 @@ cat -n deploy-amazon-ecs-sample.sh
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603191310"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603191310"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603191310"></script>
-    <script src="/js/jquery.sticky.js?1603191310"></script>
-    <script src="/js/featherlight.min.js?1603191310"></script>
-    <script src="/js/highlight.pack.js?1603191310"></script>
+    <script src="/js/clipboard.min.js?1603203234"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603203234"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603203234"></script>
+    <script src="/js/jquery.sticky.js?1603203234"></script>
+    <script src="/js/featherlight.min.js?1603203234"></script>
+    <script src="/js/highlight.pack.js?1603203234"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603191310"></script>
-    <script src="/js/learn.js?1603191310"></script>
-    <script src="/js/hugo-learn.js?1603191310"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603203234"></script>
+    <script src="/js/learn.js?1603203234"></script>
+    <script src="/js/hugo-learn.js?1603203234"></script>
 
-    <link href="/mermaid/mermaid.css?1603191310" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603191310"></script>
+    <link href="/mermaid/mermaid.css?1603203234" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603203234"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
