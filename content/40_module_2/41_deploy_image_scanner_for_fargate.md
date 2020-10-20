@@ -12,7 +12,7 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
 1. First we'll set a couple of environment parameters to simplify the actual `aws` command,
 
     ```
-    APIToken="F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3"
+    SysdigAPIToken="F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3"
 
     CFURI="https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-scanning.template"
     ```
@@ -23,7 +23,7 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
     aws cloudformation create-stack \
     --stack-name ECSImageScanning \
     --template-body $CFURI \
-    --parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$APIToken ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+    --parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SysdigAPIToken ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
     --capabilities "CAPABILITY_NAMED_IAM"
     ```
 

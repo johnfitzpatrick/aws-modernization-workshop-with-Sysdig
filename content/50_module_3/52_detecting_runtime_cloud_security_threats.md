@@ -7,7 +7,7 @@ weight: 52
 Let's look at an example of AWS threat detection in action with CloudTrail and the Sysdig Cloud Connector.  To do so we'll create an S3 bucket, and make it public
 
 1. Log into Cloud9 Workspace
-2. Create an S3 bucket. S3 bucketnames are globally unique, so you use your initials combined with a timestamp
+2. Create an S3 bucket. S3 bucketnames are globally unique, so **use your initials** combined with a timestamp
 
     ```
     INITIALS=<your initial>
@@ -23,19 +23,18 @@ Let's look at an example of AWS threat detection in action with CloudTrail and t
 
 4. To view details of this event, browse to [CloudTrail](https://console.aws.amazon.com/cloudtrail/home) then 'Event History'
 
-    **Dev Note** Add screenshot here
     ![CloudTrail](/images/50_module_3/cloudtrail01.png)
+
+    If you scroll down you'll see details of the new CloudTrail event in JSON format:
 
 {{% notice info %}}
 It can take several minutes for new events to appear in CloudTrail. In the meantime you could browse the existing events created earlier from earlier activity in the account.
 {{% /notice %}}
 
-5. Click the 'DeleteRolePolicy' event just created
-
-    If you scroll down you'll see details of the new CloudTrail event that was created.  It looks like this in JSON format:
+5. Below is an example of a 'DeleteBucketEncryption' event raised after our previous command
 
 {{% notice info %}}
-Please note that all data in the following JSON blob is ficticious
+Please note that all data in the following JSON doc is ficticious
 {{% /notice %}}
 
 ```JSON
@@ -120,7 +119,7 @@ A Falco rule to detect this elevation of privileges would look like this:
   source: k8s_audit
 ```
 
-Some points to note about this rules
+Some points to note about this rule:
 
  - The **jevt.value** contains the JSON content of the event, and we are using it in the **condition**. Using the [jsonpath](https://jsonpath.com/) format, we can indicate what parts of the event we want to evaluate.
 

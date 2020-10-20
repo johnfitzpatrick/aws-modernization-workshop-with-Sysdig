@@ -1,5 +1,5 @@
 +++
-title = "Module 3 Prework"
+title = "Prework"
 chapter = true
 weight = 25
 +++

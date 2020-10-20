@@ -4,7 +4,9 @@ chapter: false
 weight: 42
 ---
 
-To illustrate the automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate
+To illustrate the automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate.
+
+**TrainingNote - Do we need more details on whats going on here????**
 
 
 1. Create a cluster configuration and create a cluster
@@ -28,7 +30,6 @@ To illustrate the automatic scanning, we will now deploy a sample ECS cluster th
     Cluster creation succeeded.
     ```
 
-**TRAINING NOTE: THE FOLLOWING STEPS SEEM ERROR PRONE. ALTERNATIVE FLOW BELOW**
 
 1. Set the names of the VPC and Subnets as an environment variables, as follows
 
@@ -41,8 +42,9 @@ To illustrate the automatic scanning, we will now deploy a sample ECS cluster th
     **Note** You can subsequently get these details from the [CloudFormation UI](https://console.aws.amazon.com/cloudformation/home)
 
 
-![ECS Cluster](/images/40_module_2/image7.png)
+    ![ECS Cluster](/images/40_module_2/image7.png)
 
+**TRAINING NOTE: THE FOLLOWING STEPS SEEM ERROR PRONE. ALTERNATIVE FLOW BELOW**
 
 2. Run the following command to retrieve the id of the default security group and allow inbound access on port 80
 
@@ -122,15 +124,17 @@ We'll use a custom deployment script that will
     export SUBNET2=subnet-0e4623283c4907ea7
     ```
 
+<!--
 2. Retrieve and view the deployment script
 
-    ```bash
-    curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
+```bash
+curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh > deploy-amazon-ecs-sample.sh
 
-    chmod +x deploy-amazon-ecs-sample.sh
+chmod +x deploy-amazon-ecs-sample.sh
 
-    cat -n deploy-amazon-ecs-sample.sh
-    ```
+cat -n deploy-amazon-ecs-sample.sh
+```
+-->
 
 3. Now run the script `deploy-amazon-ecs-sample.sh`
 
