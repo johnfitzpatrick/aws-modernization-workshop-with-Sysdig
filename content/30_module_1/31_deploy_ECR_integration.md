@@ -17,7 +17,14 @@ This integration enables the Amazon Elastic Container Registry (ECR) to automati
 4. There are two items to update on this screen:
 
  - For **'ScanningType'** make sure the default value of 'Inline' is selected
- - For '**SysdigSecureEndpoint**', enter your 'Sysdig Secure API Token' for the Sysdig Secure account you created earlier. You can find in your User Profile. ![API token](/images/30_module_1/sysdig_api.png)
+ - For **'SysdigSecureAPIToken'**, enter your 'Sysdig Secure API Token' for the Sysdig Secure account you created earlier. You can find in your User Profile. ![API token](/images/30_module_1/sysdig_api.png)
+ - For '**SysdigSecureEndpoint**', enter the value in your Sysdig Secure URL, i.e.
+
+       - http://secure.sysdig.com
+       - http://eu1.app.sysdig.com
+       - http://us2.app.sysdig.com
+
+     **TRAINING NOTE** Should these be, e.g., https://us2.app.sysdig.com, or just domainname
 
 5. Click '**Next**'. You will be presented with 'Configure stack options' page.
 
@@ -25,8 +32,8 @@ This integration enables the Amazon Elastic Container Registry (ECR) to automati
 
 7. Make sure you tick the box acknowledging that AWS CloudFormation might create IAM resources with custom names.
 
-8. Click '**Create stack**'. </br>You can view the status of the deployment from the Amazon CloudFormation screen. ![ECR](/images/30_module_1/cf_status.png)
+8. Click '**Create stack**'. </br>You can view the status of the deployment from the [Amazon CloudFormation screen](https://console.aws.amazon.com/cloudformation/home?region=us-east-1). ![ECR](/images/30_module_1/cf_status.png)
 
-This deployment will create a new Amazon CloudBuild project to automatically scan container images pushed to ECR registries.
+This deployment will create a new **Amazon CloudBuild** project that will automatically scan container images pushed to ECR registries.
 
-To view your Amazon CloudBuild projects, browse to [https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) ![ECR](/images/30_module_1/codebuild.png)
+To view your Amazon CloudBuild projects, browse to [Developer Tools > CodeBuild](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) ![ECR](/images/30_module_1/codebuild.png)

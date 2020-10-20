@@ -9,23 +9,38 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
 ***Note*** You can find instructions on using the CLI on the [[Sysdig Fargate scanning installation page](https://sysdiglabs.github.io/ecs-image-scanning/install.html)](https://sysdiglabs.github.io/ecs-image-scanning/install.html)
 
 
-1. First we'll set a couple of environment parameters to simplify the actual `aws` command,
+1. First we'll set a couple of environment parameters to simplify the actual `aws` command.  For the `SecureEndpoint` value, enter the value in your Sysdig Secure URL similar to before, i.e.
+
+    - http://secure.sysdig.coms
+    - http://eu1.app.sysdig.com
+    - http://us2.app.sysdig.com
 
     ```
-    SysdigAPIToken="F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3"
+    SecureAPIToken="F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3"
+
+    SecureEndpoint="http://us2.app.sysdig.com"
 
     CFURI="https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-scanning.template"
     ```
 
 2. Then run the the following AWS CloudFormation command (which uses those environment parameters)
 
+    <!-- ```
+    aws cloudformation create-stack \
+    --stack-name ECSImageScanning \
+    --template-body $CFURI \
+    --parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=ECSInlineSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+    --capabilities "CAPABILITY_NAMED_IAM"
+    ``` -->
+
     ```
     aws cloudformation create-stack \
     --stack-name ECSImageScanning \
     --template-body $CFURI \
-    --parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SysdigAPIToken ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+    --parameters ParameterKey=SysdigSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=SysdigSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
     --capabilities "CAPABILITY_NAMED_IAM"
     ```
+
 
 You can check the status of the CloudFormation task by browsing to the [CloudFormation UI](https://console.aws.amazon.com/cloudformation/)
 

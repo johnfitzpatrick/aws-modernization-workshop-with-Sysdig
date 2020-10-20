@@ -8,7 +8,7 @@ For the purposes of this lab you need to create an Amazon ECR registry. To do th
 
 1. Log into your Cloud9 Workspace
 
-2. Run the following commands, naming it as appropriate
+2. Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use `aws-workshop`
 
 ```sh
 aws ecr create-repository --repository-name aws-workshop  --image-scanning-configuration scanOnPush=true
@@ -57,7 +57,7 @@ For the purposes of this lab you need to create an Amazon ECR registry. To do th
 6. Please make a note of the URI as you will require this in a later step. ![URI](/images/30_module_1/uri.png) -->
 
 
-### Set up Credentials in Command line Docker
+### Set up Docker Credentials and Authenticate with Amazon ECR Registry
 
 Shortly you will use your Cloud9 Workspace to create and push a docker container to your new ECR Repository, however, before doing so you must configure docker's access to the repository.
 

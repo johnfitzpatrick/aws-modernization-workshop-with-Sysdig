@@ -23,22 +23,22 @@ To enable AWS Security Hub:
 3. Log into your AWS account with your browser and then browse to the [AWS Security Hub](https://console.aws.amazon.com/securityhub/home).
 
 	{{% notice warning %}}
-You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made. It has no relation to the use of Sysdig Cloud Connector. 
+You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made. It has no relation to the use of Sysdig Cloud Connector.
 <img src=/images/20_workshop_setup/config.png width="75%" >
 <!-- ![config_warning](/images/20_workshop_setup/config.png) -->
 {{% /notice %}}
 
 	**3.1. ALTERNATIVE 1. Not previously enabled**
 
-	If you see this _“Get started with Security Hub”_ page below, then click '**Go to Security Hub**'. (It means you never enabled it before). <img src=/images/20_workshop_setup/security_hub2.png width="75%" > 
-	Then, click '**Enable Security Hub**'. After this, the _"Summary"_ page for Security Hub will be shown. 
+	If you see this _“Get started with Security Hub”_ page below, then click '**Go to Security Hub**'. (It means you never enabled it before). <img src=/images/20_workshop_setup/security_hub2.png width="75%" >
+	Then, click '**Enable Security Hub**'. After this, the _"Summary"_ page for Security Hub will be shown.
 
 	{{% notice note %}}
 In the _"Welcome to AWS Security Hub"_ page, you can indicate which security standard controls you want to enable, or accept the default.
 These controls are part of the default AWS Security Hub mechanism, and they are not related to the detections that Sysdig Cloud Connector is going to find for you.
 {{% /notice %}}
 
-	**3.2. ALTERNATIVE 2. Already enabled** 
+	**3.2. ALTERNATIVE 2. Already enabled**
 
 	However, if you see the Summary web page, it means that you enabled it before in your account. You can skip to the **Step2** below.
 
@@ -46,25 +46,27 @@ These controls are part of the default AWS Security Hub mechanism, and they are 
 
 To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:
 
-1. Navigate to the [CloudFormation template for Sysdig Cloud Connector deployment](https://console.aws.amazon.com/cloudformation/home#/stacks/create/template?stackName=CloudConnector&templateURL=https://cf-templates-cloud-connector.s3.amazonaws.com/cloud-connector-aws-workshop.template).  The template will preview in CloudFormation. 
+1. Navigate to the [CloudFormation template for Sysdig Cloud Connector deployment](https://console.aws.amazon.com/cloudformation/home#/stacks/create/template?stackName=CloudConnector&templateURL=https://cf-templates-cloud-connector.s3.amazonaws.com/cloud-connector-aws-workshop.template).  The template will preview in CloudFormation.
 <!-- ![cf1](/images/20_workshop_setup/cf1.png) -->
 
-2. On the “**Create stack**” section, click the '**Next**' button to start setting up the template. 
+2. On the “**Create stack**” section, click the '**Next**' button to start setting up the template.
 <!-- ![cf2](/images/20_workshop_setup/cf2.png) -->
 
-3. The _“Specify stack details”_ section has no parameters for you to configure, so you can just press the **Next** button. 
+3. The _“Specify stack details”_ section has no parameters for you to configure, so you can just press the **Next** button.
 <!-- ![cf3](/images/20_workshop_setup/cf3.png) -->
 
 4. On _“Configure stack options”_ screen, press the **Next** button.
 
 	{{% notice note %}}
-You can optionally add tag keys and values to the deployment, but no further configuration is required. Finally, you will be presented with a summary of all the parameters you previously introduced. Please note that dedicated IAM roles will be created to perform the scanning. These roles follow the "least privilege principle" to enforce maximum security. 
+You can optionally add tag keys and values to the deployment, but no further configuration is required. Finally, you will be presented with a summary of all the parameters you previously introduced. Please note that dedicated IAM roles will be created to perform the scanning. These roles follow the "least privilege principle" to enforce maximum security.
 	{{% /notice %}}
 
 	<!-- ![cf4](/images/20_workshop_setup/cf4.png) -->
 
-5. Once you are happy with the plan, acknowledge it by marking the checkbox, and then press the **Create stack** button. 
+5. Once you are happy with the plan, acknowledge it by marking the checkbox, and then press the **Create stack** button.
 	<!-- ![cf5](/images/20_workshop_setup/cf5.png) -->
+
+**TRAINING NOTE** I think *marking the checkbox* is a critical step and we should include a screenshot to drive it home
 
 <!-- DevNote: Update this screenshot to have consistent arrow -->
 
@@ -79,5 +81,6 @@ The creation process may take **up to ten minutes**. You'll be using *CloudConne
 ![cf7](/images/20_workshop_setup/cf72.png)
 
 ## Step summary
+**TRAINING NOTE** Can we split this into two gifs for the two parts?
 
 <img src=/images/module3prework.gif width="100%" >
