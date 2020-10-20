@@ -33,7 +33,6 @@ You may see a temporary red warning about AWS Config not being appropriately ena
 	If you see this _“Get started with Security Hub”_ page below, then click '**Go to Security Hub**'. (It means you never enabled it before). <img src=/images/20_workshop_setup/security_hub2.png width="75%" > 
 	Then, click '**Enable Security Hub**'. After this, the _"Summary"_ page for Security Hub will be shown. 
 
-	
 	{{% notice note %}}
 In the _"Welcome to AWS Security Hub"_ page, you can indicate which security standard controls you want to enable, or accept the default.
 These controls are part of the default AWS Security Hub mechanism, and they are not related to the detections that Sysdig Cloud Connector is going to find for you.
