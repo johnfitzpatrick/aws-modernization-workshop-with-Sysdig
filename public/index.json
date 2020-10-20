@@ -1,12 +1,5 @@
 [
 {
-	"uri": "//localhost:1313/10_prerequisites/14_self_paced/account.html",
-	"title": "Create an AWS account",
-	"tags": [],
-	"description": "",
-	"content": " Your account must have the ability to create new IAM roles and scope other IAM permissions.\n  If you don\u0026rsquo;t already have an AWS account with Administrator access: create one now by clicking here\n Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: Create a new IAM user to use for the workshop\n Enter the user details:  Attach the AdministratorAccess IAM Policy:  Click to create the new user:  Take note of the login URL and save:   "
-},
-{
 	"uri": "//localhost:1313/",
 	"title": "Main Page",
 	"tags": [],
@@ -56,22 +49,22 @@
 	"content": " Learning Objectives Today we are going to learn the following topics:\n Workshop Overview   Security basics   Image Scanning   Infrastructure Runtime Security   AWS Fargate and ECS Security   "
 },
 {
-	"uri": "//localhost:1313/10_prerequisites.html",
-	"title": "Prerequisites",
-	"tags": [],
-	"description": "",
-	"content": " Prerequisites There are a few prerequisite tasks you must perform before getting started on this workshop. These are:\n Sign-up for a Sysdig Trial account   Start the Workshop...   At an AWS Event...   ...or on your own   We will step through each of these in turn.\n"
-},
-{
 	"uri": "//localhost:1313/10_prerequisites/11_sysdig.html",
-	"title": "Sign-up for a Sysdig Trial account",
+	"title": "1. Sign-up for a Sysdig Trial account",
 	"tags": [],
 	"description": "",
 	"content": "You need a Sysdig Secure account and the associated API token\n Sign-up for a free Sysdig trial here https://sysdig.com/company/free-trial/\n You will receive a confirmation email with a link Once registered, log in and click your initials on the left nav bar, click \u0026lsquo;Settings\u0026rsquo; and navigate to \u0026lsquo;User Profile\u0026rsquo; and make a note of your \u0026lsquo;Sysdig Secure API Token\u0026rsquo;.  "
 },
 {
+	"uri": "//localhost:1313/10_prerequisites.html",
+	"title": "Prerequisites",
+	"tags": [],
+	"description": "",
+	"content": " Prerequisites There are a few prerequisite tasks you must perform before getting started on this workshop. These are:\n 1. Sign-up for a Sysdig Trial account   2. Start the Workshop...   At an AWS Event...   ...or on your own   3. Launch Cloud9 IDE Workspace   Create a new Cloud9 IDE environment   Create an IAM role for your workspace   Attach the IAM role to your Workspace   Configure workspace for Sysdig Workshop   We will step through each of these in turn.\n"
+},
+{
 	"uri": "//localhost:1313/10_prerequisites/12_start_workshop.html",
-	"title": "Start the Workshop...",
+	"title": "2. Start the Workshop...",
 	"tags": [],
 	"description": "",
 	"content": " Getting Started To start the workshop, follow one of the following depending on whether you are\u0026hellip;\n \u0026hellip;attending an AWS hosted event, or \u0026hellip;running the workshop on your own  Once you have completed with either setup, continue with Install the required tools\n"
@@ -88,53 +81,53 @@
 	"title": "...or on your own",
 	"tags": [],
 	"description": "",
-	"content": " Running the workshop on your own Only complete this section if you are running the workshop on your own. If you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, etc), go to Start the workshop at an AWS event.\n  Create an AWS account   "
+	"content": " Running the workshop on your own  Only complete this section if you are running the workshop on your own. If you are at an AWS hosted event (such as re:Invent, Kubecon, Immersion Day, etc), go to Start the workshop at an AWS event.\n Your account must have the ability to create new IAM roles and scope other IAM permissions.\n   Your account must have the ability to create new IAM roles and scope other IAM permissions.\n  If you don\u0026rsquo;t already have an AWS account with Administrator access: create one now by clicking here\n Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: Create a new IAM user to use for the workshop\n Enter the user details:  Attach the AdministratorAccess IAM Policy:  Click to create the new user:  Take note of the login URL and save:   "
 },
 {
-	"uri": "//localhost:1313/20_workspace_setup/20_cloud9.html",
-	"title": "AWS Cloud9",
+	"uri": "//localhost:1313/10_prerequisites/16_start_cloud9workspace.html",
+	"title": "3. Launch Cloud9 IDE Workspace",
 	"tags": [],
 	"description": "",
-	"content": " AWS Cloud9 is a cloud-based integrated development environment (IDE) that Let’s you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.\nAdd a new Cloud9 IDE environment 1 . Within the AWS console, use the region drop list to select us-east-1 (N. Virginia). This will ensure the workshop script provisions the resources in this same region..\n2 . Navigate to the cloud9 console or just search for it under the AWS console services menu.\n3 . Click the Create environment button\n4 . For the name use sysdig-workshop\n5 . Select the default instance type t2.micro\nTRAINING NOTE: Need to change this to one w/ more space!!! Seeing this creating a Docker container later \u0026ldquo;failed to register layer: Error processing tar file(exit status 1): write /usr/lib/x86_64-linux-gnu/perl/5.28.1/auto/Unicode/Collate/Collate.so: no space left on device\u0026rdquo;\n6 . Leave all the other settings as default\nThis will take about 1-2 minutes to provision\n Configure Cloud9 IDE environment When the environment comes up, customize the environment by:\n1 . Close the welcome page tab\n2 . Close the lower work area tab\n3 . Open a new terminal tab in the main work area.\nYour workspace should now look like this and can hide the left hand environment explorer by clicking on the left side environment tab.\nIf you don\u0026rsquo;t like this dark theme, you can change it from the View / Themes Cloud9 workspace menu.\n Cloud9 requires third-party-cookies. You can whitelist the specific domains. You are having issues with this, Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.\n "
+	"content": "AWS Cloud9 is a cloud-based integrated development environment (IDE) that Let’s you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects.\nWe will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Workshop. There are a few steps to complete to set this up\n Create a new Cloud9 IDE environment Create an IAM role for your workspace Attach the IAM role to your Workspace Configure workshop specific requirements  TRAINING NOTE: Need to update all screenshots in this section\n"
 },
 {
-	"uri": "//localhost:1313/20_workspace_setup.html",
-	"title": "Workspace Setup",
+	"uri": "//localhost:1313/10_prerequisites/15_workspace_setup/20_cloud9.html",
+	"title": "Create a new Cloud9 IDE environment",
 	"tags": [],
 	"description": "",
-	"content": " Workspace Setup There are some steps to prepare the environment for this workshop.\nObjectives of this section  AWS console Launch Cloud9 IDE Workspace  TRAINING NOTE: Need to update all screenshots in this section\n"
+	"content": " 1 . Within the AWS console, use the region drop list to select us-east-1 (N. Virginia). This will ensure the workshop script provisions the resources in this same region..\n2 . Navigate to the cloud9 console or just search for it under the AWS console services menu.\n3 . Click the Create environment button\n4 . For the name use sysdig-workshop\n5 . Select the default instance type t2.micro\nTRAINING NOTE: Need to change this to one w/ more space!!! Seeing this creating a Docker container later \u0026ldquo;failed to register layer: Error processing tar file(exit status 1): write /usr/lib/x86_64-linux-gnu/perl/5.28.1/auto/Unicode/Collate/Collate.so: no space left on device\u0026rdquo;\n6 . Leave all the other settings as default\nThis will take about 1-2 minutes to provision\n Configure Cloud9 IDE environment When the environment comes up, customize the environment by:\n1 . Close the welcome page tab\n2 . Close the lower work area tab\n3 . Open a new terminal tab in the main work area.\nYour workspace should now look like this and can hide the left hand environment explorer by clicking on the left side environment tab.\nIf you don\u0026rsquo;t like this dark theme, you can change it from the View / Themes Cloud9 workspace menu.\n Cloud9 requires third-party-cookies. You can whitelist the specific domains. You are having issues with this, Ad blockers, javascript disablers, and tracking blockers should be disabled for the cloud9 domain, or connecting to the workspace might be impacted.\n "
 },
 {
-	"uri": "//localhost:1313/20_workspace_setup/21_iamrole.html",
+	"uri": "//localhost:1313/10_prerequisites/15_workspace_setup/21_iamrole.html",
 	"title": "Create an IAM role for your workspace",
 	"tags": [],
 	"description": "",
 	"content": " Starting from here, when you see command to be entered such as below, you will enter these commands into Cloud9 IDE. You can use the Copy to clipboard feature (right hand upper corner) to simply copy and paste into Cloud9. In order to paste, you can use Ctrl + V for Windows or Command + V for Mac.\n  Follow this deep link to create an IAM role with Administrator access. Confirm that AWS service and EC2 are selected, then click Next to view permissions. Confirm that AdministratorAccess is checked, then click Next to review. Enter Sysdig-Workshop-Admin for the Name, and select Create Role   "
 },
 {
-	"uri": "//localhost:1313/20_workspace_setup/22_workspaceiam.html",
+	"uri": "//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html",
 	"title": "Attach the IAM role to your Workspace",
 	"tags": [],
 	"description": "",
 	"content": " Follow this deep link to find your Cloud9 EC2 instance Select the instance, then choose Actions / Instance Settings /Modify IAM Role  Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Apply  https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime\n"
 },
 {
-	"uri": "//localhost:1313/20_workspace_setup/23_cloud.html",
-	"title": "Update IAM settings for your Workspace",
+	"uri": "//localhost:1313/10_prerequisites/15_workspace_setup/23_cloud.html",
+	"title": "Configure workspace for Sysdig Workshop",
 	"tags": [],
 	"description": "",
 	"content": " Cloud9 normally manages IAM credentials dynamically. This isn\u0026rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.\n  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose \u0026ldquo;Open Preferences\u0026rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   Let\u0026rsquo;s run the command below, the following actions will take place as we do that:\n🔹 Install jq- jq is a command-line tool for parsing JSON\n🔹 Ensure temporary credentials aren’t already in place.\n🔹 Remove any existing credentials file.\n🔹 Set the region to work with our desired region.\n🔹 Validate that our IAM role is valid.\n🔹 Copy a script into place for use later in the workshop.\nsudo yum -y install jq rm -vf ${HOME}/.aws/credentials export ACCOUNT_ID=$(aws sts get-caller-identity --output text --query Account) export AWS_REGION=$(curl -s 169.254.169.254/latest/dynamic/instance-identity/document | jq -r '.region') test -n \u0026quot;$AWS_REGION\u0026quot; \u0026amp;\u0026amp; echo AWS_REGION is \u0026quot;$AWS_REGION\u0026quot; || echo AWS_REGION is not set echo \u0026quot;export ACCOUNT_ID=${ACCOUNT_ID}\u0026quot; | tee -a ~/.bash_profile echo \u0026quot;export AWS_REGION=${AWS_REGION}\u0026quot; | tee -a ~/.bash_profile aws configure set default.region ${AWS_REGION} aws configure get default.region curl -s https://gist.githubusercontent.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01/raw/90aa0dbb5b7e35277aea87fad12879e987f4c820/deploy-amazon-ecs-sample.sh \u0026gt; deploy-amazon-ecs-sample.sh chmod +x deploy-amazon-ecs-sample.sh aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q \u0026amp;\u0026amp; echo \u0026quot;IAM role valid\u0026quot; || echo \u0026quot;IAM role NOT valid\u0026quot;  If the IAM role is not valid, DO NOT PROCEED. Go back and confirm the steps on this page.\n"
 },
 {
-	"uri": "//localhost:1313/25_setup_cloudtrail_integration.html",
-	"title": "Module 3 Prework: Setup CloudTrail Runtime Security",
+	"uri": "//localhost:1313/25_module_3_prework.html",
+	"title": "Module 3 Prework",
 	"tags": [],
 	"description": "",
 	"content": " Module 3 Prework: Setup CloudTrail Runtime Security We will be looking at CloudTrail runtime security in module 3 of this workshop. However, the CloudFormation template required can take up to ten minutes to deploy. So, we will start the deployment now, and it should be complete later when we need it.\nThere are two steps required to enable CloudTrail runtime security:\n Firstly, you must enable AWS Security Hub in the account, then Deploy the Sysdig CloudConnector CloudFormation template.  "
 },
 {
 	"uri": "//localhost:1313/30_module_1.html",
-	"title": "Module 1: Amazon ECR Image Scanning",
+	"title": "Module 1",
 	"tags": [],
 	"description": "",
 	"content": " Module 1: Amazon ECR Image Scanning Overview Amazon Elastic Container Registry (ECR) is a fully-managed Docker container registry that makes it easy for developers to store, manage, and deploy Docker container images. It hosts your container images in a highly available and scalable architecture, allowing you to reliably deploy containers for your applications. Sysdig provides inline scanning of your Amazon ECR registry as part of Sysdig\u0026rsquo;s ImageVision.\nIn this lab we will:\nTRAINING NOTE: Remove this list and just keep the interactive one once that all is build?\n Setup the Amazon ECR Registry Deploy the Amazon ECR Integration Push and scan an image from the registry See scan results on Sysdig Secure dashboard Download Example Dockerfile and Sources Modify the image and trigger a second scan   Setup Amazon ECR Registry   Deploy the Amazon ECR Integration   Push and Scan an Image from the Registry   Modify the image and trigger a second scan   Reference Architecture Enabling Amazon ECR Image Scanning is as simple as deploying a single CloudFormation template, and once deployed, all images that are pushed to the registry will be automatically scanned within your AWS account.\nHow this is implemented is illustrated below.\nOnce a new image is pushed to Amazon ECR, this is picked up by Amazon EventBridge and passed to a Lambda function which creates an ephemeral CodeBuild task to build and scan the base image. The results of the scan are then sent to the Sysdig Secure backend. You are not required to configure, or expose, the registry on the Sysdig Secure side. Also, the image itself is not sent to Sysdig, but only the image metadata.\nAn important point to note is that, although the scan actually happens with this AWS pipeline, you maintain the scanning policies and results with Sysdig.\n"
@@ -176,7 +169,7 @@
 },
 {
 	"uri": "//localhost:1313/40_module_2.html",
-	"title": "Module 2: Fargate automatic image scanning",
+	"title": "Module 2",
 	"tags": [],
 	"description": "",
 	"content": " Module 2: Fargate automatic image scanning Module Overview Amazon Fargate is a serverless compute engine for containers that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS). It allocates the correct amount of compute resources, eliminating the need to choose instance types and scaling cluster capacity. With Fargate, you pay for the minimum resources required to run your containers. Sysdig provides the ability to scan running Fargate services for known issues, in a similar manner to how it scans Amazon ECR.\nIn this lab we will\n Install Amazon ECS CLI Deploy Sysdig Secure automatic image scanner for Fargate Deploy an ECS cluster using Fargate See that CodeBuild pipelines are automatically created to scan them See scan results on Sysdig Secure dashboard  Reference Architecture Any deploy command directed at ECS Fargate will trigger an image scanning event. In particular the deploy command is detected by Amazon EventBridge, which will trigger a CodeBuild pipeline via an AWS Lambda function. It is within this CodeBuild pipeline that the image scanning runs. This is very similar workflow to how we seen earlier with Amazon ECR scanning.\nThe Sysdig inline image scanner will inspect the image to be deployed and will send its metadata to the Sysdig backend. The actual image contents won\u0026rsquo;t leave the CodeBuild pipeline.\nThe Sysdig backend then evaluates the container metadata against your security policies. It will generate a scan report if the image doesn\u0026rsquo;t pass your security requirements, so you can take action.\n"
@@ -211,7 +204,7 @@
 },
 {
 	"uri": "//localhost:1313/50_module_3.html",
-	"title": "Module 3: CloudTrail Runtime Security",
+	"title": "Module 3",
 	"tags": [],
 	"description": "",
 	"content": " Module 3: CloudTrail Runtime Security Module Overview Every action taken over your infrastructure resources results in a registry in AWS CloudTrail. This includes all AWS account activity, actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history is useful for detecting unwanted or unexpected activity involving your AWS resources, however as your infrastructure grows, the amount of events and operational trails can become so huge that analyzing them is no longer practical. However, failing to react to a threat quickly could potentially have major consequences.\nIn this module we will explain how to audit AWS CloudTrail events with Sysdig Cloud Connector. Once deployed in your infrastructure, the Sysdig Cloud Connector analyzes every CloudTrail entry in real time, and provides AWS threat detection by evaluating each event against a flexible set of security rules based on Falco. This allows you to detect threats and raise notifications so you can address security threats as quickly as possible.\nReference Architecture Similar to ECS Fargate serverless, incoming CloudTrail events are fetched and stored in an S3 bucket. A subscription in the SNS topic will then forward the events to the Sysdig Cloud Connector endpoint. The Cloud Connector will then analyze each event against a configured set of Falco rules.\nSysdig Cloud Connector provides several notification options, including sending security findings to Sysdig Backend, as well as AWS Security Hub and AWS CloudWatch, so you can review the security events without leaving your AWS console.\nA set of out-of-the-box Falco rules for CloudTrail is available in the Sysdig Cloud Connector, saving you a lot of time getting started, but you can complement these with your own custom rules to detect any cloud command.\nThe included out-of-the-box CloudTrail rules can detect events like:\n Add an AWS user to a group. Allocate a New Elastic IP Address to AWS Account. Attach an Administrator Policy. Create an AWS user. Deactivate MFA for user access. Delete bucket encryption.  These rules are also mapped against NIST 800-190 security standard controls. More compliance mapping for additional security standards like PCI or CIS will be provided in the future\n"
@@ -259,7 +252,7 @@
 	"content": " Cleanup Module 3  Delete the log group created to test the Falco rule modification\naws logs delete-log-group --log-group-name \u0026quot;test_unused_region\u0026quot; --region=\u0026quot;us-west-2\u0026quot;  Delete an S3 bucket\naws s3api delete-bucket --bucket $BUCKETNAME   Module 2  Remove ECS Cluster\nstack=tutorial services=\u0026quot;$(aws ecs list-services --cluster \u0026quot;$stack\u0026quot; | grep \u0026quot;$stack\u0026quot; | sed -e 's/\u0026quot;//g' -e 's/,//')\u0026quot; for service in $services; do aws ecs update-service --cluster \u0026quot;$stack\u0026quot; --service \u0026quot;$service\u0026quot; --desired-count 0 aws ecs delete-service --cluster \u0026quot;$stack\u0026quot; --service \u0026quot;$service\u0026quot; done for id in $(aws ecs list-container-instances --cluster \u0026quot;$stack\u0026quot; | grep container-instance | sed -e 's/\u0026quot;//g' -e 's/,//'); do aws ecs deregister-container-instance --cluster \u0026quot;$stack\u0026quot; --container-instance \u0026quot;$id\u0026quot; --force done for service in $services; do aws ecs wait services-inactive --cluster \u0026quot;$stack\u0026quot; --services \u0026quot;$service\u0026quot; done aws ecs delete-cluster --cluster \u0026quot;$stack\u0026quot; aws cloudformation delete-stack --stack-name \u0026quot;$stack\u0026quot;   Remove Image Scanner Integration for Fargate\naws cloudformation delete-stack --stack-name ECSImageScanning  Unattach the task execution role policy \u0026amp; delete role:\naws iam --region us-east-1 detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole   Module 1  Remove Amazon ECR Integration\naws cloudformation delete-stack --stack-name ECSImageScanning  Remove Amazon ECR Registry\naws ecr delete-repository --repository-name aws-workshop --force   Introduction  Installing the CloudConnector CloudFormation Template\naws cloudformation delete-stack --stack-name CloudConnector  Disable Security Hub\naws securityhub disable-security-hub   The following action stops the Cloud9 Workspace you are working on.\n  Remove Cloud9 Workstation\naws cloud9 delete-environment --environment-id $(aws cloud9 list-environments | jq '.environmentIds[]' | xargs)   The S3 bucket \u0026lsquo;cf-templates-t7cnkhhb1d0p-us-east-1\u0026rsquo; still exists in the account - that cool?\n"
 },
 {
-	"uri": "//localhost:1313/25_setup_cloudtrail_integration/241_enable_aws_security_hub.html",
+	"uri": "//localhost:1313/25_module_3_prework/241_enable_aws_security_hub.html",
 	"title": "Installing the CloudConnector",
 	"tags": [],
 	"description": "",

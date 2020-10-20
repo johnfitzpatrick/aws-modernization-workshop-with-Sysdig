@@ -1,5 +1,5 @@
 +++
-title = "Module 3: CloudTrail Runtime Security"
+title = "Module 3"
 chapter = true
 weight = 50
 +++

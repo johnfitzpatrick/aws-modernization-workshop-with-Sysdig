@@ -1,5 +1,5 @@
 ﻿---
-title: "Update IAM settings for your Workspace"
+title: "Configure workspace for Sysdig Workshop"
 chapter: false
 weight: 23
 ---

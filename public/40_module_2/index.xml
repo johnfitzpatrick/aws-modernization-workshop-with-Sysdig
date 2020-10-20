@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Module 2: Fargate automatic image scanning on AWS Modernization Workshop with Sysdig</title>
+    <title>Module 2 on AWS Modernization Workshop with Sysdig</title>
     <link>//localhost:1313/40_module_2.html</link>
-    <description>Recent content in Module 2: Fargate automatic image scanning on AWS Modernization Workshop with Sysdig</description>
+    <description>Recent content in Module 2 on AWS Modernization Workshop with Sysdig</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     

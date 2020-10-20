@@ -8,10 +8,6 @@ weight = 10
 
 There are a few prerequisite tasks you must perform before getting started on this workshop.  These are:
 
-{{% children showhidden="false" %}}
+{{% children depth="1" showhidden="false" %}}
 
 We will step through each of these in turn.
-
-
-
-

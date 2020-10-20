@@ -1,5 +1,5 @@
 +++
-title = "Module 3 Prework: Setup CloudTrail Runtime Security"
+title = "Module 3 Prework"
 chapter = true
 weight = 25
 +++

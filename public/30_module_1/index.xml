@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Module 1: Amazon ECR Image Scanning on AWS Modernization Workshop with Sysdig</title>
+    <title>Module 1 on AWS Modernization Workshop with Sysdig</title>
     <link>//localhost:1313/30_module_1.html</link>
-    <description>Recent content in Module 1: Amazon ECR Image Scanning on AWS Modernization Workshop with Sysdig</description>
+    <description>Recent content in Module 1 on AWS Modernization Workshop with Sysdig</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     
