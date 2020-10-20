@@ -63,3 +63,8 @@ To see the scan results,
 
 
 **TRAINING NOTE: Explanation of the benefits of a single source of truth, and some Sysdig marketing stuff: policies, stopping gates, misconfigurations**
+
+
+## Step summary (partial, image scan failed - step build)
+
+<img src=/images/30_module_1/scan.gif width="100%" >

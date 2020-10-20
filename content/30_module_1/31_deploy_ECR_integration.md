@@ -4,6 +4,10 @@ chapter: false
 weight: 31
 ---
 
+{{% notice tip %}}
+You can find an animated image at the bottom with all the steps listed below.
+{{% /notice %}}
+
 This integration enables the Amazon Elastic Container Registry (ECR) to automatically trigger an action to scan every new container that is pushed into the registry.
 
 1. Log into your AWS Console and select **'US East (N. Virginia)** us-east-1' from the 'Select a Region' dropdown on the top right.
@@ -17,7 +21,7 @@ This integration enables the Amazon Elastic Container Registry (ECR) to automati
 4. There are two items to update on this screen:
 
  - For **'ScanningType'** make sure the default value of 'Inline' is selected
- - For '**SysdigSecureEndpoint**', enter your 'Sysdig Secure API Token' for the Sysdig Secure account you created earlier. You can find in your User Profile. ![API token](/images/30_module_1/sysdig_api.png)
+ - For '**Sysdig Secure API Token**', enter your 'Sysdig Secure API Token' for the Sysdig Secure account you created earlier. You can find in your User Profile. ![API token](/images/30_module_1/sysdig_api.png)
 
 5. Click '**Next**'. You will be presented with 'Configure stack options' page.
 
@@ -30,3 +34,7 @@ This integration enables the Amazon Elastic Container Registry (ECR) to automati
 This deployment will create a new Amazon CloudBuild project to automatically scan container images pushed to ECR registries.
 
 To view your Amazon CloudBuild projects, browse to [https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) ![ECR](/images/30_module_1/codebuild.png)
+
+## Step summary
+
+<img src=/images/30_module_1/ecrintegration.gif width="100%" >

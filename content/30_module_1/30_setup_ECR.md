@@ -4,6 +4,10 @@ chapter: false
 weight: 30
 ---
 
+{{% notice tip %}}
+You can find an animated image at the bottom with all the steps listed below.
+{{% /notice %}}
+
 For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
 
 1. Log into your Cloud9 Workspace
@@ -93,3 +97,7 @@ Login Succeeded
 
 
 *Note* For more details on this procedure, please refer to [[Amazon ECR registries - Amazon ECR](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)
+
+## Step summary
+
+<img src=/images/30_module_1/ecr.gif width="100%" >
