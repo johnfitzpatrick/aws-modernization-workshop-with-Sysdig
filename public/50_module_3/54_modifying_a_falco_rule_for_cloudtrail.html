@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Introduction :: AWS Modernization Workshop with Sysdig</title>
+    <title>Modifying a Falco Rule for CloudTrail :: AWS Modernization Workshop with Sysdig</title>
 
     
     <link href="/css/nucleus.css?1603204974" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/00_introduction.html">
+  <body class="" data-url="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -76,8 +76,8 @@
   
     
     <li data-nav-id="/00_introduction.html" title="Introduction" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/00_introduction.html">
@@ -737,7 +737,7 @@
   
     
     <li data-nav-id="/50_module_3.html" title="Module 3" class="dd-item 
-        
+        parent
         
         
         ">
@@ -820,7 +820,7 @@
  
   
     
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
+      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item active">
         <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
         Modifying a Falco Rule for CloudTrail
         <i class="fas fa-check read-icon"></i>
@@ -950,7 +950,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/00_introduction/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -965,6 +965,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -975,7 +977,13 @@
             
           
           
-            <a href='/'>Main Page</a> > Introduction
+            
+            
+          
+          
+            <a href='/'>Main Page</a> > <a href='/50_module_3.html'>Module 3</a> > Modifying a Falco Rule for CloudTrail
+          
+         
           
          
           
@@ -984,6 +992,13 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -991,137 +1006,69 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Modifying a Falco Rule for CloudTrail
+            </h1>
           
 
         
 
 
 
+<p>Using Sysdig Cloud Connector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.</p>
 
-	
+<p>Let’s try first modifying a rule. The following rule checks if a resource is created in a region that you are not usually using. But to be active, you have to specify which regions you want to detect.</p>
 
-<h1 id="learning-objectives">Learning Objectives</h1>
+<pre><code>- list: disallowed_aws_regions
+  items: []
 
-<p>Today we are going to learn the following topics:</p>
+- rule: AWS command executed on unused region
+  desc: Detect AWS command execution on unused regions
+  condition:
+    not jevt.value[/errorCode] exists and
+    jevt.value[/awsRegion] in (disallowed_aws_regions)
+  output:
+    An AWS command has been executed on an unused region
+    (requesting user=%jevt.value[/userIdentity/arn],
+     requesting IP=%jevt.value[/sourceIPAddress],
+     AWS region=%jevt.value[/awsRegion]
+  priority: CRITICAL
+  tags: [cloud, source=cloudtrail, aws, NIST800_53, NIST800_53_AC-2(12)(b)]
+  source: k8s_audit
+</code></pre>
 
+<p><em>[Include here instructions on how to download and update rules files when that mechanism is implemented]</em></p>
 
+<ol>
+<li>For the <em>disallowed_aws_regions</em> list, edit the items to include <strong>us-west-1</strong> and <strong>us-west-2</strong>:</li>
+</ol>
 
+<pre><code>- list: disallowed_aws_regions
+  items: [us-west-1, us-west-2]
+</code></pre>
 
+<p><em>[Instructions to update and reload rules]</em></p>
 
+<ol>
+<li>Now we create a new log group on <strong>us-west-2</strong></li>
+</ol>
 
+<p><code>
+aws logs create-log-group --log-group-name &quot;test_unused_region&quot; --region=&quot;us-west-2&quot;
+</code></p>
 
+<p>CloudTrail takes up to 10 minutes to provide the events. When the event is available, Cloud Connector will trigger the rule and we will see a new security finding appear in AWS Security Hub.</p>
 
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/01_workshop_overview.html" >Workshop Overview</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/02_security_basics.html" >Security basics</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/03_image_scanning.html" >Image Scanning</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/04_inline_scanning.html" >Inline Scanning</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/05_infra_runtime_sec.html" >Infrastructure Runtime Security</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/06_fargate_ecs_sec.html" >AWS Fargate and ECS Security</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
-</ul>
+<p><em>[Introduce screenshots when rule update process is available]</em></p>
 
 
-
-
-
-
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -1153,20 +1100,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -1177,155 +1110,6 @@
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1436,37 +1220,7 @@
 
                     
                     
-                    
-
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
                     
 
@@ -1535,6 +1289,86 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1566,6 +1400,22 @@
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
                         
             
@@ -1711,6 +1561,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1718,6 +1584,90 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1755,10 +1705,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/" title="Main Page"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/50_module_3/53_checking_security_findings_in_the_aws_security_hub.html" title="Checking Security Findings in AWS Security Hub"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/00_introduction/01_workshop_overview.html" title="Workshop Overview" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/60_conclusions.html" title="Conclusions" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1788,3 +1738,4 @@
 
   <script data-no-instant>document.write('<script src="/livereload.js?port=1313&mindelay=10"></' + 'script>')</script></body>
 </html>
+

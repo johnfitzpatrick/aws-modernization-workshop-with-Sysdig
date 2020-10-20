@@ -75,7 +75,7 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/25_module_3_prework.html</loc>
+    <loc>//localhost:1313/25_prework.html</loc>
   </url>
   
   <url>
@@ -139,6 +139,10 @@
   </url>
   
   <url>
+    <loc>//localhost:1313/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html</loc>
+  </url>
+  
+  <url>
     <loc>//localhost:1313/60_conclusions.html</loc>
   </url>
   
@@ -147,7 +151,7 @@
   </url>
   
   <url>
-    <loc>//localhost:1313/25_module_3_prework/241_enable_aws_security_hub.html</loc>
+    <loc>//localhost:1313/25_prework/241_enable_aws_security_hub.html</loc>
   </url>
   
   <url>

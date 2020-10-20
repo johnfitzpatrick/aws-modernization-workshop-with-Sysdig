@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Introduction :: AWS Modernization Workshop with Sysdig</title>
+    <title>Prework :: AWS Modernization Workshop with Sysdig</title>
 
     
     <link href="/css/nucleus.css?1603204974" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/00_introduction.html">
+  <body class="" data-url="/25_prework.html">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -76,8 +76,8 @@
   
     
     <li data-nav-id="/00_introduction.html" title="Introduction" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/00_introduction.html">
@@ -445,8 +445,8 @@
   
     
     <li data-nav-id="/25_prework.html" title="Prework" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/25_prework.html">
@@ -950,7 +950,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/00_introduction/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/johnfitzpatrick/aws-modernization-workshop-with-Sysdig/edit/main/content/25_prework/_index.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -975,7 +975,7 @@
             
           
           
-            <a href='/'>Main Page</a> > Introduction
+            <a href='/'>Main Page</a> > Prework
           
          
           
@@ -1003,114 +1003,16 @@
 
 	
 
-<h1 id="learning-objectives">Learning Objectives</h1>
+<h2 id="module-3-prework-setup-cloudtrail-runtime-security">Module 3 Prework: Setup CloudTrail Runtime Security</h2>
 
-<p>Today we are going to learn the following topics:</p>
+<p>We will be looking at CloudTrail runtime security in module 3 of this workshop. However, the CloudFormation template required can take up to ten minutes to deploy.  So, we will start the deployment now, and it should be complete later when we need it.</p>
 
+<p>There are two steps required to enable CloudTrail runtime security:</p>
 
-
-
-
-
-
-
-<ul class="children children-li">
-	
-
-	
-		
-	
-
-	
-
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/01_workshop_overview.html" >Workshop Overview</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/02_security_basics.html" >Security basics</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/03_image_scanning.html" >Image Scanning</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/04_inline_scanning.html" >Inline Scanning</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/05_infra_runtime_sec.html" >Infrastructure Runtime Security</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-		
-			
-				
-<li>
-<a href="/00_introduction/06_fargate_ecs_sec.html" >AWS Fargate and ECS Security</a>
-</li>
-				
-
-				
-			
-			
-		
-	
-
-	
-</ul>
-
-
-
-
+<ol>
+<li>Firstly, you must enable AWS Security Hub in the account, then</li>
+<li>Deploy the Sysdig CloudConnector CloudFormation template.</li>
+</ol>
 
 
 
@@ -1153,20 +1055,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -1177,155 +1065,6 @@
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1436,6 +1175,8 @@
 
                     
                     
+                        
+                    
                     
 
                     
@@ -1443,6 +1184,170 @@
             
             
                 
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1755,10 +1660,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/" title="Main Page"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/10_prerequisites/15_workspace_setup/23_cloud.html" title="Configure workspace for Sysdig Workshop"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/00_introduction/01_workshop_overview.html" title="Workshop Overview" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/25_prework/241_enable_aws_security_hub.html" title="Installing the CloudConnector" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

@@ -12,20 +12,20 @@
     <title>Setup CloudTrail Runtime Security :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603203234" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603203234" rel="stylesheet">
-    <link href="/css/hybrid.css?1603203234" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603203234" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603203234" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603203234" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603203234" rel="stylesheet">
-    <link href="/css/theme.css?1603203234" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603203234" rel="stylesheet">
+    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
+    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
+    <link href="/css/theme.css?1603204974" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603203234" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603203234"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603203234"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603203234"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603203234"></script>
+<script type="text/javascript" src="/js/search.js?1603204974"></script>
 
     
   </div>
@@ -444,13 +444,13 @@
  
   
     
-    <li data-nav-id="/25_module_3_prework.html" title="Module 3 Prework" class="dd-item 
+    <li data-nav-id="/25_prework.html" title="Prework" class="dd-item 
         
         
         
         ">
-      <a href="/25_module_3_prework.html">
-          Module 3 Prework
+      <a href="/25_prework.html">
+          Prework
           
             <i class="fas fa-check read-icon"></i>
           
@@ -471,8 +471,8 @@
  
   
     
-      <li data-nav-id="/25_module_3_prework/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
-        <a href="/25_module_3_prework/241_enable_aws_security_hub.html">
+      <li data-nav-id="/25_prework/241_enable_aws_security_hub.html" title="Installing the CloudConnector" class="dd-item ">
+        <a href="/25_prework/241_enable_aws_security_hub.html">
         Installing the CloudConnector
         <i class="fas fa-check read-icon"></i>
         </a>
@@ -813,6 +813,25 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
+        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
+        Modifying a Falco Rule for CloudTrail
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -999,7 +1018,7 @@
 
 
 
-<p>If you followed this workshop from the beginning then you should have deployed the CloudTrail CloudFormation Template earlier. If you didn&rsquo;t, then go back and complete this step now <a href="/25_module_3_prework/241_enable_aws_security_hub.html">Setup CloudTrail Runtime Security</a>, however please note that this can take up to ten minutes to complete.</p>
+<p>If you followed this workshop from the beginning then you should have deployed the CloudTrail CloudFormation Template earlier. If you didn&rsquo;t, then go back and complete this step now <a href="/25_prework/241_enable_aws_security_hub.html">Setup CloudTrail Runtime Security</a>, however please note that this can take up to ten minutes to complete.</p>
 
 <p>To check it has been deployed successfully, navigate to  <a href="https://console.aws.amazon.com/cloudformation/">https://console.aws.amazon.com/cloudformation/</a> and search for CloudConnector. You should see it&rsquo;s status is <strong>CREATE_COMPLETE</strong>.</p>
 
@@ -1586,6 +1605,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1643,19 +1678,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603203234"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603203234"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603203234"></script>
-    <script src="/js/jquery.sticky.js?1603203234"></script>
-    <script src="/js/featherlight.min.js?1603203234"></script>
-    <script src="/js/highlight.pack.js?1603203234"></script>
+    <script src="/js/clipboard.min.js?1603204974"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
+    <script src="/js/jquery.sticky.js?1603204974"></script>
+    <script src="/js/featherlight.min.js?1603204974"></script>
+    <script src="/js/highlight.pack.js?1603204974"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603203234"></script>
-    <script src="/js/learn.js?1603203234"></script>
-    <script src="/js/hugo-learn.js?1603203234"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
+    <script src="/js/learn.js?1603204974"></script>
+    <script src="/js/hugo-learn.js?1603204974"></script>
 
-    <link href="/mermaid/mermaid.css?1603203234" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603203234"></script>
+    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603204974"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
