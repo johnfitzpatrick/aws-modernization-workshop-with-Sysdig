@@ -10,4 +10,4 @@ You need a Sysdig Secure account and the associated API token
 2. You will receive a confirmation email with a link
 3. Once registered, log in and click your initials on the left nav bar, click '**Settings**' and navigate to '**User Profile**' and make a note of your '**Sysdig Secure API Token**'.
 
-![Sysdig Trial](/images/10_prerequisites/sysdig_trial.png)
+<img src=/images/10_prerequisites/sysdigAPITokenBlur.gif width="100%" >
