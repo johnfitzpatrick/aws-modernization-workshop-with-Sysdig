@@ -53,7 +53,6 @@ For illustration purposes, let's rebuild our image and make it more secure by st
 
 4. Once completed, you will see that the scan result now shows it doesn’t have any vulnerabilities. ![JohnImagePendingTODO2](/images/30_module_1/image3.png)
 
-**TRAINING NOTE: Need to restest last step with new cloud9 environemnt w/ more HDD!!! Seeing this**
-**"failed to register layer: Error processing tar file(exit status 1): write /usr/share/doc/dpkg-dev/changelog.Debian.gz: no space left on device"**
-
 **TRAINING NOTE: New ScreenShot Above!!!**
+
+**TRAINING NOTE: This still failing** ![Scan Failed](/images/30_module_1/scanfailed.png)

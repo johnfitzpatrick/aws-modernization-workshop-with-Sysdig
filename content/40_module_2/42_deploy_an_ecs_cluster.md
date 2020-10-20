@@ -6,7 +6,7 @@ weight: 42
 
 To illustrate the automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate.
 
-**TrainingNote - Do we need more details on whats going on here????**
+**TrainingNote -  we need more details on whats going on here. Launches a docker compose cluster into Fargate etc**
 
 
 1. Create a cluster configuration and create a cluster
@@ -31,7 +31,7 @@ To illustrate the automatic scanning, we will now deploy a sample ECS cluster th
     ```
 
 
-1. Set the names of the VPC and Subnets as an environment variables, as follows
+1. Set the names of the VPC and Subnets **from the output above** as an environment variables, as follows
 
     ```bash
     export VPC=vpc-046ed77edcd796e19
@@ -44,6 +44,7 @@ To illustrate the automatic scanning, we will now deploy a sample ECS cluster th
 
     ![ECS Cluster](/images/40_module_2/image7.png)
 
+<!--
 **TRAINING NOTE: THE FOLLOWING STEPS SEEM ERROR PRONE. ALTERNATIVE FLOW BELOW**
 
 2. Run the following command to retrieve the id of the default security group and allow inbound access on port 80
@@ -105,7 +106,7 @@ To illustrate the automatic scanning, we will now deploy a sample ECS cluster th
     ```
 
 ___
-**TRAINING NOTE: ALTERNATIVE FLOW::Above steps are error prone. Maybe replace steps 1-5 above with a script (maybe pull it in from a guthub, or [gist](https://gist.github.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01) during Cloud9 Workspace setup?**
+**TRAINING NOTE: ALTERNATIVE FLOW::Above steps are error prone. Maybe replace steps 1-5 above with a script (maybe pull it in from a guthub, or [gist](https://gist.github.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01) during Cloud9 Workspace setup?** -->
 
 We'll use a custom deployment script that will
 
@@ -116,13 +117,13 @@ We'll use a custom deployment script that will
 - Create a `docker-compose.yaml` to instantiate the image `amazon/amazon-ecs-sample`
 
 
-1. First set the names of the VPC and Subnets as an environment variables, as follows
+<!-- 1. First set the names of the VPC and Subnets as an environment variables, as follows
 
     ```bash
     export VPC=vpc-046ed77edcd796e19
     export SUBNET1=subnet-045df8f58a51b2291
     export SUBNET2=subnet-0e4623283c4907ea7
-    ```
+    ``` -->
 
 <!--
 2. Retrieve and view the deployment script
@@ -136,7 +137,7 @@ cat -n deploy-amazon-ecs-sample.sh
 ```
 -->
 
-3. Now run the script `deploy-amazon-ecs-sample.sh`
+3. Run the script `deploy-amazon-ecs-sample.sh`
 
     ```bash
     cd /home/ec2-user/environment
