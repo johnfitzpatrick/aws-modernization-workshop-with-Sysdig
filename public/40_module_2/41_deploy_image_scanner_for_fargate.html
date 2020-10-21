@@ -12,20 +12,20 @@
     <title>Deploy Sysdig Secure Automatic Image Scanner for Fargate :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
+    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
+    <link href="/css/theme.css?1603302792" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603302792"></script>
 
     
   </div>
@@ -105,25 +105,6 @@
       <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
         <a href="/00_introduction/01_workshop_overview.html">
         Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/02_security_basics.html" title="Security basics" class="dd-item ">
-        <a href="/00_introduction/02_security_basics.html">
-        Security basics
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -813,25 +794,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1023,9 +985,17 @@
 <p><strong><em>Note</em></strong> You can find instructions on using the CLI on the <a href="https://sysdiglabs.github.io/ecs-image-scanning/install.html"><a href="https://sysdiglabs.github.io/ecs-image-scanning/install.html">Sysdig Fargate scanning installation page</a></a></p>
 
 <ol>
-<li><p>First we&rsquo;ll set a couple of environment parameters to simplify the actual <code>aws</code> command,</p>
+<li><p>First we&rsquo;ll set a couple of environment parameters to simplify the actual <code>aws</code> command.  For the <code>SecureEndpoint</code> value, enter the value in your Sysdig Secure URL similar to before, i.e.</p>
 
-<pre><code>SysdigAPIToken=&quot;F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3&quot;
+<ul>
+<li><a href="https://secure.sysdig.coms">https://secure.sysdig.coms</a></li>
+<li><a href="https://eu1.app.sysdig.com">https://eu1.app.sysdig.com</a></li>
+<li><a href="https://us2.app.sysdig.com">https://us2.app.sysdig.com</a></li>
+</ul>
+
+<pre><code>SecureAPIToken=&quot;F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3&quot;
+
+SecureEndpoint=&quot;http://us2.app.sysdig.com&quot;
 
 CFURI=&quot;https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-scanning.template&quot;
 </code></pre></li>
@@ -1035,9 +1005,17 @@ CFURI=&quot;https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-
 <pre><code>aws cloudformation create-stack \
 --stack-name ECSImageScanning \
 --template-body $CFURI \
---parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SysdigAPIToken ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+--parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=ECSInlineSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
 --capabilities &quot;CAPABILITY_NAMED_IAM&quot;
-</code></pre></li>
+</code></pre>
+
+<!-- ```
+aws cloudformation create-stack \
+--stack-name ECSImageScanning \
+--template-body $CFURI \
+--parameters ParameterKey=SysdigSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=SysdigSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
+--capabilities "CAPABILITY_NAMED_IAM"
+``` --></li>
 </ol>
 
 <p>You can check the status of the CloudFormation task by browsing to the <a href="https://console.aws.amazon.com/cloudformation/">CloudFormation UI</a></p>
@@ -1175,22 +1153,6 @@ CFURI=&quot;https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1580,22 +1542,6 @@ CFURI=&quot;https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1702,19 +1648,19 @@ CFURI=&quot;https://cf-templates-secure-scanning-ecs.s3.amazonaws.com/ecs-image-
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
+    <script src="/js/jquery.sticky.js?1603302792"></script>
+    <script src="/js/featherlight.min.js?1603302792"></script>
+    <script src="/js/highlight.pack.js?1603302792"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
+    <script src="/js/learn.js?1603302792"></script>
+    <script src="/js/hugo-learn.js?1603302792"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603302792"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

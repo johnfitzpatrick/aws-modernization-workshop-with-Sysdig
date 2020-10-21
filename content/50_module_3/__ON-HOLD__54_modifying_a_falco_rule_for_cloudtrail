@@ -1,10 +1,10 @@
 ---
-title: "Modifying a Falco Rule for CloudTrail"
+title: "ON HOLD - Modifying a Falco Rule for CloudTrail"
 chapter: false
 weight: 54
 ---
 
-Using Sysdig Cloud Connector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.
+Using Sysdig CloudConnector, you are not limited to the out-of-the-box rules provided. You can modify existing rules, or write your own tailored to your own needs.
 
 Let’s try first modifying a rule. The following rule checks if a resource is created in a region that you are not usually using. But to be active, you have to specify which regions you want to detect.
 
@@ -47,6 +47,6 @@ _[Instructions to update and reload rules]_
 aws logs create-log-group --log-group-name "test_unused_region" --region="us-west-2"
     ```
 
-CloudTrail takes up to 10 minutes to provide the events. When the event is available, Cloud Connector will trigger the rule and we will see a new security finding appear in AWS Security Hub.
+CloudTrail takes up to 10 minutes to provide the events. When the event is available, CloudConnector will trigger the rule and we will see a new security finding appear in AWS Security Hub.
 
 _[Introduce screenshots when rule update process is available]_

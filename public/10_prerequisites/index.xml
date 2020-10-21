@@ -18,7 +18,8 @@
       <guid>//localhost:1313/10_prerequisites/11_sysdig.html</guid>
       <description>You need a Sysdig Secure account and the associated API token
  Sign-up for a free Sysdig trial here https://sysdig.com/company/free-trial/
- You will receive a confirmation email with a link Once registered, log in and click your initials on the left nav bar, click &amp;lsquo;Settings&amp;rsquo; and navigate to &amp;lsquo;User Profile&amp;rsquo; and make a note of your &amp;lsquo;Sysdig Secure API Token&amp;rsquo;.  </description>
+ You will receive a confirmation email with a link Once registered, log in and click your initials on the left nav bar, click &amp;lsquo;Settings&amp;rsquo; and navigate to &amp;lsquo;User Profile&amp;rsquo; and make a note of
+ Your &amp;lsquo;Sysdig Secure API Token&amp;rsquo;. The URL you are routed to in Sysdig secure  secure.</description>
     </item>
     
     <item>
@@ -51,7 +52,7 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
 2 . Navigate to the cloud9 console or just search for it under the AWS console services menu.
 3 . Click the Create environment button
 4 . For the name use sysdig-workshop
-5 . Select the default instance type t2.medium</description>
+5 . Select the default instance type t3.medium</description>
     </item>
     
     <item>
@@ -70,9 +71,10 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/10_prerequisites/15_workspace_setup/22_workspaceiam.html</guid>
-      <description>Follow this deep link to find your Cloud9 EC2 instance  TrainingNote Fix this deep link!
- Select the instance, then choose Actions / Instance Settings / Modify IAM role  Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Apply
-  https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#Instances:sort=desc:launchTime</description>
+      <description> Follow this deep link to find your Cloud9 EC2 instance
+ Select the instance, then choose Actions / Instance Settings / Modify IAM role
+ Choose Sysdig-Workshop-Admin from the IAM Role drop down, and select Save
+  </description>
     </item>
     
     <item>
@@ -82,7 +84,7 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
       
       <guid>//localhost:1313/10_prerequisites/15_workspace_setup/23_cloud.html</guid>
       <description>Cloud9 normally manages IAM credentials dynamically. This isn&amp;rsquo;t currently compatible with the EKS IAM authentication, so we will disable it and rely on the IAM role instead.
-  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS Turn off AWS managed temporary credentials Close the Preferences tab   Let&amp;rsquo;s run the command below, the following actions will take place as we do that:</description>
+  Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &amp;ldquo;Open Preferences&amp;rdquo; Select AWS SETTINGS and turn off AWS managed temporary credentials Close the Preferences tab And copy and run (paste with Ctrl+P) the command below.</description>
     </item>
     
   </channel>

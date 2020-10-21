@@ -51,4 +51,12 @@ For illustration purposes, let's rebuild our image and make it more secure by st
 
 	The image will automatically be scanned, as before.
 
+	**Troubleshooting** If the build fails reporting no space left on device, then you can delete the older `node` image, as follows.
+
+	```
+	docker rmi $(docker images | grep node | grep -v lambda | awk '{print $3}')
+	```
+
+
+
 4. Once completed, you will see that the scan result now shows a more recent image (based on debian/10) with fewer vulnerabilities. ![Sysdig Secure](/images/30_module_1/securescann03.png)

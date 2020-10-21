@@ -16,11 +16,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/25_prework/241_enable_aws_security_hub.html</guid>
-      <description>Step 1. Enable AWS Security Hub To enable AWS Security Hub:
+      <description>If you prefer learning by watching over reading, you can find an animated image at the bottom with all the steps listed below.
+ Step 1. Enable AWS Security Hub To enable AWS Security Hub:
  Log into your Cloud9 Workspace
- Run the following command
-aws securityhub enable-security-hub --enable-default-standards  Log into your AWS account with your browser then browse to AWS Security Hub.
-   You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made.</description>
+ Run the following command (no output will be generated)
+aws securityhub enable-security-hub --enable-default-standards  Log into your AWS account with your browser and then browse to the AWS Security Hub.</description>
     </item>
     
   </channel>

@@ -23,7 +23,7 @@ To enable AWS Security Hub:
 3. Log into your AWS account with your browser and then browse to the [AWS Security Hub](https://console.aws.amazon.com/securityhub/home).
 
 	{{% notice warning %}}
-You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made. It has no relation to the use of Sysdig Cloud Connector.
+You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made. It has no relation to the use of Sysdig CloudConnector.
 <img src=/images/20_workshop_setup/config.png width="75%" >
 <!-- ![config_warning](/images/20_workshop_setup/config.png) -->
 {{% /notice %}}
@@ -35,7 +35,7 @@ You may see a temporary red warning about AWS Config not being appropriately ena
 
 	{{% notice note %}}
 In the _"Welcome to AWS Security Hub"_ page, you can indicate which security standard controls you want to enable, or accept the default.
-These controls are part of the default AWS Security Hub mechanism, and they are not related to the detections that Sysdig Cloud Connector is going to find for you.
+These controls are part of the default AWS Security Hub mechanism, and they are not related to the detections that Sysdig CloudConnector is going to find for you.
 {{% /notice %}}
 
 	**3.2. ALTERNATIVE 2. Already enabled**
@@ -46,7 +46,7 @@ These controls are part of the default AWS Security Hub mechanism, and they are 
 
 To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:
 
-1. Navigate to the [CloudFormation template for Sysdig Cloud Connector deployment](https://console.aws.amazon.com/cloudformation/home#/stacks/create/template?stackName=CloudConnector&templateURL=https://cf-templates-cloud-connector.s3.amazonaws.com/cloud-connector-aws-workshop.template).  The template will preview in CloudFormation.
+1. Navigate to the [CloudFormation template for Sysdig CloudConnector deployment](https://console.aws.amazon.com/cloudformation/home#/stacks/create/template?stackName=CloudConnector&templateURL=https://cf-templates-cloud-connector.s3.amazonaws.com/cloud-connector-aws-workshop.template).  The template will preview in CloudFormation.
 <!-- ![cf1](/images/20_workshop_setup/cf1.png) -->
 
 2. On the “**Create stack**” section, click the '**Next**' button to start setting up the template.

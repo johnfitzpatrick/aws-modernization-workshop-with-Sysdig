@@ -20,4 +20,4 @@ Keep in mind that this approach is only part of the solution. You can further st
 
 AWS security can save your infrastructure from failing at its worst moment. It will protect you and your customer data against misconfigurations, a security compromise, or your wallet from unexpected fees.
 
-CloudTrail is a great source of truth, as it can see everything that is happening in your AWS accounts. Leverage Sysdig Secure by deploying Sysdig Cloud Connector for CloudTrail and obtaining the runtime visibility you need to implement AWS threat detection. Its out-of-the-box set of Falco rules for CloudTrail minimizes the setup effort, response time, and resources needed for investigating security events.
+CloudTrail is a great source of truth, as it can see everything that is happening in your AWS accounts. Leverage Sysdig Secure by deploying Sysdig CloudConnector for CloudTrail and obtaining the runtime visibility you need to implement AWS threat detection. Its out-of-the-box set of Falco rules for CloudTrail minimizes the setup effort, response time, and resources needed for investigating security events.

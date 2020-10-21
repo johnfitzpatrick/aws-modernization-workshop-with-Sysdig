@@ -12,20 +12,20 @@
     <title>Module 3 :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
+    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
+    <link href="/css/theme.css?1603302792" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603302792"></script>
 
     
   </div>
@@ -105,25 +105,6 @@
       <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
         <a href="/00_introduction/01_workshop_overview.html">
         Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/02_security_basics.html" title="Security basics" class="dd-item ">
-        <a href="/00_introduction/02_security_basics.html">
-        Security basics
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -813,25 +794,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1007,34 +969,23 @@
 
 <h2 id="module-overview">Module Overview</h2>
 
-<p>Every action taken over your infrastructure resources results in a registry in AWS CloudTrail. This includes all AWS account activity, actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history is useful for detecting unwanted or unexpected activity involving your AWS resources, however as your infrastructure grows, the amount of events and operational trails can become so huge that analyzing them is no longer practical. However, failing to react to a threat quickly could potentially have major consequences.</p>
+<p>Every action taken over your infrastructure resources results in a registry in AWS CloudTrail. This includes all AWS account activity, actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services.  This event history is extremely useful for detecting unwanted or unexpected activity involving your AWS resources, however it&rsquo;s quite noisy, and being JSON, it&rsquo;s not really human readable so can be hard to understand.</p>
 
-<p>In this module we will explain how to audit AWS CloudTrail events with Sysdig Cloud Connector.  Once deployed in your infrastructure, the Sysdig Cloud Connector analyzes every CloudTrail entry in real time, and provides AWS threat detection by evaluating each event against a flexible set of security rules based on Falco. This allows you to detect threats and raise notifications so you can address security threats as quickly as possible.</p>
+<p>Also, as your infrastructure grows and the number of AWS services are released, the amount of events and operational trails can become so huge that analyzing them is no longer practical.</p>
+
+<p>In this module we will explain how to audit AWS CloudTrail events with Sysdig CloudConnector.  Once deployed in your infrastructure, the Sysdig CloudConnector analyzes every CloudTrail entry in real time, and provides AWS threat detection by evaluating each event against a flexible set of security rules based on Falco. This allows you to detect threats and raise notifications so you can address security threats as quickly as possible.</p>
 
 <h2 id="reference-architecture">Reference Architecture</h2>
 
-<p>Similar to ECS Fargate serverless, incoming CloudTrail events are fetched and stored in an S3 bucket. A subscription in the SNS topic will then forward the events to the <strong>Sysdig Cloud Connector</strong> endpoint. The Cloud Connector will then analyze each event against a configured set of <strong>Falco rules</strong>.</p>
+<p>Similar to ECS Fargate serverless, incoming CloudTrail events are fetched and stored in an S3 bucket. A subscription in the SNS topic will then forward the events to the <strong>Sysdig CloudConnector</strong> endpoint. The CloudConnector will then analyze each event against a configured set of <strong>Falco rules</strong>.</p>
 
 <p><img src="/images/50_module_3/image6.png" alt="Reference Architecture" /></p>
 
-<p>Sysdig Cloud Connector provides several <strong>notification options</strong>, including sending security findings to Sysdig Backend, as well as AWS Security Hub and AWS CloudWatch, so you can review the security events without leaving your AWS console.</p>
+<p>Sysdig CloudConnector provides several <strong>notification options</strong>, including sending security findings to Sysdig Backend, as well as AWS Security Hub and AWS CloudWatch, so you can review the security events without leaving your AWS console.</p>
 
 <p><img src="/images/50_module_3/image4.png" alt="Reference Architecture" /></p>
 
-<p>A set of out-of-the-box Falco rules for CloudTrail is available in the Sysdig Cloud Connector, saving you a lot of time getting started, but you can complement these with your own custom rules to detect any cloud command.</p>
-
-<p>The included out-of-the-box CloudTrail rules can detect events like:</p>
-
-<ul>
-<li>Add an AWS user to a group.</li>
-<li>Allocate a New Elastic IP Address to AWS Account.</li>
-<li>Attach an Administrator Policy.</li>
-<li>Create an AWS user.</li>
-<li>Deactivate MFA for user access.</li>
-<li>Delete bucket encryption.</li>
-</ul>
-
-<p>These rules are also mapped against <strong>NIST 800-190</strong> security standard controls. More compliance mapping for additional security standards like PCI or CIS will be provided in the future</p>
+<p>An important to note is Sysdig remains your single reference point for all infrastructure &amp; runtime security configuration as well as associated events and alerts.</p>
 
 
 
@@ -1168,22 +1119,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1578,22 +1513,6 @@
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -1695,19 +1614,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
+    <script src="/js/jquery.sticky.js?1603302792"></script>
+    <script src="/js/featherlight.min.js?1603302792"></script>
+    <script src="/js/highlight.pack.js?1603302792"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
+    <script src="/js/learn.js?1603302792"></script>
+    <script src="/js/hugo-learn.js?1603302792"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603302792"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

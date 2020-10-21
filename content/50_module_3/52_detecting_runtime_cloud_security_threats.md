@@ -4,7 +4,7 @@ chapter: false
 weight: 52
 ---
 
-Let's look at an example of AWS threat detection in action with CloudTrail and the Sysdig Cloud Connector.  To do so we'll create an S3 bucket, and make it public
+Let's look at an example of AWS threat detection in action with CloudTrail and the Sysdig CloudConnector.  To do so we'll create an S3 bucket, and make it public
 
 1. Log into Cloud9 Workspace
 2. Create an S3 bucket. S3 bucketnames are globally unique, so **use your initials** combined with a timestamp
@@ -27,14 +27,10 @@ Let's look at an example of AWS threat detection in action with CloudTrail and t
 
     If you scroll down you'll see details of the new CloudTrail event in JSON format:
 
-{{% notice info %}}
-It can take several minutes for new events to appear in CloudTrail. In the meantime you could browse the existing events created earlier from earlier activity in the account.
-{{% /notice %}}
-
 5. Below is an example of a 'DeleteBucketEncryption' event raised after our previous command
 
 {{% notice info %}}
-Please note that all data in the following JSON doc is ficticious
+It can take several minutes for new events to appear in CloudTrail. In the meantime you can browse the existing events created earlier from earlier activity in the account.
 {{% /notice %}}
 
 ```JSON
@@ -90,6 +86,11 @@ Please note that all data in the following JSON doc is ficticious
 }
 ```
 
+{{% notice info %}}
+Please note that all data in the JSON doc above is fictitious.
+{{% /notice %}}
+
+
 All CloudTrail events have the following key fields:
 
 - **userIdentity**: The user who sent the request.
@@ -125,4 +126,4 @@ Some points to note about this rule:
 
  - The **output** will provide context information including the requester **username** and **IP address** - this is what will be sent through all of the enabled notification channels.
 
-As you can see, this is a regular Falco rule. In fact, this particular rule is already included out-of-the-box in Sysdig Cloud Connector. CloudTrail compatibility is achieved by handling its events as JSON objects, and referring to the event information using JSONPath.
+As you can see, this is a regular Falco rule. In fact, this particular rule is already included out-of-the-box in Sysdig CloudConnector. CloudTrail compatibility is achieved by handling its events as JSON objects, and referring to the event information using JSONPath.

@@ -23,6 +23,6 @@ Although containers may be ingested into another system in order to be scanned, 
 
 With inline scanning the contents of your containers will never leave your infrastructure. This protects your privacy and prevents credentials for repositories from leaking. It may also be a requirement when security concerns require an air-gapped environment.
 
-![Inline Scanning](/images/00_introduction/inline_scanning.png)
+![Fargate Inline Scanning](/images/00_introduction/inline_scanning.png)
 
 Further, from an architectural standpoint, it is more scalable to have images scanned at the edge rather than sent to a central location.  

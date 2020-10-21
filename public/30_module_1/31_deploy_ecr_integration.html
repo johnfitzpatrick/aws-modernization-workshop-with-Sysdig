@@ -12,20 +12,20 @@
     <title>Deploy the Amazon ECR Integration :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
+    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
+    <link href="/css/theme.css?1603302792" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603302792"></script>
 
     
   </div>
@@ -105,25 +105,6 @@
       <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
         <a href="/00_introduction/01_workshop_overview.html">
         Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/02_security_basics.html" title="Security basics" class="dd-item ">
-        <a href="/00_introduction/02_security_basics.html">
-        Security basics
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -813,25 +794,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1033,8 +995,18 @@
 
 <ul>
 <li>For <strong>&lsquo;ScanningType&rsquo;</strong> make sure the default value of &lsquo;Inline&rsquo; is selected</li>
-<li>For &lsquo;<strong>SysdigSecureEndpoint</strong>&rsquo;, enter your &lsquo;Sysdig Secure API Token&rsquo; for the Sysdig Secure account you created earlier. You can find in your User Profile. <img src="/images/30_module_1/sysdig_api.png" alt="API token" /></li>
+<li>For <strong>&lsquo;SysdigSecureAPIToken&rsquo;</strong>, enter your &lsquo;Sysdig Secure API Token&rsquo; for the Sysdig Secure account you created earlier. You can find in your User Profile. <img src="/images/30_module_1/sysdig_api.png" alt="API token" /></li>
+
+<li><p>For &lsquo;<strong>SysdigSecureEndpoint</strong>&rsquo;, enter the value in your Sysdig Secure URL, i.e.</p>
+
+<ul>
+<li><a href="https://secure.sysdig.com">https://secure.sysdig.com</a></li>
+<li><a href="https://eu1.app.sysdig.com">https://eu1.app.sysdig.com</a></li>
+<li><a href="https://us2.app.sysdig.com">https://us2.app.sysdig.com</a></li>
 </ul></li>
+</ul>
+
+<p><strong>TRAINING NOTE</strong> Should these be, e.g., <a href="https://us2.app.sysdig.com">https://us2.app.sysdig.com</a>, or just domainname</p></li>
 
 <li><p>Click &lsquo;<strong>Next</strong>&rsquo;. You will be presented with &lsquo;Configure stack options&rsquo; page.</p></li>
 
@@ -1042,12 +1014,14 @@
 
 <li><p>Make sure you tick the box acknowledging that AWS CloudFormation might create IAM resources with custom names.</p></li>
 
-<li><p>Click &lsquo;<strong>Create stack</strong>&rsquo;. </br>You can view the status of the deployment from the Amazon CloudFormation screen. <img src="/images/30_module_1/cf_status.png" alt="ECR" /></p></li>
+<li><p>Click &lsquo;<strong>Create stack</strong>&rsquo;.</p>
+
+<p>You can view the status of the deployment from the <a href="https://console.aws.amazon.com/cloudformation/home?region=us-east-1">Amazon CloudFormation screen</a>. <img src="/images/30_module_1/cf_status.png" alt="ECR" /></p></li>
 </ol>
 
-<p>This deployment will create a new Amazon CloudBuild project to automatically scan container images pushed to ECR registries.</p>
+<p>This deployment will create a new <strong>Amazon CloudBuild</strong> project that will automatically scan container images pushed to ECR registries.</p>
 
-<p>To view your Amazon CloudBuild projects, browse to <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1">https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1</a> <img src="/images/30_module_1/codebuild.png" alt="ECR" /></p>
+<p>To view your Amazon CloudBuild projects, browse to <a href="https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1">Developer Tools &gt; CodeBuild</a> <img src="/images/30_module_1/codebuild.png" alt="ECR" /></p>
 
 
 <footer class="footline">
@@ -1176,22 +1150,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1581,22 +1539,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1703,19 +1645,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
+    <script src="/js/jquery.sticky.js?1603302792"></script>
+    <script src="/js/featherlight.min.js?1603302792"></script>
+    <script src="/js/highlight.pack.js?1603302792"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
+    <script src="/js/learn.js?1603302792"></script>
+    <script src="/js/hugo-learn.js?1603302792"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603302792"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

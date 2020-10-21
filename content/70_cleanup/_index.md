@@ -102,35 +102,47 @@ https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml
 #### Introduction
 - Remove S3 Buckets
 
-    ```
-    CCBUCKET=$(aws s3 ls|grep 'cloud-connector' | awk '{print $3}')
-    aws s3 rm s3://$CCBUCKET --recursive
-    aws s3api delete-bucket --bucket $CCBUCKET
+  ```
+  CCBUCKET=$(aws s3 ls|grep 'cloud-connector' | awk '{print $3}')
+  aws s3 rm s3://$CCBUCKET --recursive
+  aws s3api delete-bucket --bucket $CCBUCKET
 
-    CFBUCKET=$(aws s3 ls|grep 'cf-templates' | awk '{print $3}')
-    aws s3 rm s3://$CFBUCKET --recursive
-    aws s3api delete-bucket --bucket $CFBUCKET
-    ```
-  - Remove CloudConnector ECS Cluster
+  CFBUCKET=$(aws s3 ls|grep 'cf-templates' | awk '{print $3}')
+  aws s3 rm s3://$CFBUCKET --recursive
+  aws s3api delete-bucket --bucket $CFBUCKET
+  ```
+- Remove CloudConnector ECS Cluster
 
-    ```
-    aws ecs delete-cluster --cluster CloudConnector
-    ```
+  ```
+  aws ecs delete-cluster --cluster CloudConnector
+  ```
 
-  - Installing the CloudConnector CloudFormation Template
+- Installing the CloudConnector CloudFormation Template
 
-    ```
-    aws cloudformation delete-stack --stack-name CloudConnector
-    ```
+  ```
+  aws cloudformation delete-stack --stack-name CloudConnector
+  ```
 
-  - Disable Security Hub
+- Disable Security Hub
 
-    ```
-    aws securityhub disable-security-hub
-    ```
+  ```
+  aws securityhub disable-security-hub
+  ```
 
-**TrainingNote ToDo** Detach and remove role `Sysdig-Workshop-Admin`
+- Remove IAM Role `Sysdig-Workshop-Admin` used for Cloud9 Workspace
+<!-- - List Roles & find `"RoleName": "Sysdig-Workshop-Admin"` -->
 
+   ```
+   aws iam list-roles | jq  '.Roles'
+   ```
+
+   - Maybe something like this?
+
+   ```
+   aws iam detach-role-policy --role-name Sysdig-Workshop-Admin --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+
+   aws iam delete-role --role-name Sysdig-Workshop-Admin
+   ```
 
 {{% notice warning %}}
 The following action stops the Cloud9 Workspace you are working on.
@@ -148,16 +160,8 @@ The following action stops the Cloud9 Workspace you are working on.
     aws cloud9 delete-environment --environment-id $(aws cloud9 list-environments | jq '.environmentIds[]' | xargs)
     ```
 
- - Remove IAM Role `Sysdig-Workshop-Admin` used for Cloud9 Workspace
 
-**TRAINING NOTE Remove the log group that already exists below**
-```
-TeamRole:~/environment $ ./deploy-amazon-ecs-sample.sh
-INFO[0000] Using ECS task definition                     TaskDefinition="tutorial:3"
-WARN[0000] Failed to create log group tutorial in us-east-1: The specified log group already exists
-...
-```
-
+<!-- arn:aws:iam::168110711348:role/Sysdig-Workshop-Admin -->
 <!-- ___
 
 #### Delete images pushed and ECR registry
