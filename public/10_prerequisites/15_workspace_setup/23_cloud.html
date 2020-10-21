@@ -12,20 +12,20 @@
     <title>Configure workspace for Sysdig Workshop :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
+    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
+    <link href="/css/theme.css?1603302792" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603302792"></script>
 
     
   </div>
@@ -105,25 +105,6 @@
       <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
         <a href="/00_introduction/01_workshop_overview.html">
         Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/02_security_basics.html" title="Security basics" class="dd-item ">
-        <a href="/00_introduction/02_security_basics.html">
-        Security basics
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -813,25 +794,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -994,7 +956,17 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#explanation-of-the-commands">Explanation of the commands:</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -1019,32 +991,21 @@
 
 
 
+
+
 <div class="notices info" ><p>Cloud9 normally manages IAM credentials dynamically. This isn&rsquo;t currently compatible with
 the EKS IAM authentication, so we will disable it and rely on the IAM role instead.</p>
 </div>
 
 
-<ul>
+<ol>
 <li>Return to your workspace and click the gear icon (in top right corner), or click to open a new tab and choose &ldquo;Open Preferences&rdquo;</li>
-<li>Select <strong>AWS SETTINGS</strong></li>
-<li>Turn off <strong>AWS managed temporary credentials</strong></li>
-<li>Close the Preferences tab
-<img src="/images/c9disableiam.png" alt="c9disableiam" /></li>
-</ul>
+<li>Select <strong>AWS SETTINGS</strong> and turn off <strong>AWS managed temporary credentials</strong></li>
+<li>Close the Preferences tab</li>
+<li>And copy and run (paste with <strong>Ctrl+P</strong>) the command below. Before running it, review what it does at the end of this step.</li>
+</ol>
 
-<p>Let&rsquo;s run the command below, the following actions will take place as we do that:</p>
-
-<p>🔹 Install jq- jq is a command-line tool for parsing JSON</p>
-
-<p>🔹 Ensure temporary credentials aren’t already in place.</p>
-
-<p>🔹 Remove any existing credentials file.</p>
-
-<p>🔹 Set the region to work with our desired region.</p>
-
-<p>🔹 Validate that our IAM role is valid.</p>
-
-<p>🔹 Copy a script into place for use later in the workshop.</p>
+<p><img src=/images/10_prerequisites/iamRoleWorkspace.gif width="100%" ></p>
 
 <pre><code class="language-sh">sudo yum -y install jq
 rm -vf ${HOME}/.aws/credentials
@@ -1061,7 +1022,25 @@ chmod +x deploy-amazon-ecs-sample.sh
 aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q &amp;&amp; echo &quot;IAM role valid&quot; || echo &quot;IAM role NOT valid&quot;
 </code></pre>
 
-<p>If the IAM role is not valid, <span style="color: red;"><strong>DO NOT PROCEED</strong></span>. Go back and confirm the steps on this page.</p>
+
+<div class="notices warning" ><p>If the IAM role is not valid, <span style="color: red;"><strong>DO NOT PROCEED</strong></span>. Go back and confirm the steps on this page.</p>
+</div>
+
+
+<h3 id="explanation-of-the-commands">Explanation of the commands:</h3>
+
+<p>Actions executed:
+🔹 Install jq- jq is a command-line tool for parsing JSON</p>
+
+<p>🔹 Ensure temporary credentials aren’t already in place.</p>
+
+<p>🔹 Remove any existing credentials file.</p>
+
+<p>🔹 Set the region to work with our desired region.</p>
+
+<p>🔹 Validate that our IAM role is valid.</p>
+
+<p>🔹 Copy a script into place for use later in the workshop.</p>
 
 
 <footer class="footline">
@@ -1190,22 +1169,6 @@ aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q &amp;&am
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1595,22 +1558,6 @@ aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q &amp;&am
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1717,19 +1664,19 @@ aws sts get-caller-identity --query Arn | grep Sysdig-Workshop-Admin -q &amp;&am
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
+    <script src="/js/jquery.sticky.js?1603302792"></script>
+    <script src="/js/featherlight.min.js?1603302792"></script>
+    <script src="/js/highlight.pack.js?1603302792"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
+    <script src="/js/learn.js?1603302792"></script>
+    <script src="/js/hugo-learn.js?1603302792"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603302792"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

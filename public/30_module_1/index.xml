@@ -18,9 +18,9 @@
       <guid>//localhost:1313/30_module_1/30_setup_ecr.html</guid>
       <description>For the purposes of this lab you need to create an Amazon ECR registry. To do this, follow the steps below
  Log into your Cloud9 Workspace
- Run the following commands, naming it as appropriate
+ Run the following command to create a repository. The name is arbitrary, but for continuity in the lab please use aws-workshop
   aws ecr create-repository --repository-name aws-workshop --image-scanning-configuration scanOnPush=true  The output will be as follows
-{ &amp;quot;repository&amp;quot;: { &amp;quot;repositoryArn&amp;quot;: &amp;quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;quot;, &amp;quot;registryId&amp;quot;: &amp;quot;845151661675&amp;quot;, &amp;quot;repositoryName&amp;quot;: &amp;quot;aws-workshop&amp;quot;, &amp;quot;repositoryUri&amp;quot;: &amp;quot;845151661675.dkr.ecr.us-east-1.amazonaws.com/aws-workshop&amp;quot;, &amp;quot;createdAt&amp;quot;: 1602848100.0, &amp;quot;imageTagMutability&amp;quot;: &amp;quot;MUTABLE&amp;quot;, &amp;quot;imageScanningConfiguration&amp;quot;: { &amp;quot;scanOnPush&amp;quot;: true }, &amp;quot;encryptionConfiguration&amp;quot;: { &amp;quot;encryptionType&amp;quot;: &amp;quot;AES256&amp;quot; } } }  You can view the repository in Amazon UI</description>
+{ &amp;quot;repository&amp;quot;: { &amp;quot;repositoryArn&amp;quot;: &amp;quot;arn:aws:ecr:us-east-1:845151661675:repository/aws-workshop&amp;quot;, &amp;quot;registryId&amp;quot;: &amp;quot;845151661675&amp;quot;, &amp;quot;repositoryName&amp;quot;: &amp;quot;aws-workshop&amp;quot;, &amp;quot;repositoryUri&amp;quot;: &amp;quot;845151661675.</description>
     </item>
     
     <item>
@@ -41,10 +41,10 @@ For the purposes of this exercise we will be using AWS Region us-east-1
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>//localhost:1313/30_module_1/32_image_from_registry.html</guid>
-      <description>Download Example Dockerfile and Sources To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in their website.
+      <description>Download Example Dockerfile and Sources Now that our automatic scanner is in place, we can test it by pushing a Docker container, and check if it scans.
+To illustrate the images scanning we will build an example Node.JS application based on the official “hello world” example described in their website.
  Go to your Cloud9 Workspace and download and uncompress example container files
-wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip unzip hello-world-node-vulnerable.zip cd hello-world-node-vulnerable/  And build and push the image to ECR
-export IMAGE=$AWS_ACCOUNT.dkr.ecr.$REGION.amazonaws.com/$ECR_NAME docker build . -t $IMAGE docker push $IMAGE  Check that an image scan is automatically triggered in Amazon ECR</description>
+wget https://github.com/sysdiglabs/hello-world-node-vulnerable/releases/download/v1.0/hello-world-node-vulnerable.zip unzip hello-world-node-vulnerable.zip cd hello-world-node-vulnerable/  And build and push the image to ECR</description>
     </item>
     
     <item>

@@ -12,20 +12,20 @@
     <title>Cleanup :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
+    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
+    <link href="/css/theme.css?1603302792" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603302792"></script>
 
     
   </div>
@@ -105,25 +105,6 @@
       <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
         <a href="/00_introduction/01_workshop_overview.html">
         Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/02_security_basics.html" title="Security basics" class="dd-item ">
-        <a href="/00_introduction/02_security_basics.html">
-        Security basics
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -813,25 +794,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1024,7 +986,7 @@
 <ul>
 <li><p>Remove <code>ecsTaskExecutionRole</code></p>
 
-<pre><code>aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::168110711348:role/ecsTaskExecutionRole --region us-east-1
+<pre><code>aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
 
 aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
 </code></pre></li>
@@ -1051,10 +1013,10 @@ aws cloudformation delete-stack --stack-name &quot;$stack&quot;
 </code></pre></li>
 </ul>
 
-<p><strong>TrainingNote</strong> Undo this</p>
-
-<pre><code>ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile
-</code></pre>
+<!-- **TrainingNote** Undo this
+```
+ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile
+``` -->
 
 <!-- ecs-cli compose service rm --cluster-config tutorial --ecs-profile tutorial-profile
 ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile -->
@@ -1063,17 +1025,12 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
 <li><p>Remove Image Scanner Integration for Fargate</p>
 
 <pre><code>aws cloudformation delete-stack --stack-name ECSImageScanning
+
+aws cloudformation delete-stack --stack-name amazon-ecs-cli-setup-tutorial
 </code></pre></li>
-
-<li><p>Unattach the task execution role policy &amp; delete role:</p>
-
-<pre><code>aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
-
-aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
-</code></pre>
-
-<p><strong>TrainingNote when running &lsquo;./deploy-amazon-ecs-sample.sh&rsquo; - &lsquo;WARN[0000] Failed to create log group tutorial in us-east-1: The specified log group already exists&rsquo; - remove this</strong></p></li>
 </ul>
+
+<p><strong>TrainingNote when running &lsquo;./deploy-amazon-ecs-sample.sh&rsquo; - &lsquo;WARN[0000] Failed to create log group tutorial in us-east-1: The specified log group already exists&rsquo; - remove this</strong></p>
 
 <h4 id="module-1">Module 1</h4>
 
@@ -1088,28 +1045,76 @@ aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
 <pre><code>aws cloudformation delete-stack --stack-name ECSImageScanning
 </code></pre>
 
-<p><strong>TrainingNote</strong> Check This works. ECRImageScanning stack still in acconut
+<p><strong>TrainingNote</strong> Check This works. ECRImageScanning stack still in account
 <a href="https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml">https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml</a></p></li>
 
 <li><p>Remove Amazon ECR Registry</p>
 
 <pre><code>aws ecr delete-repository --repository-name aws-workshop --force
+
+aws cloudformation delete-stack --stack-name ECRImageScanning
+
+</code></pre></li>
+
+<li><p>Remove Docker Node.JS Dockerfile &amp; Source</p>
+
+<pre><code>rm -rf /home/ec2-user/environment/hello-world-node-vulnerable
+rm -rf /home/ec2-user/environment/hello-world-node-vulnerable.zip
 </code></pre></li>
 </ul>
 
 <h4 id="introduction">Introduction</h4>
 
 <ul>
-<li><p>Installing the CloudConnector CloudFormation Template</p>
-
-<pre><code>aws cloudformation delete-stack --stack-name CloudConnector
-</code></pre></li>
-
-<li><p>Disable Security Hub</p>
-
-<pre><code>aws securityhub disable-security-hub
-</code></pre></li>
+<li>Remove S3 Buckets</li>
 </ul>
+
+<pre><code>  CCBUCKET=$(aws s3 ls|grep 'cloud-connector' | awk '{print $3}')
+  aws s3 rm s3://$CCBUCKET --recursive
+  aws s3api delete-bucket --bucket $CCBUCKET
+
+  CFBUCKET=$(aws s3 ls|grep 'cf-templates' | awk '{print $3}')
+  aws s3 rm s3://$CFBUCKET --recursive
+  aws s3api delete-bucket --bucket $CFBUCKET
+</code></pre>
+
+<ul>
+<li>Remove CloudConnector ECS Cluster</li>
+</ul>
+
+<pre><code>  aws ecs delete-cluster --cluster CloudConnector
+</code></pre>
+
+<ul>
+<li>Installing the CloudConnector CloudFormation Template</li>
+</ul>
+
+<pre><code>  aws cloudformation delete-stack --stack-name CloudConnector
+</code></pre>
+
+<ul>
+<li>Disable Security Hub</li>
+</ul>
+
+<pre><code>  aws securityhub disable-security-hub
+</code></pre>
+
+<ul>
+<li>Remove IAM Role <code>Sysdig-Workshop-Admin</code> used for Cloud9 Workspace
+<!-- - List Roles & find `"RoleName": "Sysdig-Workshop-Admin"` --></li>
+</ul>
+
+<pre><code>   aws iam list-roles | jq  '.Roles'
+</code></pre>
+
+<ul>
+<li>Maybe something like this?</li>
+</ul>
+
+<pre><code>   aws iam detach-role-policy --role-name Sysdig-Workshop-Admin --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+
+   aws iam delete-role --role-name Sysdig-Workshop-Admin
+</code></pre>
 
 
 <div class="notices warning" ><p>The following action stops the Cloud9 Workspace you are working on.</p>
@@ -1127,13 +1132,9 @@ Or this? -->
 
 <pre><code>aws cloud9 delete-environment --environment-id $(aws cloud9 list-environments | jq '.environmentIds[]' | xargs)
 </code></pre></li>
-
-<li><p>Remove IAM Role <code>Sysdig-Workshop-Admin</code> used for Cloud9 Workspace</p></li>
 </ul>
 
-<p><strong>TrainingNote</strong> ToDo</p>
-
-<p><strong>TrainingNote</strong> The S3 bucket &lsquo;cf-templates-t7cnkhhb1d0p-us-east-1&rsquo; still exists in the account - that cool?</p>
+<!-- arn:aws:iam::168110711348:role/Sysdig-Workshop-Admin -->
 
 <!-- ___
 
@@ -1297,22 +1298,6 @@ ____ -->
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1698,22 +1683,6 @@ ____ -->
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1821,19 +1790,19 @@ ____ -->
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
+    <script src="/js/jquery.sticky.js?1603302792"></script>
+    <script src="/js/featherlight.min.js?1603302792"></script>
+    <script src="/js/highlight.pack.js?1603302792"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
+    <script src="/js/learn.js?1603302792"></script>
+    <script src="/js/hugo-learn.js?1603302792"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603302792"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

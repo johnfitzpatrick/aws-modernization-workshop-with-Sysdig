@@ -12,20 +12,20 @@
     <title>Installing the CloudConnector :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
+    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
+    <link href="/css/theme.css?1603302792" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603302792"></script>
 
     
   </div>
@@ -105,25 +105,6 @@
       <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
         <a href="/00_introduction/01_workshop_overview.html">
         Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/02_security_basics.html" title="Security basics" class="dd-item ">
-        <a href="/00_introduction/02_security_basics.html">
-        Security basics
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -813,25 +794,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1001,6 +963,7 @@
 <li><a href="#step-1-enable-aws-security-hub">Step 1. Enable AWS Security Hub</a></li>
 <li><a href="#step-2-install-the-cloudconnector">Step 2. Install the CloudConnector</a></li>
 <li><a href="#all-ready">All ready!</a></li>
+<li><a href="#step-summary">Step summary</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -1029,65 +992,78 @@
 
 
 
-<h2 id="step-1-enable-aws-security-hub">Step 1. Enable AWS Security Hub</h2>
-
 <!-- **TRAINING NOTE: Security Hub isn't a Sysdig thing, so in the interests of making things shorter, can we remove the individual steps/screenshots and replace them with this single command?** -->
+
+
+<div class="notices tip" ><p>If you prefer learning by watching over reading, you can find an animated image at the bottom with all the steps listed below.</p>
+</div>
+
+
+<h2 id="step-1-enable-aws-security-hub">Step 1. Enable AWS Security Hub</h2>
 
 <p>To enable AWS Security Hub:</p>
 
 <ol>
 <li><p>Log into your Cloud9 Workspace</p></li>
 
-<li><p>Run the following command</p>
+<li><p>Run the following command (no output will be generated)</p>
 
-<pre><code class="language-sh">aws securityhub enable-security-hub --enable-default-standards
+<pre><code>aws securityhub enable-security-hub --enable-default-standards
 </code></pre></li>
 
-<li><p>Log into your AWS account with your browser then browse to <a href="https://console.aws.amazon.com/securityhub/home">AWS Security Hub</a>.</p></li>
+<li><p>Log into your AWS account with your browser and then browse to the <a href="https://console.aws.amazon.com/securityhub/home">AWS Security Hub</a>.</p>
+
+
+<div class="notices warning" ><p>You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made. It has no relation to the use of Sysdig CloudConnector.
+<img src=/images/20_workshop_setup/config.png width="75%" >
+<!-- ![config_warning](/images/20_workshop_setup/config.png) --></p>
+</div>
+
+
+<p><strong>3.1. ALTERNATIVE 1. Not previously enabled</strong></p>
+
+<p>If you see this <em>“Get started with Security Hub”</em> page below, then click &lsquo;<strong>Go to Security Hub</strong>&rsquo;. (It means you never enabled it before). <img src=/images/20_workshop_setup/security_hub2.png width="75%" >
+Then, click &lsquo;<strong>Enable Security Hub</strong>&rsquo;. After this, the <em>&ldquo;Summary&rdquo;</em> page for Security Hub will be shown.</p>
+
+
+<div class="notices note" ><p>In the <em>&ldquo;Welcome to AWS Security Hub&rdquo;</em> page, you can indicate which security standard controls you want to enable, or accept the default.
+These controls are part of the default AWS Security Hub mechanism, and they are not related to the detections that Sysdig CloudConnector is going to find for you.</p>
+</div>
+
+
+<p><strong>3.2. ALTERNATIVE 2. Already enabled</strong></p>
+
+<p>However, if you see the Summary web page, it means that you enabled it before in your account. You can skip to the <strong>Step2</strong> below.</p></li>
 </ol>
-
-<p>
-<div class="notices warning" ><p>You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made. It has no relation to the use of Sysdig Cloud Connector.</p>
-</div>
-<img src="/images/20_workshop_setup/config.png" alt="config_warning" /></p>
-
-<!-- **TRAINING NOTE: MAKE A GIF OF THIS STEPS!!! having all the pictures here adds little extra info but takes a lot of scrolling**
-
-1. First make sure you are logged into your AWS account with your browser then browse to [AWS Security Hub](https://console.aws.amazon.com/securityhub/home). The screen you're presented with depends upon the status of your AWS account.
-
-2. If you see this _“Get started with Security Hub”_ page below, then click '**Go to Security Hub**'. ![security_hub](/images/20_workshop_setup/security_hub.png)
-
-3. Then, click '**Enable Standard**' in the dialog. ![enable](/images/20_workshop_setup/enable_standard.png)
-
-4. However, if you see the Summary web page (shown later here), you can skip to the [Installing the CloudConnector](/20_workshop_setup/24_setup_cloudtrail/242_install_cloudconnector.html). ![summary](/images/20_workshop_setup/summary.png)
-
-5. In the _"Welcome to AWS Security Hub"_ page, you can indicate which security standard controls you want to enable, or accept the default. <br /><br />***Note*** These controls are part of the default AWS Security Hub mechanism, and they are not related to the detections that Sysdig Cloud Connector is going to find for you.
-
-6. Click '**Enable Security Hub**'. The _"Summary"_ page for Security Hub will be shown.  
-
-
-<div class="notices warning" ><p>You may see a temporary red warning about AWS Config not being appropriately enabled, but it will disappear on its own once the Security Hub detects that the activation has been made. It has no relation to the use of Sysdig Cloud Connector.
-<img src="/images/20_workshop_setup/config.png" alt="config_warning" /></p>
-</div>
- -->
 
 <h2 id="step-2-install-the-cloudconnector">Step 2. Install the CloudConnector</h2>
 
 <p>To install this tool, we will be using a CloudFormation Template. Follow the steps below to install the Sysdig CloudConnector:</p>
 
 <ol>
-<li><p>Navigate to the <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/create/template?stackName=CloudConnector&amp;templateURL=https://cf-templates-cloud-connector.s3.amazonaws.com/cloud-connector-aws-workshop.template">CloudFormation template for Sysdig Cloud Connector deployment</a>.  The template will preview in CloudFormation. <img src="/images/20_workshop_setup/cf1.png" alt="cf1" /></p></li>
+<li><p>Navigate to the <a href="https://console.aws.amazon.com/cloudformation/home#/stacks/create/template?stackName=CloudConnector&amp;templateURL=https://cf-templates-cloud-connector.s3.amazonaws.com/cloud-connector-aws-workshop.template">CloudFormation template for Sysdig CloudConnector deployment</a>.  The template will preview in CloudFormation.
+<!-- ![cf1](/images/20_workshop_setup/cf1.png) --></p></li>
 
-<li><p>On the “<strong>Create stack</strong>” section, click the &lsquo;<strong>Next</strong>&rsquo; button to start setting up the template. <img src="/images/20_workshop_setup/cf2.png" alt="cf2" /></p></li>
+<li><p>On the “<strong>Create stack</strong>” section, click the &lsquo;<strong>Next</strong>&rsquo; button to start setting up the template.
+<!-- ![cf2](/images/20_workshop_setup/cf2.png) --></p></li>
 
-<li><p>The <em>“Specify stack details”</em> section has no parameters for you to configure, so you can just press the <strong>Next</strong> button. <img src="/images/20_workshop_setup/cf3.png" alt="cf3" /></p></li>
+<li><p>The <em>“Specify stack details”</em> section has no parameters for you to configure, so you can just press the <strong>Next</strong> button.
+<!-- ![cf3](/images/20_workshop_setup/cf3.png) --></p></li>
 
 <li><p>On <em>“Configure stack options”</em> screen, press the <strong>Next</strong> button.</p>
 
-<p>You can optionally add tag keys and values to the deployment, but no further configuration is required. Finally, you will be presented with a summary of all the parameters you previously introduced. Please note that dedicated IAM roles will be created to perform the scanning. These roles follow the &ldquo;least privilege principle&rdquo; to enforce maximum security. <img src="/images/20_workshop_setup/cf4.png" alt="cf4" /></p></li>
 
-<li><p>Once you are happy with the plan, acknowledge it by marking the checkbox, and then press the <strong>Create stack</strong> button. <img src="/images/20_workshop_setup/cf5.png" alt="cf5" /></p></li>
+<div class="notices note" ><p>You can optionally add tag keys and values to the deployment, but no further configuration is required. Finally, you will be presented with a summary of all the parameters you previously introduced. Please note that dedicated IAM roles will be created to perform the scanning. These roles follow the &ldquo;least privilege principle&rdquo; to enforce maximum security.</p>
+</div>
+
+
+<!-- ![cf4](/images/20_workshop_setup/cf4.png) --></li>
+
+<li><p>Once you are happy with the plan, acknowledge it by marking the checkbox, and then press the <strong>Create stack</strong> button.
+<!-- ![cf5](/images/20_workshop_setup/cf5.png) --></p></li>
 </ol>
+
+<p><strong>TRAINING NOTE</strong> I think <em>marking the checkbox</em> is a critical step and we should include a screenshot to drive it home</p>
 
 <!-- DevNote: Update this screenshot to have consistent arrow -->
 
@@ -1095,11 +1071,17 @@
 
 <p>On the CloudFormation dashboard, you should see the template status is &lsquo;CREATE_IN_PROGRESS&rsquo;.</p>
 
-<p><img src="/images/20_workshop_setup/cf6.png" alt="cf6" /></p>
+<!-- ![cf6](/images/20_workshop_setup/cf6.png) -->
 
-<p>The creation process may take up to ten minutes. In the meantime you can continue with this workshop. You can later revisit the CloudFormation section in AWS to check the status of the deployment. It will show as “CREATE_COMPLETE” once the deployment has completed successfully.</p>
+<p>The creation process may take <strong>up to ten minutes</strong>. You&rsquo;ll be using <em>CloudConnector</em> in Module 3. So, in the meantime, you can continue with this workshop. You can later revisit the <em>CloudFormation</em> section in AWS to check the status of the deployment. It will show as “CREATE_COMPLETE” once the deployment has completed successfully.</p>
 
-<p><img src="/images/20_workshop_setup/cf7.png" alt="cf7" /></p>
+<p><img src="/images/20_workshop_setup/cf72.png" alt="cf7" /></p>
+
+<h2 id="step-summary">Step summary</h2>
+
+<p><strong>TRAINING NOTE</strong> Can we split this into two gifs for the two parts?</p>
+
+<p><img src=/images/module3prework.gif width="100%" ></p>
 
 
 <footer class="footline">
@@ -1228,22 +1210,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1633,22 +1599,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1755,19 +1705,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
+    <script src="/js/jquery.sticky.js?1603302792"></script>
+    <script src="/js/featherlight.min.js?1603302792"></script>
+    <script src="/js/highlight.pack.js?1603302792"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
+    <script src="/js/learn.js?1603302792"></script>
+    <script src="/js/hugo-learn.js?1603302792"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603302792"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

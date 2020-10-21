@@ -12,20 +12,20 @@
     <title>Deploy an ECS cluster using Fargate :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
+    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
+    <link href="/css/theme.css?1603302792" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603302792"></script>
 
     
   </div>
@@ -105,25 +105,6 @@
       <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
         <a href="/00_introduction/01_workshop_overview.html">
         Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/02_security_basics.html" title="Security basics" class="dd-item ">
-        <a href="/00_introduction/02_security_basics.html">
-        Security basics
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -813,25 +794,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1020,7 +982,7 @@
 
 <p>To illustrate the automatic scanning, we will now deploy a sample ECS cluster that scales using Fargate.</p>
 
-<p><strong>TrainingNote - Do we need more details on whats going on here????</strong></p>
+<p><strong>TrainingNote -  we need more details on whats going on here. Launches a docker compose cluster into Fargate etc</strong></p>
 
 <ol>
 <li><p>Create a cluster configuration and create a cluster</p>
@@ -1042,7 +1004,7 @@ Subnet created: subnet-0e4623283c4907ea7
 Cluster creation succeeded.
 </code></pre></li>
 
-<li><p>Set the names of the VPC and Subnets as an environment variables, as follows</p>
+<li><p>Set the names of the VPC and Subnets <strong>from the output above</strong> as an environment variables, as follows</p>
 
 <pre><code class="language-bash">export VPC=vpc-046ed77edcd796e19
 export SUBNET1=subnet-045df8f58a51b2291
@@ -1054,67 +1016,69 @@ export SUBNET2=subnet-0e4623283c4907ea7
 <p><img src="/images/40_module_2/image7.png" alt="ECS Cluster" /></p></li>
 </ol>
 
-<p><strong>TRAINING NOTE: THE FOLLOWING STEPS SEEM ERROR PRONE. ALTERNATIVE FLOW BELOW</strong></p>
+<!--
+**TRAINING NOTE: THE FOLLOWING STEPS SEEM ERROR PRONE. ALTERNATIVE FLOW BELOW**
 
-<ol>
-<li><p>Run the following command to retrieve the id of the default security group and allow inbound access on port 80</p>
+2. Run the following command to retrieve the id of the default security group and allow inbound access on port 80
 
-<pre><code>export group_id=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC --region us-east-1 | jq '.SecurityGroups[0].GroupId' | xargs)
+    ```
+    export group_id=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC --region us-east-1 | jq '.SecurityGroups[0].GroupId' | xargs)
 
-aws ec2 authorize-security-group-ingress --group-id $group_id --protocol tcp --port 80 --cidr 0.0.0.0/0 --region us-east-1
+    aws ec2 authorize-security-group-ingress --group-id $group_id --protocol tcp --port 80 --cidr 0.0.0.0/0 --region us-east-1
 
-echo The security group ID is $group_id
-</code></pre></li>
+    echo The security group ID is $group_id
+    ```
 
-<li><p>Create <code>ecs-params.yml</code> file as follows, <code>replacing subnets and security group id</code>.</p>
+3. Create `ecs-params.yml` file as follows, `replacing subnets and security group id`.
 
-<pre><code>cat &lt;&lt;- 'EOF' &gt; &quot;ecs-params.yml&quot;
-version: 1
-task_definition:
-  task_execution_role: ecsTaskExecutionRole
-  ecs_network_mode: awsvpc
-  task_size:
-    mem_limit: 0.5GB
-    cpu_limit: 256
-run_params:
-  network_configuration:
-    awsvpc_configuration:
-      subnets:
-        - &quot;subnet-045df8f58a51b2291&quot;
-        - &quot;subnet-0e4623283c4907ea7&quot;
-      security_groups:
-        - &quot;sg-07c8bf61105e07021&quot;
-      assign_public_ip: ENABLED
-EOF
-</code></pre></li>
+    ```
+    cat <<- 'EOF' > "ecs-params.yml"
+    version: 1
+    task_definition:
+      task_execution_role: ecsTaskExecutionRole
+      ecs_network_mode: awsvpc
+      task_size:
+        mem_limit: 0.5GB
+        cpu_limit: 256
+    run_params:
+      network_configuration:
+        awsvpc_configuration:
+          subnets:
+            - "subnet-045df8f58a51b2291"
+            - "subnet-0e4623283c4907ea7"
+          security_groups:
+            - "sg-07c8bf61105e07021"
+          assign_public_ip: ENABLED
+    EOF
+    ```
 
-<li><p>Create <code>docker-compose.yaml</code> file as follows</p>
+4. Create `docker-compose.yaml` file as follows
 
-<pre><code>cat &lt;&lt;- 'EOF' &gt; &quot;docker-compose.yml&quot;
-version: '3'
-services:
-  web:
-    image: amazon/amazon-ecs-sample
-    ports:
-      - &quot;80:80&quot;
-    logging:
-      driver: awslogs
-      options:
-        awslogs-group: tutorial
-        awslogs-region: us-east-1
-        awslogs-stream-prefix: web
-EOF
-</code></pre></li>
+    ```
+    cat <<- 'EOF' > "docker-compose.yml"
+    version: '3'
+    services:
+      web:
+        image: amazon/amazon-ecs-sample
+        ports:
+          - "80:80"
+        logging:
+          driver: awslogs
+          options:
+            awslogs-group: tutorial
+            awslogs-region: us-east-1
+            awslogs-stream-prefix: web
+    EOF
+    ```
 
-<li><p>Deploy to the cluster:</p>
+5. Deploy to the cluster:
 
-<pre><code>ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
-</code></pre></li>
-</ol>
+    ```
+    ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
+    ```
 
-<hr />
-
-<p><strong>TRAINING NOTE: ALTERNATIVE FLOW::Above steps are error prone. Maybe replace steps 1-5 above with a script (maybe pull it in from a guthub, or <a href="https://gist.github.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01">gist</a> during Cloud9 Workspace setup?</strong></p>
+___
+**TRAINING NOTE: ALTERNATIVE FLOW::Above steps are error prone. Maybe replace steps 1-5 above with a script (maybe pull it in from a guthub, or [gist](https://gist.github.com/johnfitzpatrick/d55097212d9bb4e1442383a5e3339b01) during Cloud9 Workspace setup?** -->
 
 <p>We&rsquo;ll use a custom deployment script that will</p>
 
@@ -1126,14 +1090,13 @@ EOF
 <li><p>Create a <code>docker-compose.yaml</code> to instantiate the image <code>amazon/amazon-ecs-sample</code></p></li>
 </ul>
 
-<ol>
-<li><p>First set the names of the VPC and Subnets as an environment variables, as follows</p>
+<!-- 1. First set the names of the VPC and Subnets as an environment variables, as follows
 
-<pre><code class="language-bash">export VPC=vpc-046ed77edcd796e19
-export SUBNET1=subnet-045df8f58a51b2291
-export SUBNET2=subnet-0e4623283c4907ea7
-</code></pre></li>
-</ol>
+    ```bash
+    export VPC=vpc-046ed77edcd796e19
+    export SUBNET1=subnet-045df8f58a51b2291
+    export SUBNET2=subnet-0e4623283c4907ea7
+    ``` -->
 
 <!--
 2. Retrieve and view the deployment script
@@ -1148,11 +1111,61 @@ cat -n deploy-amazon-ecs-sample.sh
 -->
 
 <ol>
-<li><p>Now run the script <code>deploy-amazon-ecs-sample.sh</code></p>
+<li><p>Run the script <code>deploy-amazon-ecs-sample.sh</code></p>
 
 <pre><code class="language-bash">cd /home/ec2-user/environment
 ./deploy-amazon-ecs-sample.sh
-</code></pre></li>
+</code></pre>
+
+<p><details>
+<summary>Expand for details of script <code>deploy-amazon-ecs-sample.sh</code></summary></p>
+
+<pre><code>  1  export group_id=$(aws ec2 describe-security-groups --filters Name=vpc-id,Values=$VPC --region us-east-1 | jq '.SecurityGroups[0].GroupId' | xargs)
+  2
+  3  aws ec2 authorize-security-group-ingress --group-id $group_id --protocol tcp --port 80 --cidr 0.0.0.0/0 --region us-east-1
+  4
+  5  cat &lt;&lt;- 'EOF' &gt; &quot;docker-compose.yml&quot;
+  6  version: '3'
+  7  services:
+  8    web:
+  9      image: amazon/amazon-ecs-sample
+ 10      ports:
+ 11        - &quot;80:80&quot;
+ 12      logging:
+ 13        driver: awslogs
+ 14        options:
+ 15          awslogs-group: tutorial
+ 16          awslogs-region: us-east-1
+ 17          awslogs-stream-prefix: web
+ 18  EOF
+ 19
+ 20  cat &lt;&lt;- 'EOF' &gt; &quot;ecs-params.yml&quot;
+ 21  version: 1
+ 22  task_definition:
+ 23    task_execution_role: ecsTaskExecutionRole
+ 24    ecs_network_mode: awsvpc
+ 25    task_size:
+ 26      mem_limit: 0.5GB
+ 27      cpu_limit: 256
+ 28  run_params:
+ 29    network_configuration:
+ 30      awsvpc_configuration:
+ 31        subnets:
+ 32          - &quot;subnet1&quot;
+ 33          - &quot;subnet2&quot;
+ 34        security_groups:
+ 35          - &quot;sg1&quot;
+ 36        assign_public_ip: ENABLED
+ 37  EOF
+ 38
+ 39  sed -i &quot;s/subnet1/$SUBNET1/g&quot; ecs-params.yml
+ 40  sed -i &quot;s/subnet2/$SUBNET2/g&quot; ecs-params.yml
+ 41  sed -i &quot;s/sg1/$group_id/g&quot; ecs-params.yml
+ 42
+ 43  ecs-cli compose --project-name tutorial service up --create-log-groups --cluster-config tutorial --ecs-profile tutorial-profile
+</code></pre>
+
+<p></details></p></li>
 
 <li><p>Once completed you can see on the <a href="https://console.aws.amazon.com/ecs/home?region=us-east-1#/clusters/tutorial/services">Amazon ECS UI</a></p></li>
 </ol>
@@ -1286,22 +1299,6 @@ cat -n deploy-amazon-ecs-sample.sh
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1691,22 +1688,6 @@ cat -n deploy-amazon-ecs-sample.sh
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1813,19 +1794,19 @@ cat -n deploy-amazon-ecs-sample.sh
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
+    <script src="/js/jquery.sticky.js?1603302792"></script>
+    <script src="/js/featherlight.min.js?1603302792"></script>
+    <script src="/js/highlight.pack.js?1603302792"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
+    <script src="/js/learn.js?1603302792"></script>
+    <script src="/js/hugo-learn.js?1603302792"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603302792"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

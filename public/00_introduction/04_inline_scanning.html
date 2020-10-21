@@ -12,20 +12,20 @@
     <title>Inline Scanning :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603204974" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603204974" rel="stylesheet">
-    <link href="/css/hybrid.css?1603204974" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603204974" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603204974" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603204974" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603204974" rel="stylesheet">
-    <link href="/css/theme.css?1603204974" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603204974" rel="stylesheet">
+    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
+    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
+    <link href="/css/theme.css?1603302792" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603204974" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603204974"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603204974"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603204974"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603204974"></script>
+<script type="text/javascript" src="/js/search.js?1603302792"></script>
 
     
   </div>
@@ -105,25 +105,6 @@
       <li data-nav-id="/00_introduction/01_workshop_overview.html" title="Workshop Overview" class="dd-item ">
         <a href="/00_introduction/01_workshop_overview.html">
         Workshop Overview
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/00_introduction/02_security_basics.html" title="Security basics" class="dd-item ">
-        <a href="/00_introduction/02_security_basics.html">
-        Security basics
         <i class="fas fa-check read-icon"></i>
         </a>
     </li>
@@ -813,25 +794,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html" title="Modifying a Falco Rule for CloudTrail" class="dd-item ">
-        <a href="/50_module_3/54_modifying_a_falco_rule_for_cloudtrail.html">
-        Modifying a Falco Rule for CloudTrail
-        <i class="fas fa-check read-icon"></i>
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -994,7 +956,22 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#technical-discussion">Technical Discussion</a>
+<ul>
+<li><a href="#phase-1-analysis-of-contents">Phase 1 - Analysis of Contents</a>
+<ul>
+<li><a href="#going-a-little-deeper">Going A Little Deeper&hellip;</a></li>
+</ul></li>
+<li><a href="#phase-1-evaluation">Phase 1 - Evaluation</a></li>
+</ul></li>
+<li><a href="#inline-scanning-vs-backend-scanning">Inline Scanning vs Backend Scanning</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -1018,7 +995,189 @@
 
 
 
-<p><strong>TrainingNote</strong> Inline scanning detailed description here</p>
+
+
+<p>There are two general approaches to scanning images in Sysdig - backend scanning or inline scanning.  The reasons why you might choose one over the other is best explained by an understanding of how scanning works under the hood.</p>
+
+<p><img src=/images/00_introduction/inline_scanning01.png width="50%" height="50%"></p>
+
+<h2 id="technical-discussion">Technical Discussion</h2>
+
+<p>With Sysdig, there are two phases in scanning an image</p>
+
+<ol>
+<li>Analysis of Contents (creation of a Bill of Materials)</li>
+<li>Evaluation against policies and vulnerabilities matching</li>
+</ol>
+
+<h3 id="phase-1-analysis-of-contents">Phase 1 - Analysis of Contents</h3>
+
+<p>During the analysis phase of the scan, the worker first loads the image.  Each image is built upon a series of other images, called &lsquo;layers&rsquo;, each one referred to by specific SHA value in the manifest file. During the analysis each layer is pulled down and analysed and a complete list of all the files, packages, package versions, etc across all the layers is generated.</p>
+
+<p>This phase of the scan is quite process-heavy and accounts for approximately 90% of the Time/CPU consumed during the entire scan, and the output of this is a JSON document containing metadata on all aspects of the image.</p>
+
+<p>During an inline scan this phase happens in the image&rsquo;s environment - in a CI/CD pipeline, at by an Admission Controller, or even on the Kubernetes worker node.</p>
+
+<h4 id="going-a-little-deeper">Going A Little Deeper&hellip;</h4>
+
+<p>The analyser itself uses the Anchore engine and runs ~15-20 different analysers, each performing differnt functions - size of files, package versions, etc. Each analyser generates a JSON report containing metadata, all of which are then combined.</p>
+
+<p><details>
+<summary>Expand here to view some some sample output to give you some visualisation of how this looks</summary></p>
+
+<pre><code>```
+{
+  &quot;document&quot;: [
+    {
+      &quot;image&quot;: {
+        &quot;imageId&quot;: &quot;f35646e83998b844c3f067e5a2cff84cdf0967627031aeda3042d78996b68d35&quot;,
+        &quot;imagedata&quot;: {
+          &quot;analysis_report&quot;: {
+            &quot;analyzer_meta&quot;: {
+              &quot;analyzer_meta&quot;: {
+                &quot;base&quot;: {
+                  &quot;DISTRO&quot;: &quot;debian&quot;,
+                  &quot;DISTROVERS&quot;: &quot;10&quot;,
+                  &quot;LIKEDISTRO&quot;: &quot;debian&quot;
+                }
+              }
+            },
+            &quot;file_checksums&quot;: {
+              &quot;files.md5sums&quot;: {
+                &quot;base&quot;: {
+                  &quot;/bin&quot;: &quot;DIRECTORY_OR_OTHER&quot;,
+                  &quot;/bin/bash&quot;: &quot;4600132e6a7ae0d451566943a9e79736&quot;,
+                  &quot;/bin/cat&quot;: &quot;44b8726219e0d2929e9150210bfbb544&quot;,
+                  &quot;/bin/chgrp&quot;: &quot;2befb2d66eee50af3fd5eb0b30102841&quot;,
+                  &quot;/bin/chmod&quot;: &quot;737ae4345da6e93c44fe9b11b12defe1&quot;,
+                  &quot;/bin/chown&quot;: &quot;8680c8e619194af847c009a97fd4ebe2&quot;,
+                  &quot;/bin/cp&quot;: &quot;d38d5be99452fb23cce11fc7756c1594&quot;,
+                  &quot;/bin/dash&quot;: &quot;895aea5b87d9d6cbd73537a9b2d45cff&quot;,
+                  &quot;/bin/date&quot;: &quot;b175b76c42bf04d764f3f5d7e4f3c69c&quot;,
+                  &quot;/bin/dd&quot;: &quot;1f90de0a1b75febeda1936a1ed9e1066&quot;,
+                  &quot;/bin/df&quot;: &quot;b50d93d2ab75977d129baf0078becb96&quot;,
+                  &quot;/bin/dir&quot;: &quot;3c76bcda677ed3ff9901d6e770ebca3d&quot;,
+                  &quot;/bin/dmesg&quot;: &quot;ea95ebcd2794014a5f933f7b6434e31c&quot;,
+...
+```
+</code></pre>
+
+<p></details></p>
+
+<p>You can see each binary, file etc is specifically referenced, and the number next to each entry relates to its version etc.</p>
+
+<p>The results of this analysis are combined into a single JSON analysis report, or metadata document, and it is this metadata document that is used to evaluate the scan against the defines security policy.</p>
+
+<p>For a backend scan, this process all happens within Sysdig, however during an &lsquo;inline scan&rsquo;, this metadata is then forwarded to the Sysdig Backend for evaluation using the API - this is the reason you must supply the <strong>Sysdig Secure API Token</strong> later in this workshop!</p>
+
+<p><details>
+<summary>Expand for details of the JSON metadata document Sent to the Sysdig Backend</summary></p>
+
+<pre><code>[
+ {
+  &quot;sha256:36c7b282abd0186e01419f2e58743e1bf635808231049bbc9d77e59e3a8e4914&quot;: {
+   &quot;docker.io/amazon/amazon-ecs-sample:latest&quot;: [
+    {
+     &quot;detail&quot;: {},
+     &quot;last_evaluation&quot;: &quot;2020-10-21T11:08:22Z&quot;,
+     &quot;policyId&quot;: &quot;default&quot;,
+     &quot;status&quot;: &quot;fail&quot;
+    }
+   ]
+  }
+ }
+]
+Status is fail
+Result Details:
+[
+ {
+  &quot;sha256:36c7b282abd0186e01419f2e58743e1bf635808231049bbc9d77e59e3a8e4914&quot;: {
+   &quot;docker.io/amazon/amazon-ecs-sample:latest&quot;: [
+    {
+     &quot;detail&quot;: {
+      &quot;policy&quot;: {
+       &quot;blacklisted_images&quot;: [],
+       &quot;comment&quot;: &quot;Default Sysdig policy bundle for new customers.&quot;,
+       &quot;id&quot;: &quot;default&quot;,
+       &quot;mappings&quot;: [
+        {
+         &quot;id&quot;: &quot;mapping_1CI5tw3zxNL9b344sSsXBfth3dW&quot;,
+         &quot;image&quot;: {
+          &quot;type&quot;: &quot;tag&quot;,
+          &quot;value&quot;: &quot;*&quot;
+         },
+         &quot;name&quot;: &quot;default&quot;,
+         &quot;policy_ids&quot;: [
+          &quot;default&quot;
+         ],
+         &quot;registry&quot;: &quot;*&quot;,
+         &quot;repository&quot;: &quot;*&quot;,
+         &quot;whitelist_ids&quot;: [
+          &quot;global&quot;
+         ]
+        }
+       ],
+       &quot;name&quot;: &quot;Default Sysdig policy bundle&quot;,
+       &quot;policies&quot;: [
+        {
+         &quot;comment&quot;: &quot;System default policy&quot;,
+         &quot;id&quot;: &quot;default&quot;,
+         &quot;name&quot;: &quot;DefaultPolicy&quot;,
+         &quot;rules&quot;: [
+          {
+           &quot;action&quot;: &quot;WARN&quot;,
+           &quot;gate&quot;: &quot;dockerfile&quot;,
+           &quot;id&quot;: &quot;rule_1FlJOnK9qdRSRcTNrfz3IUZXbou&quot;,
+           &quot;params&quot;: [
+            {
+             &quot;name&quot;: &quot;instruction&quot;,
+             &quot;value&quot;: &quot;HEALTHCHECK&quot;
+            },
+            {
+             &quot;name&quot;: &quot;check&quot;,
+             &quot;value&quot;: &quot;not_exists&quot;
+            }
+           ],
+           &quot;trigger&quot;: &quot;instruction&quot;
+          },
+          {
+           &quot;action&quot;: &quot;WARN&quot;,
+...
+</code></pre>
+
+<p></details></p>
+
+<h3 id="phase-1-evaluation">Phase 1 - Evaluation</h3>
+
+<p>Once the Sysdig Backend retrieves the metadata it is checked against the assigned policy definitions as well as the vulnerability database.  A Sysdig Secure policy is a combination of rules about activities an enterprise wants to detect in an environment, the actions that should be taken if the policy rule is breached, and potentially the notifications that should be sent.  These policies are configured through the Sysdig UI, and may differ from image to image.</p>
+
+<p>Individual policy rules may relate to</p>
+
+<ul>
+<li>Open ports</li>
+<li>File permissions</li>
+<li>Exposed passwords</li>
+<li>etc</li>
+</ul>
+
+<p>A number of policies are delivered out-of-the-box and can be used as-is, duplicated, or edited as needed. These relate specifially to &lsquo;PCI&rsquo; and &lsquo;NIST 800-190&rsquo;., as well as general Dockerfile best practices.  You can also create policies from scratch, using either predefined rules or creating custom rules.</p>
+
+<h2 id="inline-scanning-vs-backend-scanning">Inline Scanning vs Backend Scanning</h2>
+
+<p>Inline Scanning is considered best practice and the better approach to scanning over backend scanning. Backend scanning requires that images be transferred to the Sysdig Backend to be scanned and evaluated.  With this method Sysdig must access your image repository and pull down the actual image to scan it. This requires Sysdig to store the credentials of your repository. This be problematic in a secure environment and/or when you&rsquo;re using SaaS.</p>
+
+<p>However, with Inline Scanning the scan and subsequent analysis occur where the image resides, maybe as part of a CI/CD pipeline, or within your cloud environment, for example with ECR. In this case Sysdig down not need access to your repository and only the metadata is sent back to the Sysdig backend, hence no registry keys are exposed to Sysdig.</p>
+
+<p>The benefits of scanning inline include</p>
+
+<ul>
+<li>Images don&rsquo;t leave their own environment</li>
+<li>SaaS users don&rsquo;t send images and proprietary code to Sysdig&rsquo;s SaaS service</li>
+<li>Registries don&rsquo;t have to be exposed</li>
+<li>Images can be scanned in parallel more easily</li>
+<li>Images can be scanned before they hit the registry, which can cut down on registry costs and simplify the build pipeline</li>
+<li>Existing scan metadata can be checked against new vulnerabilities, so images do no need to be rescanned, for example upon detection of zero-day vulnerabilities</li>
+</ul>
 
 
 <footer class="footline">
@@ -1104,22 +1263,6 @@
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -1552,22 +1695,6 @@
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -1674,19 +1801,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603204974"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603204974"></script>
-    <script src="/js/jquery.sticky.js?1603204974"></script>
-    <script src="/js/featherlight.min.js?1603204974"></script>
-    <script src="/js/highlight.pack.js?1603204974"></script>
+    <script src="/js/clipboard.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
+    <script src="/js/jquery.sticky.js?1603302792"></script>
+    <script src="/js/featherlight.min.js?1603302792"></script>
+    <script src="/js/highlight.pack.js?1603302792"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603204974"></script>
-    <script src="/js/learn.js?1603204974"></script>
-    <script src="/js/hugo-learn.js?1603204974"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
+    <script src="/js/learn.js?1603302792"></script>
+    <script src="/js/hugo-learn.js?1603302792"></script>
 
-    <link href="/mermaid/mermaid.css?1603204974" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603204974"></script>
+    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603302792"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
