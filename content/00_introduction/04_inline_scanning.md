@@ -7,7 +7,9 @@ weight = 04
 
 There are two general approaches to scanning images in Sysdig - backend scanning or inline scanning.  The reasons why you might choose one over the other is best explained by an understanding of how scanning works under the hood.
 
-<img src=/images/00_introduction/inline_scanning01.png width="50%" height="50%">
+![Inline Scanning](/images/00_introduction/inline_scanning01.png)
+
+<!-- <img src=/images/00_introduction/inline_scanning01.png width="50%" height="50%"> -->
 
 ## Technical Discussion
 
@@ -151,7 +153,7 @@ Result Details:
 </details>
 
 
-### Phase 1 - Evaluation
+### Phase 2 - Evaluation
 
 Once the Sysdig Backend retrieves the metadata it is checked against the assigned policy definitions as well as the vulnerability database.  A Sysdig Secure policy is a combination of rules about activities an enterprise wants to detect in an environment, the actions that should be taken if the policy rule is breached, and potentially the notifications that should be sent.  These policies are configured through the Sysdig UI, and may differ from image to image.
 
@@ -162,7 +164,7 @@ Individual policy rules may relate to
  - Exposed passwords
  - etc
 
-A number of policies are delivered out-of-the-box and can be used as-is, duplicated, or edited as needed. These relate specifially to 'PCI' and 'NIST 800-190'., as well as general Dockerfile best practices.  You can also create policies from scratch, using either predefined rules or creating custom rules.
+A number of policies are delivered out-of-the-box and can be used as-is, duplicated, or edited as needed. These relate specifially to 'PCI' and 'NIST 800-190', as well as general Dockerfile best practices.  You can also create policies from scratch, using either predefined rules or creating custom rules.
 
 
 ## Inline Scanning vs Backend Scanning
