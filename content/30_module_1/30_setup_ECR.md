@@ -37,7 +37,7 @@ The output will be as follows
 
 You can view the repository in [Amazon UI](https://console.aws.amazon.com/ecr/repositories?region=us-east-1)
 
-![ECR](/images/30_module_1/Amazon_ECR.png)
+![ECR](/images/30_module_1/Amazon_ECR01.png)
 
 <!--
 **TRAINING NOTE: Can we remove this UI method below?**
@@ -57,7 +57,7 @@ For the purposes of this lab you need to create an Amazon ECR registry. To do th
 6. Please make a note of the URI as you will require this in a later step. ![URI](/images/30_module_1/uri.png) -->
 
 
-### Set up Docker Credentials and Authenticate with Amazon ECR Registry
+### Authenticate AWS CLI With Amazon ECR registry
 
 Shortly you will use your Cloud9 Workspace to create and push a docker container to your new ECR Repository, however, before doing so you must configure docker's access to the repository.
 

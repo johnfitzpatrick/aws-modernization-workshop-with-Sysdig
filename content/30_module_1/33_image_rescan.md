@@ -51,8 +51,4 @@ For illustration purposes, let's rebuild our image and make it more secure by st
 
 	The image will automatically be scanned, as before.
 
-4. Once completed, you will see that the scan result now shows it doesn’t have any vulnerabilities. ![JohnImagePendingTODO2](/images/30_module_1/image3.png)
-
-**TRAINING NOTE: New ScreenShot Above!!!**
-
-**TRAINING NOTE: This still failing** ![Scan Failed](/images/30_module_1/scanfailed.png)
+4. Once completed, you will see that the scan result now shows a more recent image (based on debian/10) with fewer vulnerabilities. ![Sysdig Secure](/images/30_module_1/securescann03.png)
