@@ -67,4 +67,4 @@ To see the scan results,
 ![Sysdig Secure](/images/30_module_1/securescann02.png)
 
 
-**TRAINING NOTE: Explanation of the benefits of a single source of truth, and some Sysdig marketing stuff: policies, stopping gates, misconfigurations - Pawan will	 Supply**
+**TRAINING NOTE: Need (on message) explanation of the benefits of a single source of truth, and some Sysdig marketing stuff: policies, stopping gates, misconfigurations**
