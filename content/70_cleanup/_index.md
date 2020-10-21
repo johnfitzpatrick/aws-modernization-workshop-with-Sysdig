@@ -92,6 +92,12 @@ https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml
 
     ```
 
+- Remove Docker Node.JS Dockerfile & Source
+
+    ```
+    rm -rf /home/ec2-user/environment/hello-world-node-vulnerable
+    rm -rf /home/ec2-user/environment/hello-world-node-vulnerable.zip
+    ```
 
 #### Introduction
 - Remove S3 Buckets

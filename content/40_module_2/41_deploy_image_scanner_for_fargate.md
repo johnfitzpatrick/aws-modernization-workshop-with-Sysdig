@@ -11,9 +11,9 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
 
 1. First we'll set a couple of environment parameters to simplify the actual `aws` command.  For the `SecureEndpoint` value, enter the value in your Sysdig Secure URL similar to before, i.e.
 
-    - http://secure.sysdig.coms
-    - http://eu1.app.sysdig.com
-    - http://us2.app.sysdig.com
+    - https://secure.sysdig.coms
+    - https://eu1.app.sysdig.com
+    - https://us2.app.sysdig.com
 
     ```
     SecureAPIToken="F4k3F4k3-F4k3-F4k3-F4k3-F4k3F4k3F4k3"
@@ -25,21 +25,21 @@ To deploy the Sysdig image scanner for Fargate, we'll again use Amazon CloudForm
 
 2. Then run the the following AWS CloudFormation command (which uses those environment parameters)
 
-    <!-- ```
+    ```
     aws cloudformation create-stack \
     --stack-name ECSImageScanning \
     --template-body $CFURI \
     --parameters ParameterKey=ECSInlineSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=ECSInlineSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
     --capabilities "CAPABILITY_NAMED_IAM"
-    ``` -->
-
     ```
+
+    <!-- ```
     aws cloudformation create-stack \
     --stack-name ECSImageScanning \
     --template-body $CFURI \
     --parameters ParameterKey=SysdigSecureAPIToken,ParameterValue=$SecureAPIToken  ParameterKey=SysdigSecureEndpoint,ParameterValue=$SecureEndpoint ParameterKey=ECSInlineScanningType,ParameterValue=Inline \
     --capabilities "CAPABILITY_NAMED_IAM"
-    ```
+    ``` -->
 
 
 You can check the status of the CloudFormation task by browsing to the [CloudFormation UI](https://console.aws.amazon.com/cloudformation/)

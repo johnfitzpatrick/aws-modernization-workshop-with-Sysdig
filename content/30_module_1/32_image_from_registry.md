@@ -36,7 +36,7 @@ To illustrate the images scanning we will build an example Node.JS application b
 
 4. Once complete you will see that this image has some issues ![Stack details](/images/30_module_1/scannissues.png)
 
-5. As soon as the image finishes being pushed to the registry, a new **Amazon CodeBuild pipeline** will be automatically created that executes an image scan.
+5. As soon as the image finishes being pushed to the registry, a new **Amazon CodeBuild pipeline** will be automatically created that executes an image scan using the integrated Sysdig Inline Scanner.
 
 	If you wish, you can check the CodeBuild pipeline status by visiting: [Developer Tools > CodeBuild](https://console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) ![Stack details](/images/30_module_1/CodeBuild-InProgress.png)
 
@@ -65,10 +65,6 @@ To see the scan results,
 	You'll see the image have several major vulnerabilities.
 
 ![Sysdig Secure](/images/30_module_1/securescann02.png)
-
-
-**TRAINING NOTE** AMAZON UI showing this as failed ![Scan Failed](/images/30_module_1/scanfailed.png)
-
 
 
 **TRAINING NOTE: Explanation of the benefits of a single source of truth, and some Sysdig marketing stuff: policies, stopping gates, misconfigurations - Pawan will	 Supply**

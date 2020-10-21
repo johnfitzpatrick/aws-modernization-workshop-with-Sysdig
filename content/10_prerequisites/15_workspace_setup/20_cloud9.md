@@ -14,9 +14,7 @@ weight: 20
 
 5 . Select the default instance type **t2.medium**
 
-<!-- **TRAINING NOTE: Need to change this to one w/ more space!!!**
-**Seeing this creating a Docker container later "failed to register layer: Error processing tar file(exit status 1): write /usr/lib/x86_64-linux-gnu/perl/5.28.1/auto/Unicode/Collate/Collate.so: no space left on device"**
- -->
+**TRAINING NOTE: Need to change this 't2.medium' to one w/ more space!!!  Labs steps work, but just about - if they create one extra container they'll run out of space**
 
 6 . Leave all the other settings as default
 
