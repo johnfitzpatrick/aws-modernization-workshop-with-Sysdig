@@ -12,9 +12,9 @@ weight: 20
 
 4 . For the name use `sysdig-workshop`
 
-5 . Select the default instance type **t2.medium**
+5 . Select the default instance type **t3.medium**
 
-**TRAINING NOTE: Need to change this 't2.medium' to one w/ more space!!!  Labs steps work, but just about - if they create one extra container they'll run out of space**
+<!-- **TRAINING NOTE: Need to change this 't2.medium' to one w/ more space!!!  Labs steps work, but just about - if they create one extra container they'll run out of space** -->
 
 6 . Leave all the other settings as default
 

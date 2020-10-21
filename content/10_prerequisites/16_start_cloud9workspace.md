@@ -12,5 +12,3 @@ We will use Amazon Cloud9 to access our AWS account via the AWS CLI in this Work
 - Create an IAM role for your workspace
 - Attach the IAM role to your Workspace
 - Configure workshop specific requirements
-
-**TRAINING NOTE: Need to update all screenshots in this section**

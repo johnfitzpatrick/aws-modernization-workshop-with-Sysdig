@@ -8,5 +8,4 @@ If you followed this workshop from the beginning then you should have deployed t
 
 To check it has been deployed successfully, navigate to  [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/) and search for CloudConnector. You should see it's status is **CREATE_COMPLETE**.
 
-
 ![CloudTrail](/images/50_module_3/image3.png "image_tooltip")

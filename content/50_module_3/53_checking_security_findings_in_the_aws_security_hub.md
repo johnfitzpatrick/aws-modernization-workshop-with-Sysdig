@@ -4,7 +4,7 @@ chapter: false
 weight: 53
 ---
 
-You can check these events without leaving the AWS console. This is how findings reported by Sysdig Cloud Connector look in the AWS Security Hub:
+You can check these events without leaving the AWS console. This is how findings reported by Sysdig CloudConnector look in the AWS Security Hub:
 
 1. Browse to [Security Hub](https://console.aws.amazon.com/securityhub/home) and click 'Findings' on the left.
 
@@ -21,3 +21,5 @@ You can check these events without leaving the AWS console. This is how findings
     Browse to [CloudWatch](https://console.aws.amazon.com/cloudwatch/), and click 'Log groups > cloud-connector > alerts'
 
     ![AWS CloudWatch Log Streams](/images/50_module_3/image1.png)
+
+Further, these events can be forwarded to the Sysdig Backend, and alerted upon as necessary in your normal channels.
