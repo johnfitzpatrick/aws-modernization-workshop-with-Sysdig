@@ -51,7 +51,6 @@ weight = 70
 
 <!-- **TrainingNote** Undo this
 ```
-aws ecs delete-cluster
 ecs-cli up --cluster-config tutorial --ecs-profile tutorial-profile
 ``` -->
 
@@ -66,13 +65,7 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
     aws cloudformation delete-stack --stack-name amazon-ecs-cli-setup-tutorial
     ```
 
-<!-- - Unattach the task execution role policy & delete role:
 
-    ```
-    aws iam detach-role-policy --role-name ecsTaskExecutionRole --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy --region us-east-1
-
-    aws iam --region us-east-1 delete-role --role-name ecsTaskExecutionRole
-    ``` -->
 **TrainingNote when running './deploy-amazon-ecs-sample.sh' - 'WARN[0000] Failed to create log group tutorial in us-east-1: The specified log group already exists' - remove this**
 
 #### Module 1
@@ -86,7 +79,7 @@ ecs-cli down --force --cluster-config tutorial --ecs-profile tutorial-profile --
     ```
     aws cloudformation delete-stack --stack-name ECSImageScanning
     ```
-**TrainingNote** Check This works. ECRImageScanning stack still in acconut
+**TrainingNote** Check This works. ECRImageScanning stack still in account
 https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml
 
 
@@ -101,21 +94,22 @@ https://sysdigworkshop.s3.amazonaws.com/cloud-connector-unique-bucket.yaml
 
 
 #### Introduction
-- These
+- Remove S3 Buckets
 
     ```
-    aws s3 rm s3://cf-templates-t7cnkhhb1d0p-us-east-1 --recursive
-    aws s3 rm s3://cloud-connector-ct-logs-b9261f40 --recursive
+    CCBUCKET=$(aws s3 ls|grep 'cloud-connector' | awk '{print $3}')
+    aws s3 rm s3://$CCBUCKET --recursive
+    aws s3api delete-bucket --bucket $CCBUCKET
 
-    aws s3api delete-bucket --bucket cloud-connector-ct-logs-b9261f40
-    aws s3api delete-bucket --bucket cf-templates-t7cnkhhb1d0p-us-east-1
-
+    CFBUCKET=$(aws s3 ls|grep 'cf-templates' | awk '{print $3}')
+    aws s3 rm s3://$CFBUCKET --recursive
+    aws s3api delete-bucket --bucket $CFBUCKET
     ```
   - Remove CloudConnector ECS Cluster
 
-     ```
-     aws ecs delete-cluster --cluster CloudConnector
-     ```
+    ```
+    aws ecs delete-cluster --cluster CloudConnector
+    ```
 
   - Installing the CloudConnector CloudFormation Template
 
