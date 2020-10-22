@@ -12,20 +12,20 @@
     <title>Inline Scanning :: AWS Modernization Workshop with Sysdig</title>
 
     
-    <link href="/css/nucleus.css?1603302792" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603302792" rel="stylesheet">
-    <link href="/css/hybrid.css?1603302792" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603302792" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603302792" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603302792" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603302792" rel="stylesheet">
-    <link href="/css/theme.css?1603302792" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603302792" rel="stylesheet">
+    <link href="/css/nucleus.css?1603307544" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1603307544" rel="stylesheet">
+    <link href="/css/hybrid.css?1603307544" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1603307544" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1603307544" rel="stylesheet">
+    <link href="/css/auto-complete.css?1603307544" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1603307544" rel="stylesheet">
+    <link href="/css/theme.css?1603307544" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1603307544" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1603302792" rel="stylesheet">
+      <link href="/css/theme-mine.css?1603307544" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603302792"></script>
+    <script src="/js/jquery-3.3.1.min.js?1603307544"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -52,14 +52,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603302792"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603302792"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1603307544"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1603307544"></script>
 <script type="text/javascript">
     
         var baseurl = "\/\/localhost:1313\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603302792"></script>
+<script type="text/javascript" src="/js/search.js?1603307544"></script>
 
     
   </div>
@@ -966,7 +966,7 @@
 <ul>
 <li><a href="#going-a-little-deeper">Going A Little Deeper&hellip;</a></li>
 </ul></li>
-<li><a href="#phase-1-evaluation">Phase 1 - Evaluation</a></li>
+<li><a href="#phase-2-evaluation">Phase 2 - Evaluation</a></li>
 </ul></li>
 <li><a href="#inline-scanning-vs-backend-scanning">Inline Scanning vs Backend Scanning</a></li>
 </ul></li>
@@ -999,7 +999,9 @@
 
 <p>There are two general approaches to scanning images in Sysdig - backend scanning or inline scanning.  The reasons why you might choose one over the other is best explained by an understanding of how scanning works under the hood.</p>
 
-<p><img src=/images/00_introduction/inline_scanning01.png width="50%" height="50%"></p>
+<p><img src="/images/00_introduction/inline_scanning01.png" alt="Inline Scanning" /></p>
+
+<!-- <img src=/images/00_introduction/inline_scanning01.png width="50%" height="50%"> -->
 
 <h2 id="technical-discussion">Technical Discussion</h2>
 
@@ -1147,7 +1149,7 @@ Result Details:
 
 <p></details></p>
 
-<h3 id="phase-1-evaluation">Phase 1 - Evaluation</h3>
+<h3 id="phase-2-evaluation">Phase 2 - Evaluation</h3>
 
 <p>Once the Sysdig Backend retrieves the metadata it is checked against the assigned policy definitions as well as the vulnerability database.  A Sysdig Secure policy is a combination of rules about activities an enterprise wants to detect in an environment, the actions that should be taken if the policy rule is breached, and potentially the notifications that should be sent.  These policies are configured through the Sysdig UI, and may differ from image to image.</p>
 
@@ -1160,7 +1162,7 @@ Result Details:
 <li>etc</li>
 </ul>
 
-<p>A number of policies are delivered out-of-the-box and can be used as-is, duplicated, or edited as needed. These relate specifially to &lsquo;PCI&rsquo; and &lsquo;NIST 800-190&rsquo;., as well as general Dockerfile best practices.  You can also create policies from scratch, using either predefined rules or creating custom rules.</p>
+<p>A number of policies are delivered out-of-the-box and can be used as-is, duplicated, or edited as needed. These relate specifially to &lsquo;PCI&rsquo; and &lsquo;NIST 800-190&rsquo;, as well as general Dockerfile best practices.  You can also create policies from scratch, using either predefined rules or creating custom rules.</p>
 
 <h2 id="inline-scanning-vs-backend-scanning">Inline Scanning vs Backend Scanning</h2>
 
@@ -1801,19 +1803,19 @@ Result Details:
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603302792"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603302792"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603302792"></script>
-    <script src="/js/jquery.sticky.js?1603302792"></script>
-    <script src="/js/featherlight.min.js?1603302792"></script>
-    <script src="/js/highlight.pack.js?1603302792"></script>
+    <script src="/js/clipboard.min.js?1603307544"></script>
+    <script src="/js/perfect-scrollbar.min.js?1603307544"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1603307544"></script>
+    <script src="/js/jquery.sticky.js?1603307544"></script>
+    <script src="/js/featherlight.min.js?1603307544"></script>
+    <script src="/js/highlight.pack.js?1603307544"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603302792"></script>
-    <script src="/js/learn.js?1603302792"></script>
-    <script src="/js/hugo-learn.js?1603302792"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1603307544"></script>
+    <script src="/js/learn.js?1603307544"></script>
+    <script src="/js/hugo-learn.js?1603307544"></script>
 
-    <link href="/mermaid/mermaid.css?1603302792" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603302792"></script>
+    <link href="/mermaid/mermaid.css?1603307544" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1603307544"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

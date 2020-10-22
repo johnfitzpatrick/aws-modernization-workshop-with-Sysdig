@@ -37,7 +37,7 @@ An image scanner inspects a container&amp;rsquo;s content to detect threats such
       
       <guid>//localhost:1313/00_introduction/04_inline_scanning.html</guid>
       <description>There are two general approaches to scanning images in Sysdig - backend scanning or inline scanning. The reasons why you might choose one over the other is best explained by an understanding of how scanning works under the hood.
-Technical Discussion With Sysdig, there are two phases in scanning an image
+-- Technical Discussion With Sysdig, there are two phases in scanning an image
  Analysis of Contents (creation of a Bill of Materials) Evaluation against policies and vulnerabilities matching  Phase 1 - Analysis of Contents During the analysis phase of the scan, the worker first loads the image.</description>
     </item>
     
